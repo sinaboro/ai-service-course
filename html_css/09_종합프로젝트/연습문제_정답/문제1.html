@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
+<html lang="ko">
+<head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모델 정보 카드 4개</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; margin: 16px; background: #f5f7fa; }
+    h1 { font-size: 20px; color: #1f4e79; }
+    /* repeat(4, 1fr): 같은 너비 칸 4개 */
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    /* 위쪽 파란 줄이 있는 흰 카드 */
+    .card { background: #fff; border-radius: 10px; padding: 10px 14px; border-top: 4px solid #1f4e79; }
+    .card h2 { margin: 0; font-size: 15px; color: #555; }
+    .card p { margin: 2px 0 0; font-size: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 모델 정보 단원: 카드 4개를 한 줄에 -->
+  <main>
+    <section aria-labelledby="model-title">
+      <h1 id="model-title">모델 정보</h1>
+      <!-- 카드 4개를 grid 로 나란히 놓는 배치용 div -->
+      <div class="cards">
+        <article class="card"><h2>모델</h2><p>YOLO11n</p></article>
+        <article class="card"><h2>학습 사진</h2><p>480장</p></article>
+        <article class="card"><h2>mAP50</h2><p>0.75</p></article>
+        <article class="card"><h2>클래스 수</h2><p>3개</p></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

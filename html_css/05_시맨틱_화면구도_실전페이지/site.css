@@ -1,4 +1,4 @@
-/* 5장 공통 스타일: 실제 서비스처럼 보이게 꾸미기 (CSS 는 6 ~ 9장에서 배워요) */
+/* 5장 공통 스타일: 실제 서비스처럼 보이게 꾸미기 (CSS 는 6 ~ 8장에서 배워요) */
 /* 상자 크기 계산을 쉽게: width 에 padding · border 까지 포함 (6장) */
 * { box-sizing: border-box; }
 body { margin: 0; font-family: "Malgun Gothic", sans-serif; color: #222; background: #f5f7fa; font-size: 15px; }

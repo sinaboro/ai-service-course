@@ -23,3 +23,7 @@ search  { border-color: #00808a; background: #e2f4f5; display: block; }  search:
 h1, h2, h3, p { margin: 4px 0; }
 /* 메뉴 목록은 가로로 */
 nav ul { list-style: none; display: flex; gap: 14px; margin: 0; padding: 0; }
+/* 구도 보기 전용: 디자인 배경을 지워 regions.css 의 태그 이름표가 잘 보이게 */
+.site-header, .site-footer, .hero { background: none; color: #222; }
+.site-header a, .hero h1 { color: #1f4e79; }
+.panel, .card, .hero { padding-top: 26px; }

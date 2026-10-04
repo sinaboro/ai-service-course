@@ -9,7 +9,7 @@
 | [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
-| [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid · 반응형, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
+| [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
 | [FastAPI 모델 서빙](fastapi/README.md) | 7 | 학습한 모델을 웹 API로 서비스하기. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
 
 ## 📥 교안 한 번에 받기
@@ -105,7 +105,7 @@ flowchart LR
 | 06 | [CSS 기초와 박스 모델](html_css/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/) | [📘](html_css/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8_%EA%B5%90%EC%95%88.docx) |
 | 07 | [Flexbox — 한 줄로 늘어놓고 정렬하기](html_css/07_Flexbox/) | [📘](html_css/07_Flexbox/07_Flexbox_%EA%B5%90%EC%95%88.docx) |
 | 08 | [CSS Grid — 시맨틱 태그로 화면 구도 완성하기](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/) | [📘](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83_%EA%B5%90%EC%95%88.docx) |
-| 09 | [반응형 웹과 종합 프로젝트 페이지](html_css/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](html_css/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
+| 09 | [종합 프로젝트 — AI 탐지 서비스 페이지 만들기](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
 | 10 | [HTML · CSS 페이지를 FastAPI 서버와 연결하기](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/) | [📘](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/10_FastAPI%EC%97%B0%EA%B2%B0_%EA%B5%90%EC%95%88.docx) |
 
 ### FastAPI 모델 서빙

@@ -5,9 +5,9 @@
   <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FloatWatch — AI 부유물 탐지</title>
-  <link rel="stylesheet" href="/static/css/style.css">
-  <script src="/static/js/app.js" defer></script>
+  <title>FloatWatch — 구도 보기</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/regions.css">
 </head>
 <body>
   <!-- body: 화면에 보이는 내용 -->
@@ -49,11 +49,7 @@
             <label for="conf">신뢰도 기준</label>
             <input type="number" id="conf" name="conf" value="0.25" min="0.05" max="0.95" step="0.05">
           </p>
-          <p>
-            <button class="btn" type="submit">탐지</button>
-            <button class="btn ghost" type="button" id="sample-btn">샘플 사진으로 해 보기</button>
-          </p>
-          <p id="status" class="status">사진을 고르고 [탐지]를 누르세요.</p>
+          <p><button class="btn" type="submit">탐지</button></p>
         </form>
       </section>
 
@@ -62,7 +58,7 @@
         <h2 id="result-title">2. 탐지 결과</h2>
         <!-- 결과 이미지 자리 (10장에서 서버가 그린 결과로 바뀌어요) -->
         <figure>
-          <img id="result-img" src="/static/images/sample_result.svg" alt="해변 사진에 bottle 과 can 상자가 그려진 예시 결과" width="480" height="270">
+          <img id="result-img" src="images/sample_result.svg" alt="해변 사진에 bottle 과 can 상자가 그려진 예시 결과" width="480" height="270">
           <figcaption id="result-caption">예시 결과 · 객체 2개</figcaption>
         </figure>
         <!-- 탐지 목록 표 (10장에서 tbody 안이 서버 결과로 채워져요) -->

@@ -1,6 +1,6 @@
 # HTML · CSS (시맨틱 화면 구도)
 
-AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid · 반응형, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함.
+AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함.
 
 > 🧭 [저장소 처음으로](../README.md)
 
@@ -15,8 +15,8 @@ AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태�
 | 05 | 시맨틱 태그로 화면 구도 잡기 ② — 실전 페이지 5종 | [05_시맨틱_화면구도_실전페이지](05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80/) | [📘 교안](05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80/05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80_%EA%B5%90%EC%95%88.docx) | `aria-label` `aria-labelledby` |
 | 06 | CSS 기초와 박스 모델 | [06_CSS기초_박스모델](06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/) | [📘 교안](06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8_%EA%B5%90%EC%95%88.docx) |  |
 | 07 | Flexbox — 한 줄로 늘어놓고 정렬하기 | [07_Flexbox](07_Flexbox/) | [📘 교안](07_Flexbox/07_Flexbox_%EA%B5%90%EC%95%88.docx) | `flex-direction` `justify-content` `align-items` `gap` `flex-wrap` `flex: 1` |
-| 08 | CSS Grid — 시맨틱 태그로 화면 구도 완성하기 | [08_Grid_시맨틱레이아웃](08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/) | [📘 교안](08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83_%EA%B5%90%EC%95%88.docx) | `fr` `repeat()` `minmax()` `span` |
-| 09 | 반응형 웹과 종합 프로젝트 페이지 | [09_반응형_종합프로젝트](09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘 교안](09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) | `@media` `grid-template-areas` |
+| 08 | CSS Grid — 시맨틱 태그로 화면 구도 완성하기 | [08_Grid_시맨틱레이아웃](08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/) | [📘 교안](08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83_%EA%B5%90%EC%95%88.docx) | `fr` `repeat()` `span` |
+| 09 | 종합 프로젝트 — AI 탐지 서비스 페이지 만들기 | [09_종합프로젝트](09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘 교안](09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |  |
 | 10 | HTML · CSS 페이지를 FastAPI 서버와 연결하기 | [10_FastAPI연결](10_FastAPI%EC%97%B0%EA%B2%B0/) | [📘 교안](10_FastAPI%EC%97%B0%EA%B2%B0/10_FastAPI%EC%97%B0%EA%B2%B0_%EA%B5%90%EC%95%88.docx) | `fetch` |
 
 ## 📂 각 장 폴더 구성
@@ -124,24 +124,24 @@ AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태�
 grid-template-areas 로 header · nav · main · aside · footer 를 그림처럼 배치하기
 
 - grid 컨테이너에 열(column)과 행(row)을 만들 수 있어요.
-- `fr`, `repeat()`, `minmax()`, `auto-fill`로 유연한 칸을 만들 수 있어요.
+- `fr`, `repeat()`로 같은 너비 · 비율로 나눈 칸을 만들 수 있어요.
 - 아이템이 여러 칸을 차지하게(`span`) 할 수 있어요.
 - ⭐ `grid-template-areas`로 시맨틱 영역 이름을 **그림처럼** 배치할 수 있어요.
 - 같은 HTML에 CSS만 바꿔 여러 화면 구도를 만들 수 있어요.
 
-예제: `regions.css`, `ex01_grid_basics.html`, `ex02_span.html`, `ex03_auto_fill.html`, `images/thumb.svg`, `ex04_areas_holy_grail.html`, `ex05_areas_dashboard.html`, `ex06_areas_ai_service.html`, `ex07a_layout.html`, `ex07b_layout.html`, `ex07c_layout.html`, `연습문제_정답/regions.css`, `연습문제_정답/문제1.html`
+예제: `regions.css`, `ex01_grid_basics.html`, `ex02_span.html`, `ex03_gallery.html`, `images/thumb.svg`, `ex04_areas_holy_grail.html`, `ex05_areas_dashboard.html`, `ex06_areas_ai_service.html`, `ex07a_layout.html`, `ex07b_layout.html`, `ex07c_layout.html`, `연습문제_정답/regions.css`, `연습문제_정답/문제1.html`
 
-### 09. 반응형 웹과 종합 프로젝트 페이지
+### 09. 종합 프로젝트 — AI 탐지 서비스 페이지 만들기
 
-미디어 쿼리로 휴대폰 · 태블릿 · PC 구도를 바꾸고, AI 탐지 서비스 페이지를 완성하기
+와이어프레임 → 시맨틱 구조(HTML) → 꾸미기(CSS) → 점검, 1 ~ 8장을 모두 모아 한 페이지 완성하기
 
-- viewport 메타 태그의 역할을 알아요.
-- 미디어 쿼리(`@media`)로 화면 너비마다 다른 CSS를 적용할 수 있어요.
-- ⭐ 미디어 쿼리 안에서 `grid-template-areas`를 바꿔 **화면 구도**를 바꿀 수 있어요.
-- 이미지와 표가 작은 화면에서 넘치지 않게 할 수 있어요.
-- HTML · CSS 폴더를 나눈 종합 프로젝트 페이지를 완성할 수 있어요.
+- 완성 화면을 보고 와이어프레임과 영역(시맨틱 태그)을 정할 수 있어요.
+- HTML 파일과 CSS 파일을 폴더로 나눠 프로젝트를 만들 수 있어요.
+- 시맨틱 태그로 머리글 · 히어로 · 작업 영역 · 카드 · 바닥글 구조를 짤 수 있어요.
+- 6 ~ 8장의 CSS(박스 모델 · flex · grid-template-areas)를 한 페이지에 함께 쓸 수 있어요.
+- 완성한 페이지를 점검 목록으로 확인할 수 있어요.
 
-예제: `regions.css`, `ex01_media_query.html`, `ex02_responsive_areas.html`, `ex03_fluid.html`, `images/wide.svg`, `project/index.html`, `project/css/style.css`, `project/images/sample_result.svg`, `연습문제_정답/문제1.html`
+예제: `project/index.html`, `project/css/style.css`, `project/css/regions.css`, `project/structure.html`, `project/images/sample_result.svg`, `연습문제_정답/문제1.html`
 
 ### 10. HTML · CSS 페이지를 FastAPI 서버와 연결하기
 

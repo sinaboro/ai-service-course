@@ -1,4 +1,4 @@
-/* FloatWatch 스타일: 모바일 먼저 (mobile first) */
+/* FloatWatch 스타일: 6 ~ 8장에서 배운 CSS 를 모두 모아 꾸미기 */
 /* CSS 변수: 팀 색 · 모서리 둥글기를 한곳에서 관리 (var(--main) 으로 사용) */
 :root {
   --main: #1f4e79;
@@ -6,74 +6,63 @@
   --bg: #f5f7fa;
   --radius: 10px;
 }
+/* 상자 크기 계산을 쉽게 (6장 박스 모델) */
 * { box-sizing: border-box; }
 body { margin: 0; font-family: "Malgun Gothic", sans-serif; color: #222; background: var(--bg); line-height: 1.5; }
-/* 그림이 부모보다 커지지 않게 (반응형 필수) */
+/* 그림이 들어 있는 칸보다 커지지 않게 */
 img { max-width: 100%; height: auto; }
 
-/* ---------- header ---------- */
-/* 머리글: 좁은 화면에서는 메뉴가 다음 줄로 내려가요(flex-wrap) */
-.site-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; background: var(--main); }
+/* ---------- 머리글: 로고는 왼쪽, 메뉴는 오른쪽 (7장 flex) ---------- */
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 28px; background: var(--main); }
 .site-header a { color: #fff; text-decoration: none; }
 .logo { margin: 0; font-size: 20px; font-weight: bold; }
+/* 메뉴 목록도 flex 로 가로 정렬 */
 .site-header ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; }
 
-/* ---------- main ---------- */
+/* ---------- 본문 ---------- */
 /* 본문 최대 너비 1100px + 가운데 */
 main { max-width: 1100px; margin: 0 auto; padding: 16px; }
-.hero { text-align: center; color: #fff; background: linear-gradient(135deg, #1f4e79, #2e75b6); border-radius: var(--radius); padding: 24px 16px; }
-.hero h1 { font-size: 22px; margin: 0 0 6px; }
+/* 히어로: 파란 그라데이션 배경의 큰 소개 */
+.hero { text-align: center; color: #fff; background: linear-gradient(135deg, #1f4e79, #2e75b6); border-radius: var(--radius); padding: 40px; }
+.hero h1 { font-size: 28px; margin: 0 0 6px; }
 /* 버튼 모양 (a 태그와 button 둘 다) */
 .btn { display: inline-block; background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 8px 18px; font-size: 15px; text-decoration: none; }
 .hero .btn { background: #fff; color: var(--main); font-weight: bold; }
 h2 { color: var(--main); font-size: 19px; margin: 0 0 8px; }
 
-/* 작업 영역: 모바일에서는 한 줄씩 */
+/* ⭐ 작업 영역: 업로드 | 결과 | 안내 세 칸 (8장 grid-template-areas) */
 .work {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "upload" "result" "guide";
+  grid-template-columns: 1fr 1.4fr 220px;
+  grid-template-areas: "upload result guide";
   gap: 14px;
   margin: 16px 0;
 }
+/* 각 영역에 이름 붙이기 */
 #upload { grid-area: upload; }
 #result { grid-area: result; }
 .guide  { grid-area: guide; }
-/* 흰 카드 모양 */
+/* 흰 카드 모양 (둥근 모서리 + 옅은 그림자) */
 .panel { background: #fff; border-radius: var(--radius); padding: 14px 16px; box-shadow: 0 1px 4px rgb(0 0 0 / 0.08); }
 /* 입력칸 제목은 한 줄 전체 */
 label { display: block; font-weight: bold; margin-bottom: 4px; }
 figure { margin: 0 0 8px; }
 figcaption { color: #666; font-size: 13px; }
+/* 표: 칸 사이 테두리를 한 줄로, 가로줄만 */
 table { border-collapse: collapse; width: 100%; }
 caption { text-align: left; font-weight: bold; padding: 4px 0; }
 th, td { border-bottom: 1px solid #e5e5e5; padding: 6px 8px; text-align: left; }
 .guide { background: #fff8e1; }
 
-/* 카드: 모바일 1열 */
-.cards { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 18px; }
+/* 카드 3개를 같은 너비로 한 줄에 (8장 repeat) */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
 .card { background: #fff; border-radius: var(--radius); padding: 10px 14px; border-top: 4px solid var(--main); }
 .card h3 { margin: 0; font-size: 15px; color: #555; }
 .card p { margin: 2px 0 0; font-size: 20px; font-weight: bold; }
 
+/* ---------- 바닥글 ---------- */
 .site-footer { text-align: center; color: #777; font-size: 13px; padding: 16px; }
 .site-footer address { font-style: normal; }
-
-/* ---------- 태블릿 (600px 이상) ---------- */
-@media (min-width: 600px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
-  .hero h1 { font-size: 28px; }
-}
-
-/* ---------- PC (960px 이상) ---------- */
-@media (min-width: 960px) {
-  .site-header { padding: 12px 28px; }
-  .work {
-    grid-template-columns: 1fr 1.4fr 220px;
-    grid-template-areas: "upload result guide";
-  }
-  .hero { padding: 40px; }
-}
 
 /* ---------- 10장 추가: 서버 연결용 ---------- */
 .btn.ghost { background: #fff; color: var(--main); border: 1px solid var(--main); }
