@@ -4,19 +4,19 @@
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
-| [Python 기초](python/README.md) | 10 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일, 모듈까지. |
+| [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. |
 | [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
 | [pandas 기초](pandas/README.md) | 7 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, CSV 분석까지. |
 
 ## 📥 교안 한 번에 받기
 
-- [교안_전체.zip](교안_전체.zip) — 23개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
+- [교안_전체.zip](교안_전체.zip) — 24개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
 
 ## 🗺 학습 순서
 
 ```mermaid
 flowchart LR
-  P["Python 기초<br/>01~10장"] --> N["NumPy<br/>01~06장"] --> D["pandas<br/>01~07장"]
+  P["Python 기초<br/>01~11장"] --> N["NumPy<br/>01~06장"] --> D["pandas<br/>01~07장"]
 ```
 
 ### Python 기초
@@ -33,6 +33,7 @@ flowchart LR
 | 08 | [함수](python/08_%ED%95%A8%EC%88%98/) | [📘](python/08_%ED%95%A8%EC%88%98/08_%ED%95%A8%EC%88%98_%EA%B5%90%EC%95%88.docx) |
 | 09 | [클래스와 객체](python/09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4/) | [📘](python/09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4/09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4_%EA%B5%90%EC%95%88.docx) |
 | 10 | [예외처리 · 파일 · 모듈](python/10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88/) | [📘](python/10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88/10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88_%EA%B5%90%EC%95%88.docx) |
+| 11 | [클래스와 타입 체크](python/11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC/) | [📘](python/11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC/11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC_%EA%B5%90%EC%95%88.docx) |
 
 ### NumPy 기초
 

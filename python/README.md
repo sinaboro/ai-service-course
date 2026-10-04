@@ -1,6 +1,6 @@
 # Python 기초
 
-프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일, 모듈까지.
+프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지.
 
 > 🧭 [저장소 처음으로](../README.md)
 
@@ -18,6 +18,7 @@
 | 08 | 함수 | [08_함수](08_%ED%95%A8%EC%88%98/) | [📘 교안](08_%ED%95%A8%EC%88%98/08_%ED%95%A8%EC%88%98_%EA%B5%90%EC%95%88.docx) | `def` `return` |
 | 09 | 클래스와 객체 | [09_클래스와_객체](09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4/) | [📘 교안](09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4/09_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%EA%B0%9D%EC%B2%B4_%EA%B5%90%EC%95%88.docx) | `__init__` `self` |
 | 10 | 예외처리 · 파일 · 모듈 | [10_예외처리_파일_모듈](10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88/) | [📘 교안](10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88/10_%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC_%ED%8C%8C%EC%9D%BC_%EB%AA%A8%EB%93%88_%EA%B5%90%EC%95%88.docx) | `try-except-else-finally` `with open()` |
+| 11 | 클래스와 타입 체크 | [11_클래스와_타입체크](11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC/) | [📘 교안](11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC/11_%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80_%ED%83%80%EC%9E%85%EC%B2%B4%ED%81%AC_%EA%B5%90%EC%95%88.docx) | `type()` `isinstance()` `isinstance()` `issubclass()` `name: str` `-> int` |
 
 ## 📂 각 장 폴더 구성
 
@@ -149,6 +150,21 @@
 - `pip`로 외부 패키지(NumPy, pandas)를 설치하는 법을 알아요.
 
 예제: `ex01_try_except.py`, `ex02_file_write_read.py`, `ex03_csv_file.py`, `mytools.py`, `ex04_module.py`
+
+### 11. 클래스와 타입 체크
+
+값의 자료형을 확인하고, 잘못된 값이 객체에 들어오지 못하게 막습니다
+
+- `type()`과 `isinstance()`의 차이를 설명하고 골라 쓸 수 있어요.
+- 상속 관계에서 `isinstance()`, `issubclass()`가 어떻게 동작하는지 알아요.
+- 타입 힌트(`name: str`, `-> int`)를 쓸 수 있고, 실행 중에는 검사되지 않는다는 것을 알아요.
+- `__init__`에서 자료형을 검사하고 `TypeError`, `ValueError`를 발생시킬 수 있어요.
+- `@property`와 setter로 속성을 바꿀 때마다 자료형을 검사할 수 있어요.
+- `dataclass`와 `__post_init__`으로 짧고 안전한 클래스를 만들 수 있어요.
+- `Optional`, `X | None`, `list[int]` 같은 힌트를 쓰고, 리스트 원소까지 검사할 수 있어요.
+- 덕 타이핑의 개념을 알고, mypy로 실행 전에 타입 오류를 찾을 수 있어요.
+
+예제: `ex01_type_isinstance.py`, `ex02_inheritance_check.py`, `ex03_type_hints.py`, `ex04_init_validation.py`, `ex05_property_setter.py`, `ex06_readonly_property.py`, `ex07_dataclass.py`, `ex08_optional_union_list.py`, `ex09_duck_typing.py`, `ex10_mypy_check.py`, `ex11_project_inventory.py`
 
 ## ▶ 실행 방법
 
