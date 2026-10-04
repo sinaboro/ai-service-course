@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field
 app = FastAPI()
 
 
+# 상품 하나의 모양
 class Item(BaseModel):
     name: str
     price: int = Field(gt=0)
@@ -28,6 +29,7 @@ class UserOut(BaseModel):          # 응답으로 돌려줄 모양 (비밀번호
 
 @app.post("/orders", status_code=status.HTTP_201_CREATED)     # 생성 성공은 201
 def create_order(order: Order):
+    # 주문 총액 = 가격 × 수량을 모두 더하기, 쿠폰이면 10% 할인
     total = sum(i.price * i.qty for i in order.items)
     if order.coupon == "WELCOME":
         total = int(total * 0.9)
@@ -36,4 +38,5 @@ def create_order(order: Order):
 
 @app.post("/users", response_model=UserOut)    # 응답을 UserOut 모양으로 "걸러서" 보냄
 def create_user(user: UserIn):
+    # 비밀번호까지 돌려줘도 response_model=UserOut 이 걸러서 응답에서 빠져요
     return {"username": user.username, "password": user.password, "message": "가입 완료"}

@@ -1,29 +1,40 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>폼 기초</title>
   <style>
+    /* 모든 예제에 공통으로 쓰는 글꼴과 여백 (CSS 는 6장에서 자세히 배워요) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
+    /* label 너비를 같게 해서 입력칸이 한 줄로 가지런히 */
     label { display: inline-block; width: 90px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>수업 신청</h1>
+  <!-- form: 입력값을 모아 서버로 보내는 상자 / action = 보낼 주소, method="post" = 본문에 담아 보내기 -->
   <form action="/apply" method="post">
     <p>
+      <!-- label for="name" 과 input id="name" 이 짝: 글자를 눌러도 입력칸에 커서가 가요 -->
+      <!-- name="name": 서버가 받을 때 쓰는 이름 / placeholder: 흐린 예시 글자 / required: 꼭 입력 -->
       <label for="name">이름</label>
       <input type="text" id="name" name="name" placeholder="홍길동" required>
     </p>
     <p>
+      <!-- type="email": 이메일 모양(@ 포함)인지 브라우저가 검사해 줘요 -->
       <label for="email">이메일</label>
       <input type="email" id="email" name="email" placeholder="me@example.com">
     </p>
     <p>
+      <!-- type="password": 입력한 글자가 ●●● 로 가려져요 / minlength="8": 8글자 이상 -->
       <label for="pw">비밀번호</label>
       <input type="password" id="pw" name="password" minlength="8">
     </p>
+    <!-- type="submit": 누르면 폼을 action 주소로 보내요 -->
     <button type="submit">신청하기</button>
   </form>
 </body>

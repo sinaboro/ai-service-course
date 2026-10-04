@@ -5,6 +5,7 @@ import numpy as np
 
 OUT = Path(__file__).parent / "model"
 OUT.mkdir(exist_ok=True)
+# 학생 400명 데이터 만들기 (06장과 같은 규칙)
 rng = np.random.default_rng(seed=2026)
 n = 400
 study = rng.uniform(0, 6, n)
@@ -13,10 +14,12 @@ phone = (5 - study * 0.5 + rng.normal(0, 1, n)).clip(0.5)
 score = (50 + study * 7 - phone * 2 + rng.normal(0, 6, n)).clip(0, 100)
 X, y = np.column_stack([study, sleep, phone]), (score >= 60).astype(float)
 
+# 80% 학습 / 20% 평가로 나누고 표준화
 idx = rng.permutation(n)
 tr, te = idx[:320], idx[320:]
 mean, std = X[tr].mean(axis=0), X[tr].std(axis=0)
 Z = (X - mean) / std
+# 경사하강법으로 로지스틱 회귀 학습
 w, b = np.zeros(3), 0.0
 for _ in range(3000):
     p = 1 / (1 + np.exp(-(Z[tr] @ w + b)))
@@ -24,6 +27,7 @@ for _ in range(3000):
     b -= 0.1 * (p - y[tr]).mean()
 acc = float(((1 / (1 + np.exp(-(Z[te] @ w + b))) >= 0.5) == y[te]).mean())
 
+# 가중치 · 전처리 정보와 설명서 저장
 np.savez(OUT / "pass_model.npz", w=w, b=b, mean=mean, std=std)
 (OUT / "model_card.json").write_text(json.dumps(
     {"name": "pass-predictor", "version": "1.0.0", "test_accuracy": round(acc, 4)}, indent=2), encoding="utf-8")

@@ -18,11 +18,14 @@ def to_model_input(img: Image.Image, size=(28, 28), gray=True) -> np.ndarray:
 
 @app.post("/preprocess")
 async def preprocess(file: UploadFile, size: int = 28, gray: bool = True):
+    # 업로드 → PIL 이미지 (읽을 수 없으면 400)
     try:
         img = Image.open(io.BytesIO(await file.read()))
     except Exception:
         raise HTTPException(400, "이미지를 읽을 수 없어요")
+    # 모델 입력으로 바꾸기
     x = to_model_input(img, (size, size), gray)
+    # 바뀐 결과를 숫자로 확인: 모양 · 자료형 · 최소/최대/평균 · 가운데 줄의 값 일부
     return {
         "original": [img.width, img.height, img.mode],
         "input_shape": list(x.shape),

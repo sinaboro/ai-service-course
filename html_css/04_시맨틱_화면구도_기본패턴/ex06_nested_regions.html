@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>중첩 구도</title>
@@ -10,15 +12,20 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 전체의 머리글 -->
   <header>
     <h1>AI 수업 노트</h1>
   </header>
   <main>
+    <!-- 글 한 편(article) 안에도 header · section · footer 가 또 들어갈 수 있어요 -->
     <article>
+      <!-- 글의 머리글: 글 제목 + 글쓴이 + 날짜 -->
       <header>
         <h2>프로젝트 회고: 해양 쓰레기 탐지</h2>
         <p>1팀 · <time datetime="2026-10-04">10월 4일</time></p>
       </header>
+      <!-- 글의 단원 1: 결과 그림 -->
       <section>
         <h3>결과</h3>
         <figure>
@@ -26,17 +33,20 @@
           <figcaption>테스트 사진 탐지 결과</figcaption>
         </figure>
       </section>
+      <!-- 글의 단원 2: 댓글. 댓글 하나도 독립된 글이라 article -->
       <section>
         <h3>댓글</h3>
         <article>
           <p>밤 사진도 추가해 보세요! — 2팀</p>
         </article>
       </section>
+      <!-- 글의 바닥글: 태그 -->
       <footer>
         <p>태그: YOLO, 해양, 레이블링</p>
       </footer>
     </article>
   </main>
+  <!-- 사이트 전체의 바닥글 -->
   <footer>
     <p>© 2026 AI 수업 노트</p>
   </footer>

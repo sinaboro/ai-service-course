@@ -12,6 +12,7 @@ CLASSES = ["circle", "square", "triangle"]
 rng = random.Random(0)
 
 
+# 도형 하나 그리기: 밝은 배경 + 어두운 색 도형, 위치 · 크기 · 색은 무작위
 def draw(shape):
     img = np.full((64, 64, 3), rng.randint(180, 255), np.uint8)              # 밝은 배경
     color = tuple(rng.randint(0, 150) for _ in range(3))
@@ -21,11 +22,13 @@ def draw(shape):
     elif shape == "square":
         cv2.rectangle(img, (cx - r, cy - r), (cx + r, cy + r), color, -1)
     else:
+        # 삼각형: 꼭짓점 3개를 numpy 배열로 주고 채우기
         pts = np.array([[cx, cy - r], [cx - r, cy + r], [cx + r, cy + r]], np.int32)
         cv2.fillPoly(img, [pts], color)
     return img
 
 
+# train 200장 · val 50장씩, 폴더 이름 = 클래스 이름 (data/shapes/train/circle/...)
 count = 0
 for split, n in [("train", 200), ("val", 50)]:
     for c in CLASSES:
@@ -35,5 +38,6 @@ for split, n in [("train", 200), ("val", 50)]:
             imwrite(folder / f"{c}_{i:03d}.png", draw(c))
             count += 1
 print("만든 이미지:", count, "장")
+# 클래스별로 만든 장수 확인
 for split in ["train", "val"]:
     print(split, {c: len(list((ROOT / split / c).glob("*.png"))) for c in CLASSES})

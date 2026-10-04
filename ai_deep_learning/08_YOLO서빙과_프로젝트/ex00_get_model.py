@@ -10,9 +10,11 @@ from cvutil import imwrite
 from scene import make_scene
 
 HERE = Path(__file__).parent
+# 7장 모델 위치(src)와 이 장으로 복사할 위치(dst)
 src = HERE.parent / "07_YOLO학습과추론" / "models" / "best.pt"
 dst = HERE / "models" / "best.pt"
 dst.parent.mkdir(exist_ok=True)
+# 7장 모델이 없으면 안내 문구를 보여 주고 끝내기
 if not src.exists():
     sys.exit("7장 ex02_train.py 를 먼저 실행해서 best.pt 를 만들어 주세요: " + str(src.relative_to(HERE.parent)))
 shutil.copy(src, dst)

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>메뉴 바</title>
@@ -17,6 +19,7 @@
     }
     .logo { margin: 0; font-size: 20px; font-weight: bold; }
     nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }   /* 메뉴도 flex */
+    /* 메뉴 링크: 밑줄 없애고 둥근 배경 */
     nav a { color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 6px; }
     nav a:hover { background: rgb(255 255 255 / 0.2); }
     search { margin-left: auto; }   /* ⭐ 남은 공간을 왼쪽에 몰아 → 오른쪽 끝으로 */
@@ -24,8 +27,11 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 머리글 안의 3개(로고 · 메뉴 · 검색)가 flex 아이템 -->
   <header class="site-header">
     <p class="logo">FloatWatch</p>
+    <!-- 메뉴 ul 도 flex: flex 안에 flex -->
     <nav aria-label="주 메뉴">
       <ul>
         <li><a href="#">탐지하기</a></li>
@@ -33,6 +39,7 @@
         <li><a href="#">팀 소개</a></li>
       </ul>
     </nav>
+    <!-- 검색: CSS 의 margin-left: auto 로 오른쪽 끝으로 -->
     <search>
       <form action="/search">
         <label for="q">검색</label>

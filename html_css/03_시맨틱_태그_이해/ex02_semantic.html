@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>시맨틱 태그로 만든 페이지</title>
   <style>
+    /* ex01 과 ex02 가 똑같이 보이도록 함께 쓰는 CSS: div 의 class 와 시맨틱 태그를 같은 모양으로 */
     body { font-family: "Malgun Gothic", sans-serif; margin: 0; background: #f4f6f8; }
     .header, header { background: #1f4e79; color: #fff; padding: 12px 24px; }
     .nav ul, nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
@@ -13,6 +16,7 @@
     .main, main { flex: 3; background: #fff; padding: 16px; border-radius: 8px; }
     .aside, aside { flex: 1; background: #fff8e1; padding: 16px; border-radius: 8px; }
     .footer, footer { text-align: center; color: #666; padding: 12px; }
+    /* 시맨틱 태그는 처음부터 제목 크기가 있어서 조금만 맞춰 주면 돼요 */
     .logo { font-size: 20px; font-weight: bold; margin: 0 0 6px; }
     h1, h2 { font-size: 20px; margin: 0 0 8px; }
     article h2 { font-size: 16px; }
@@ -20,8 +24,12 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ✔ 좋은 예: ex01 과 화면은 같지만 태그 이름만 봐도 역할을 알 수 있어요 -->
+  <!-- header: 머리글 (div class="header" 대신) -->
   <header>
     <p class="logo">AI 객체탐지 랩</p>
+    <!-- nav: 주 메뉴 (div class="nav" 대신) -->
     <nav aria-label="주 메뉴">
       <ul>
         <li><a href="#">홈</a></li>
@@ -30,19 +38,24 @@
       </ul>
     </nav>
   </header>
+  <!-- 배치용 묶음은 뜻이 없으니 div 를 그대로 써도 괜찮아요 -->
   <div class="wrap">
+    <!-- main: 핵심 내용 / h1: 진짜 제목 (div class="title" 대신) -->
     <main>
       <h1>이번 주 프로젝트</h1>
+      <!-- article: 글 한 편 / h2: 글 제목 -->
       <article>
         <h2>해양 부유물 탐지</h2>
         <p>YOLO 로 바다 위 쓰레기를 찾는 모델을 만들었어요.</p>
       </article>
     </main>
+    <!-- aside: 곁가지 정보 -->
     <aside>
       <h2>공지</h2>
       <p>금요일 발표가 있어요.</p>
     </aside>
   </div>
+  <!-- footer: 바닥글 -->
   <footer>
     <p>© 2026 AI Lab</p>
   </footer>

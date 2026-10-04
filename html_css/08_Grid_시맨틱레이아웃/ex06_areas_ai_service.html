@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>areas AI 서비스</title>
@@ -8,12 +10,14 @@
   <style>
     main {
       display: grid;
+      /* 열 3개: 업로드 1 | 결과 1 | 안내 220px */
       grid-template-columns: 1fr 1fr 220px;
       grid-template-areas:
         "hero   hero   hero"
         "upload result guide";
       gap: 8px;
     }
+    /* 각 section 에 영역 이름 붙이기 */
     .hero   { grid-area: hero; text-align: center; }
     .upload { grid-area: upload; }
     .result { grid-area: result; }
@@ -23,16 +27,20 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 머리글: 안쪽은 flex 로 로고와 메뉴를 양 끝에 -->
   <header>
     <h1>FloatWatch</h1>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#upload">탐지하기</a></li><li><a href="#result">결과</a></li></ul>
     </nav>
   </header>
+  <!-- main 안을 grid 로: 히어로 / 업로드 · 결과 · 안내 -->
   <main>
     <section class="hero" aria-labelledby="t">
       <h2 id="t">사진 한 장으로 바다 쓰레기 찾기</h2>
     </section>
+    <!-- 사진 업로드 폼 -->
     <section class="upload" id="upload" aria-labelledby="u">
       <h2 id="u">사진 올리기</h2>
       <form action="/detect" method="post" enctype="multipart/form-data">
@@ -40,6 +48,7 @@
         <button type="submit">탐지</button>
       </form>
     </section>
+    <!-- 탐지 결과 그림 -->
     <section class="result" id="result" aria-labelledby="r">
       <h2 id="r">탐지 결과</h2>
       <figure>
@@ -47,6 +56,7 @@
         <figcaption>bottle 1개</figcaption>
       </figure>
     </section>
+    <!-- 사용 안내 (곁가지 정보라서 aside) -->
     <aside class="guide" aria-labelledby="g">
       <h2 id="g">사용 안내</h2>
       <p>PNG · JPG</p>

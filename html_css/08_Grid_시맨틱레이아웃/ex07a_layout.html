@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>구도 A</title>
   <link rel="stylesheet" href="regions.css">
   <style>
+    /* 다섯 시맨틱 태그에 영역 이름 붙이기 (세 파일 공통) */
     body { display: grid; gap: 8px; min-height: 330px; }
     header { grid-area: header; } nav { grid-area: nav; } main { grid-area: main; }
     aside  { grid-area: aside; }  footer { grid-area: footer; }
@@ -21,6 +24,8 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ex07a · b · c 세 파일이 똑같이 쓰는 HTML. 구도는 CSS 의 grid-template-areas 만 달라요 -->
   <header><h1>FloatWatch</h1></header>
   <nav aria-label="주 메뉴"><ul><li><a href="#">탐지</a></li><li><a href="#">기록</a></li></ul></nav>
   <main><h2>탐지 결과</h2><p>객체 2개</p></main>

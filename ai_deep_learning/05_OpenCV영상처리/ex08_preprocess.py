@@ -2,7 +2,9 @@ import platform
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
+# 마이너스(-) 기호가 네모로 깨지지 않게
 plt.rcParams["axes.unicode_minus"] = False
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
 IMG.mkdir(exist_ok=True)
@@ -16,9 +18,11 @@ from cvutil import imread
 def letterbox(img, size=640, color=(114, 114, 114)):
     """비율을 지키며 size×size 정사각형에 넣고, 남는 곳은 회색으로 채우기 (YOLO 방식)"""
     h, w = img.shape[:2]
+    # 배율 r: 긴 쪽이 size 가 되도록
     r = size / max(h, w)
     nw, nh = round(w * r), round(h * r)
     resized = cv2.resize(img, (nw, nh))
+    # 회색(114) 정사각형 캔버스 가운데에 줄인 사진 붙이기
     canvas = np.full((size, size, 3), color, np.uint8)
     top, left = (size - nh) // 2, (size - nw) // 2
     canvas[top:top + nh, left:left + nw] = resized
@@ -27,6 +31,7 @@ def letterbox(img, size=640, color=(114, 114, 114)):
 
 img = imread(Path(__file__).parent / "samples" / "beach_01.png")
 wide = cv2.resize(img, (720, 405))                   # 16:9 가로 사진이라고 생각하기
+# 16:9 가로 사진을 640×640 letterbox 로
 box, r, (left, top) = letterbox(wide, 640)
 print("원본:", wide.shape, "→ letterbox:", box.shape, "| 배율", round(r, 3), "| 여백 (왼쪽, 위)", (left, top))
 
@@ -43,6 +48,7 @@ ox1, oy1 = (bx1 - left) / r, (by1 - top) / r
 ox2, oy2 = (bx2 - left) / r, (by2 - top) / r
 print("원래 사진 좌표:", [round(v) for v in (ox1, oy1, ox2, oy2)])
 
+# 비교 그림 저장
 fig, axes = plt.subplots(1, 2, figsize=(10, 3.8))
 axes[0].imshow(cv2.cvtColor(wide, cv2.COLOR_BGR2RGB)); axes[0].set_title(f"원본 {wide.shape[1]}×{wide.shape[0]}")
 axes[1].imshow(cv2.cvtColor(box, cv2.COLOR_BGR2RGB)); axes[1].set_title("letterbox 640×640")

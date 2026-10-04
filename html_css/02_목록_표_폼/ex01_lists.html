@@ -1,20 +1,26 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>목록</title>
   <style>
+    /* 모든 예제에 공통으로 쓰는 글꼴과 여백 (CSS 는 6장에서 자세히 배워요) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>AI 프로젝트 준비</h1>
   <h2>필요한 도구 (순서 없음)</h2>
+  <!-- ul: 순서가 없는 목록 (점 · 으로 표시) / li: 목록의 한 항목 -->
   <ul>
     <li>파이썬</li>
     <li>labelImg (레이블링)</li>
     <li>YOLO
+      <!-- 목록 안의 목록(중첩): li 안에 ul 을 하나 더 넣어요 -->
       <ul>
         <li>학습</li>
         <li>추론</li>
@@ -22,6 +28,7 @@
     </li>
   </ul>
   <h2>진행 순서 (순서 있음)</h2>
+  <!-- ol: 순서가 있는 목록 (1, 2, 3 ... 번호가 자동으로 붙어요) -->
   <ol>
     <li>주제 정하기</li>
     <li>데이터 모으기</li>
@@ -29,6 +36,7 @@
     <li>모델 학습</li>
   </ol>
   <h2>용어 (설명 목록)</h2>
+  <!-- dl: 설명 목록 / dt: 용어 / dd: 그 용어의 설명 -->
   <dl>
     <dt>레이블링</dt>
     <dd>이미지 속 객체 위치에 상자를 그리고 이름을 붙이는 작업</dd>

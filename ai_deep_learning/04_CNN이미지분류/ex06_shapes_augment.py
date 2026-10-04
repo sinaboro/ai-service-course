@@ -2,7 +2,9 @@ import platform
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
+# 마이너스(-) 기호가 네모로 깨지지 않게
 plt.rcParams["axes.unicode_minus"] = False
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
 IMG.mkdir(exist_ok=True)
@@ -24,6 +26,7 @@ augment = keras.Sequential([                        # 데이터 증강: 학습�
     keras.layers.RandomZoom(0.1),                  # 조금 확대 · 축소
 ])
 
+# 모델: 증강 → 0 ~ 1 정규화 → [합성곱 → 풀링] × 3 → 펴기 → Dense
 model = keras.Sequential([
     keras.Input(shape=(64, 64, 3)),
     augment,
@@ -36,16 +39,19 @@ model = keras.Sequential([
     keras.layers.Dense(3, activation="softmax"),
 ])
 model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
+# 학습: 검증 데이터로 매 에폭 실력을 확인하며 15 에폭
 history = model.fit(train_ds, validation_data=val_ds, epochs=15, verbose=2)
 print(f"검증 정확도: {model.evaluate(val_ds, verbose=0)[1]:.3f}")
 
 # 증강된 모습 보기: 같은 사진 한 장을 8번 변형
+# 학습 데이터에서 사진 묶음 하나 꺼내기
 images, _ = next(iter(train_ds))
 fig, axes = plt.subplots(1, 8, figsize=(13, 2))
 for ax in axes:
     ax.imshow(tf.cast(augment(images[:1], training=True)[0], "uint8")); ax.axis("off")
 fig.savefig(IMG / "ex06_augment.png", dpi=100, bbox_inches="tight")
 
+# 학습 · 검증 정확도 곡선
 h = history.history
 fig, ax = plt.subplots(figsize=(7, 3.5))
 ax.plot(h["accuracy"], label="학습"); ax.plot(h["val_accuracy"], label="검증")

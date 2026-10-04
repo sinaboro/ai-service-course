@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>flex 2단 구도</title>
@@ -10,6 +12,7 @@
     .site-header { display: flex; align-items: center; gap: 24px; padding: 10px 24px; background: #1f4e79; }
     .site-header a, .logo { color: #fff; text-decoration: none; }
     .logo { margin: 0; font-weight: bold; font-size: 20px; }
+    /* 메뉴 목록도 flex 로 가로 정렬 */
     .site-header ul { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; }
     .layout { display: flex; gap: 20px; max-width: 1000px; margin: 20px auto; padding: 0 16px; }  /* ⭐ main + aside */
     main { flex: 1; background: #fff; padding: 16px 20px; border-radius: 10px; }                  /* 남는 너비 전부 */
@@ -20,12 +23,15 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 머리글: 로고 + 메뉴를 flex 로 한 줄 -->
   <header class="site-header">
     <p class="logo">AI 수업 노트</p>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#">강의</a></li><li><a href="#">프로젝트</a></li><li><a href="#">소개</a></li></ul>
     </nav>
   </header>
+  <!-- main + aside 를 나란히 놓는 배치용 div (flex 컨테이너) -->
   <div class="layout">
     <main>
       <article>
@@ -33,6 +39,7 @@
         <p>W 키로 상자를 그리고, D 키로 다음 사진으로 넘어가요.</p>
       </article>
     </main>
+    <!-- 오른쪽 사이드바: 폭 240px 고정 -->
     <aside aria-labelledby="side-title">
       <h2 id="side-title">단축키</h2>
       <ul><li>W: 상자 그리기</li><li>D: 다음</li><li>A: 이전</li></ul>

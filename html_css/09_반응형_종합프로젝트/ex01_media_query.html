@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>미디어 쿼리</title>
   <style>
+    /* 기본 = 휴대폰 (가장 작은 화면부터 생각하기: 모바일 먼저) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 0; padding: 20px; background: #fbe5d6; }
     .size::after { content: "휴대폰 (600px 미만)"; }
     
@@ -19,6 +22,8 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 창 너비에 따라 배경색과 글자가 바뀌어요 (글자는 CSS 의 ::after 가 넣어요) -->
   <main>
     <h1>창 너비를 바꿔 보세요</h1>
     <p class="now">지금은 <strong class="size"></strong></p>

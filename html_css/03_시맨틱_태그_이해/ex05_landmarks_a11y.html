@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>랜드마크와 접근성</title>
   <style>
     body { font-family: "Malgun Gothic", sans-serif; margin: 0; }
+    /* 건너뛰기 링크는 평소엔 화면 밖에 숨겨 두고, Tab 키로 초점이 오면(:focus) 보여 줘요 */
     .skip { position: absolute; left: 8px; top: -40px; background: #ffd966; padding: 6px 10px; }
     .skip:focus { top: 8px; }
     header, footer { background: #eef3f8; padding: 10px 20px; }
@@ -15,18 +18,23 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 건너뛰기 링크: 키보드(Tab)만 쓰는 사람이 메뉴를 건너뛰고 바로 본문으로 가게 해 줘요 -->
   <a class="skip" href="#content">본문으로 건너뛰기</a>
   <header>
     <p class="logo">AI 객체탐지 랩</p>
     <nav aria-label="주 메뉴">
       <ul>
+        <!-- aria-current="page": 지금 보고 있는 페이지라는 표시 -->
         <li><a href="#" aria-current="page">홈</a></li>
         <li><a href="#">프로젝트</a></li>
       </ul>
     </nav>
   </header>
+  <!-- id="content": 위의 건너뛰기 링크(#content)가 도착하는 곳 -->
   <main id="content">
     <h1>프로젝트 목록</h1>
+    <!-- search: 검색 영역을 나타내는 새 시맨틱 태그 -->
     <search>
       <form action="/search">
         <label for="q">프로젝트 검색</label>
@@ -34,12 +42,14 @@
         <button type="submit">검색</button>
       </form>
     </search>
+    <!-- aria-labelledby: 아래 h2 제목(id="done-title")을 이 section 의 이름으로 쓰기 -->
     <section aria-labelledby="done-title">
       <h2 id="done-title">완료한 프로젝트</h2>
       <p>해양 부유물 탐지, 안전모 착용 탐지</p>
     </section>
   </main>
   <footer>
+    <!-- nav 가 둘 이상이면 aria-label 로 이름을 달리 붙여 구분해요 -->
     <nav aria-label="바닥 메뉴">
       <ul>
         <li><a href="#">개인정보 처리방침</a></li>

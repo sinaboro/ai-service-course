@@ -1,18 +1,26 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS 연결 세 가지</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    /* 내부 <style>: 이 페이지에서만 쓰는 규칙 */
     .inner { color: #548235; font-size: 20px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 외부 파일 방식: style.css 의 h1 규칙이 적용돼요 -->
   <h1>외부 파일 방식 (style.css)</h1>
+  <!-- class="badge": style.css 의 .badge 규칙이 적용돼요 -->
   <p class="badge">style.css 의 .badge 규칙</p>
+  <!-- ② 내부 방식: 위쪽 head 의 <style> 안 .inner 규칙 -->
   <p class="inner">내부 &lt;style&gt; 방식</p>
+  <!-- ③ 인라인 방식: 태그에 style 속성을 직접 (관리가 어려워 잘 안 써요) -->
   <p style="color: #c00000; font-weight: bold;">인라인 style 속성 방식</p>
 </body>
 </html>

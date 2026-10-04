@@ -1,27 +1,35 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>카드 그리드 구도</title>
   <link rel="stylesheet" href="regions.css">
   <style>
     /* 배치: 카드 3열 격자 */
+    /* 같은 너비 카드 3열, 칸 사이 10px */
     .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 머리글 -->
   <header>
     <h1>팀 프로젝트 갤러리</h1>
   </header>
   <main>
+    <!-- 검색 영역 -->
     <search>
       <form action="/projects">
         <label for="q">검색</label> <input type="search" id="q" name="q">
       </form>
     </search>
+    <!-- 카드 목록 구역: 카드 하나하나가 독립된 프로젝트 = article -->
     <section>
       <h2>2026 가을 프로젝트</h2>
+      <!-- 카드를 격자로 놓으려고 감싸는 배치용 div -->
       <div class="cards">
         <article><h3>해양 쓰레기 탐지</h3><p>1팀 · YOLO</p></article>
         <article><h3>안전모 착용 탐지</h3><p>2팀 · YOLO</p></article>
@@ -32,6 +40,7 @@
       </div>
     </section>
   </main>
+  <!-- ③ 바닥글 -->
   <footer>
     <p>프로젝트 6개</p>
   </footer>

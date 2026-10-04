@@ -1,21 +1,29 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>표</title>
   <style>
+    /* 모든 예제에 공통으로 쓰는 글꼴과 여백 (CSS 는 6장에서 자세히 배워요) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
+    /* border-collapse: 칸 사이 테두리를 한 줄로 합치기 */
     table { border-collapse: collapse; }
+    /* 모든 칸에 테두리와 안쪽 여백 */
     th, td { border: 1px solid #999; padding: 6px 14px; text-align: center; }
     caption { font-weight: bold; margin-bottom: 8px; }
     thead { background: #dfe9f5; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>모델 실험 기록</h1>
+  <!-- table: 표 전체 / caption: 표 제목 (표가 무엇인지 알려 줘요) -->
   <table>
     <caption>YOLO 모델 크기별 실험 결과</caption>
+    <!-- thead: 머리 행(열 제목) 묶음 / tr: 한 줄(행) / th scope="col": 세로줄(열)의 제목 칸 -->
     <thead>
       <tr>
         <th scope="col">모델</th>
@@ -24,19 +32,23 @@
         <th scope="col">비고</th>
       </tr>
     </thead>
+    <!-- tbody: 실제 데이터 행 묶음 / th scope="row": 가로줄(행)의 제목 칸 / td: 데이터 칸 -->
     <tbody>
       <tr>
         <th scope="row">yolo11n</th>
         <td>50</td>
         <td>0.72</td>
+        <!-- rowspan="2": 아래 칸까지 2줄을 합치기 -->
         <td rowspan="2">CPU 학습</td>
       </tr>
+      <!-- 위에서 합친 칸 때문에 이 줄은 td 가 하나 적어요 -->
       <tr>
         <th scope="row">yolo11s</th>
         <td>50</td>
         <td>0.78</td>
       </tr>
     </tbody>
+    <!-- tfoot: 표의 맨 아래 요약 · 메모 / colspan="4": 옆으로 4칸 합치기 -->
     <tfoot>
       <tr>
         <td colspan="4">※ 실습용 예시 값이에요.</td>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>뉴스 메인</title>
@@ -9,15 +11,20 @@
   <link rel="stylesheet" href="../xray.css">
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 머리글: 로고 + 분야 메뉴 -->
   <header class="site-header">
     <p class="logo">AI 데일리</p>
     <nav aria-label="분야">
       <ul><li><a href="#">전체</a></li><li><a href="#">기술</a></li><li><a href="#">환경</a></li><li><a href="#">교육</a></li></ul>
     </nav>
   </header>
+  <!-- 본문 + 사이드바 -->
   <div class="page">
     <main>
+      <!-- 이 페이지의 제목 -->
       <h1 class="visually-plain">오늘의 뉴스</h1>
+      <!-- 단원 1: 헤드라인 기사. aria-labelledby 로 h2 를 단원 이름으로 -->
       <section aria-labelledby="top-news">
         <h2 id="top-news">헤드라인</h2>
         <article class="headline">
@@ -25,6 +32,7 @@
           <p>객체 탐지 모델이 하루 만에 하천 10km 를 살폈다.</p>
         </article>
       </section>
+      <!-- 단원 2: 분야별 기사. 분야 하나 = 작은 section, 기사 하나 = article -->
       <section aria-labelledby="by-field">
         <h2 id="by-field">분야별</h2>
         <div class="grid3">
@@ -46,6 +54,7 @@
         </div>
       </section>
     </main>
+    <!-- 사이드바: 많이 본 뉴스 (순위라서 ol) -->
     <aside aria-labelledby="popular">
       <h2 id="popular">많이 본 뉴스</h2>
       <ol>
@@ -55,6 +64,7 @@
       </ol>
     </aside>
   </div>
+  <!-- 사이트 바닥글: 연락처는 address -->
   <footer class="site-footer">
     <address>제보: <a href="mailto:news@example.com">news@example.com</a></address>
     <p>© 2026 AI 데일리</p>

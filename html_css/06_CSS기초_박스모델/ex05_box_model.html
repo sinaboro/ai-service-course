@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>박스 모델</title>
   <style>
     body { font-family: "Malgun Gothic", sans-serif; }
+    /* 박스 모델 4층: content(width) → padding(안쪽 여백) → border(테두리) → margin(바깥 여백) */
     .box {
       width: 200px;
       padding: 20px;
@@ -13,18 +16,24 @@
       margin: 10px;
       background: #ddebf7;
     }
+    /* border-box: padding 과 border 를 width 안에 포함 → 전체가 딱 200px */
     .border-box { box-sizing: border-box; border-color: #c00000; background: #fbe5d6; }
     .m1 { margin-bottom: 30px; background: #e2efda; }
     .m2 { margin-top: 20px; background: #fff2cc; }
+    /* 너비가 정해진 block 상자는 좌우 margin 을 auto 로 하면 가운데로 */
     .center { width: 300px; margin: 0 auto; background: #ededed; padding: 8px; text-align: center; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
+    <!-- 같은 width: 200px 인데 box-sizing 에 따라 전체 너비가 달라요 -->
     <div class="box">content-box: width 200 + padding 20×2 + border 5×2 = 250px</div>
     <div class="box border-box">border-box: 전체가 딱 200px</div>
+    <!-- 마진 겹침: 위 문단의 아래 margin 과 아래 문단의 위 margin 이 만나면 큰 쪽만 남아요 -->
     <p class="m1">margin-bottom: 30px</p>
     <p class="m2">margin-top: 20px → 둘 사이는 50 이 아니라 30 (마진 겹침)</p>
+    <!-- margin: 0 auto 로 가운데 정렬 -->
     <div class="center">margin: 0 auto → 가운데 정렬</div>
   </main>
 </body>

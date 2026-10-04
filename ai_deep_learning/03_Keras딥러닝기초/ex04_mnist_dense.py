@@ -2,7 +2,9 @@ import platform
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
+# 마이너스(-) 기호가 네모로 깨지지 않게
 plt.rcParams["axes.unicode_minus"] = False
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
 IMG.mkdir(exist_ok=True)
@@ -26,6 +28,7 @@ model = keras.Sequential([
     keras.layers.Dense(128, activation="relu"),   # 숨은층
     keras.layers.Dense(10, activation="softmax"), # 숫자 0 ~ 9 확률
 ])
+# 모델 구조 표 출력: 층마다 출력 모양과 가중치 수
 model.summary()
 
 # 3. 컴파일: 손실 · 옵티마이저 · 지표
@@ -35,11 +38,13 @@ model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=
 history = model.fit(x_train, y_train, epochs=5, batch_size=128, validation_split=0.1, verbose=2)
 
 # 5. 평가 · 저장
+# 테스트 데이터로 최종 평가 → 정확도
 loss, acc = model.evaluate(x_test, y_test, verbose=0)
 print(f"테스트 정확도: {acc:.4f}")
 model.save("mnist_dense.keras")
 
 # 학습 곡선
+# history.history: 에폭마다 기록된 loss · accuracy · val_loss · val_accuracy
 h = history.history
 fig, axes = plt.subplots(1, 2, figsize=(11, 3.5))
 axes[0].plot(h["loss"], "o-", label="학습"); axes[0].plot(h["val_loss"], "s-", label="검증")
@@ -49,6 +54,7 @@ axes[1].set_title("정확도 (accuracy)"); axes[1].set_xlabel("에폭"); axes[1]
 fig.savefig(IMG / "ex04_curves.png", dpi=100, bbox_inches="tight")
 
 # 예측 12장 보기
+# 테스트 사진 12장 예측: 확률이 가장 큰 숫자(argmax)가 예측. 맞으면 초록, 틀리면 빨강 제목
 probs = model.predict(x_test[:12], verbose=0)
 fig, axes = plt.subplots(2, 6, figsize=(11, 4))
 for i, ax in enumerate(axes.flat):

@@ -1,25 +1,34 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3단 구도</title>
   <link rel="stylesheet" href="regions.css">
   <style>
     /* 배치: 왼쪽 메뉴 | 본문 | 오른쪽 정보 */
+    /* 왼쪽 180px 고정 | 가운데는 남는 만큼(1fr) | 오른쪽 200px 고정 */
     .layout { display: grid; grid-template-columns: 180px 1fr 200px; gap: 12px; }
+    /* 메뉴 목록을 세로로 쌓기 */
     nav ul.vertical { flex-direction: column; gap: 6px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 머리글 -->
   <header>
     <h1>탐지 결과 관리</h1>
   </header>
+  <!-- ② 3단: nav(왼쪽 메뉴) · main(본문) · aside(오른쪽 정보) 를 감싸는 배치용 div -->
   <div class="layout">
+    <!-- 왼쪽 세로 메뉴 -->
     <nav aria-label="관리 메뉴">
       <h2>메뉴</h2>
       <ul class="vertical"><li><a href="#">대시보드</a></li><li><a href="#">데이터셋</a></li><li><a href="#">모델</a></li></ul>
     </nav>
+    <!-- 가운데 본문 -->
     <main>
       <h2>오늘의 탐지 현황</h2>
       <section>
@@ -27,11 +36,13 @@
         <p>사진 12장, 탐지 객체 37개</p>
       </section>
     </main>
+    <!-- 오른쪽 도움말 -->
     <aside>
       <h2>도움말</h2>
       <p>신뢰도 0.5 미만은 회색으로 표시돼요.</p>
     </aside>
   </div>
+  <!-- ③ 바닥글 -->
   <footer>
     <p>관리자 페이지 v1.0</p>
   </footer>

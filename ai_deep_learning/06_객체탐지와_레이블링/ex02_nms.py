@@ -2,7 +2,9 @@ import platform
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
+# 마이너스(-) 기호가 네모로 깨지지 않게
 plt.rcParams["axes.unicode_minus"] = False
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
 IMG.mkdir(exist_ok=True)
@@ -10,6 +12,7 @@ IMG.mkdir(exist_ok=True)
 import matplotlib.patches as patches
 
 
+# IoU 계산 함수 (ex01 과 같아요)
 def iou(a, b):
     ix1, iy1, ix2, iy2 = max(a[0], b[0]), max(a[1], b[1]), min(a[2], b[2]), min(a[3], b[3])
     inter = max(0, ix2 - ix1) * max(0, iy2 - iy1)
@@ -30,6 +33,7 @@ def nms(dets, iou_thr=0.5):
 # 모델이 병 2개 주변에 상자를 여러 개 낸 상황
 raw = [(0.92, (50, 40, 110, 180)), (0.85, (55, 50, 118, 185)), (0.60, (40, 30, 105, 170)),
        (0.88, (170, 60, 230, 200)), (0.55, (160, 70, 225, 205)), (0.30, (100, 120, 160, 200))]
+# 신뢰도 기준 · NMS 를 차례로 적용
 conf_thr = 0.4
 step1 = [d for d in raw if d[0] >= conf_thr]             # 신뢰도 기준으로 먼저 거르기
 kept = nms(step1, iou_thr=0.5)
@@ -37,6 +41,7 @@ print("모델이 낸 상자:", len(raw), "→ 신뢰도 0.4 이상:", len(step1)
 for conf, box in kept:
     print(f"  남은 상자 {box} 신뢰도 {conf}")
 
+# 왼쪽 = 원래 상자 전부, 오른쪽 = NMS 후 남은 상자 (진할수록 신뢰도가 높아요)
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 for ax, (title, dets) in zip(axes, [("NMS 전", raw), ("NMS 후", kept)]):
     for conf, b in dets:

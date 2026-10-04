@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>선택자</title>
@@ -19,20 +21,26 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <header>
     <h1>선택자 연습</h1>
   </header>
   <main>
+    <!-- 태그 · class · id 선택자 연습용 문단들 -->
     <p>태그 선택자: 모든 p</p>
     <p class="tip">class 선택자: .tip</p>
     <p id="notice">id 선택자: #notice</p>
+    <!-- article 안의 p 만 고르는 "자손 선택자" 연습 -->
     <article>
       <p>자손 선택자: article p</p>
     </article>
+    <!-- li:nth-child, li:first-child 연습용 목록 -->
     <ul>
       <li>첫째</li><li>둘째</li><li>셋째</li><li>넷째</li>
     </ul>
+    <!-- :hover 연습: 마우스를 올리면 색이 바뀌어요 -->
     <p><a href="#">마우스를 올려 보세요 (:hover)</a></p>
+    <!-- 속성 선택자 연습: required 가 있는 input 만 테두리가 달라요 -->
     <p>
       <input type="text" placeholder="일반 입력">
       <input type="text" placeholder="필수 입력" required>

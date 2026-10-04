@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>자동 카드 갤러리</title>
@@ -13,14 +15,17 @@
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));   /* ⭐ 180px 이상으로 들어가는 만큼 */
       gap: 14px;
     }
+    /* 갤러리 칸: 흰 카드 모양 */
     .gallery figure { margin: 0; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px; }
     .gallery img { width: 100%; height: auto; display: block; border-radius: 4px; }
     .gallery figcaption { font-size: 13px; color: #555; margin-top: 4px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
     <h1>탐지 결과 갤러리</h1>
+    <!-- 결과 사진 묶음 = section, 사진 한 장 = figure(그림 + 설명) -->
     <section class="gallery" aria-label="결과 사진">
       <figure><img src="images/thumb.svg" alt="병 탐지 결과 1" width="160" height="100"><figcaption>beach_01.jpg · 3개</figcaption></figure>
       <figure><img src="images/thumb.svg" alt="병 탐지 결과 2" width="160" height="100"><figcaption>beach_02.jpg · 1개</figcaption></figure>

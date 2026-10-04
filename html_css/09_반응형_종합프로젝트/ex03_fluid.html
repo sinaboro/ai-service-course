@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>넘치지 않게</title>
@@ -13,20 +15,25 @@
     nav ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }   /* ⭐ 메뉴가 넘치면 다음 줄 */
     nav a { display: inline-block; padding: 4px 10px; background: #ddebf7; border-radius: 12px; }
     .table-wrap { overflow-x: auto; }                      /* ⭐ 표만 가로 스크롤 */
+    /* 표의 최소 너비 560px: 이보다 좁으면 감싼 div 안에서 스크롤 */
     table { border-collapse: collapse; min-width: 560px; }
     th, td { border: 1px solid #ccc; padding: 4px 8px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
     <h1>넘치지 않는 요소들</h1>
+    <!-- 화면보다 넓은 900px 그림 -->
     <figure>
       <img src="images/wide.svg" alt="가로로 긴 해변 사진" width="900" height="200">
       <figcaption>img { max-width: 100%; } 덕분에 화면보다 커지지 않아요</figcaption>
     </figure>
+    <!-- 메뉴 6개: 좁으면 다음 줄로 -->
     <nav aria-label="분야">
       <ul><li><a href="#">전체</a></li><li><a href="#">병</a></li><li><a href="#">캔</a></li><li><a href="#">비닐</a></li><li><a href="#">스티로폼</a></li><li><a href="#">그물</a></li></ul>
     </nav>
+    <!-- 넓은 표는 div 로 감싸서 표만 옆으로 스크롤 -->
     <div class="table-wrap">
       <table>
         <caption>탐지 기록 (넓은 표는 가로 스크롤)</caption>

@@ -9,14 +9,17 @@ z = np.dot(x, w) + b                 # 가중합 = 0.8×1.5 + 0.2×(-2.0) + 0.5�
 print("가중합 z =", round(z, 3))
 
 
+# 활성화 함수 ① ReLU: 0 보다 작으면 0, 크면 그대로
 def relu(v):
     return np.maximum(0, v)
 
 
+# 활성화 함수 ② sigmoid: 어떤 수든 0 ~ 1 사이로 바꿔요
 def sigmoid(v):
     return 1 / (1 + np.exp(-v))
 
 
+# 뉴런 하나의 출력: 가중합 z 를 활성화 함수에 넣기
 print("ReLU(z)    =", round(float(relu(z)), 3))
 print("sigmoid(z) =", round(float(sigmoid(z)), 3), "← '병일 확률' 처럼 0 ~ 1 로")
 

@@ -1,28 +1,37 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>flex 기초</title>
   <style>
+    /* 7장 예제가 함께 쓰는 기본 모양 */
     * { box-sizing: border-box; }
     body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
     h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
+    /* 파란 점선 상자 = 부모(컨테이너) */
     .box { border: 2px dashed #2e75b6; padding: 6px; background: #f0f7fd; }
+    /* 파란 칸 = 자식(아이템) */
     .item { margin: 4px; padding: 8px 18px; background: #2e75b6; color: #fff; font-weight: bold; }
     .flex { display: flex; }          /* ⭐ 부모(컨테이너)에 씀 */
     .col { flex-direction: column; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 같은 p 3개를 세 가지 방식으로 비교해요: 부모 div 의 class 만 달라요 -->
   <h2>display: block (기본) — 위에서 아래로</h2>
   <div class="box">
     <p class="item">1</p><p class="item">2</p><p class="item">3</p>
   </div>
+  <!-- 부모에 flex → 자식 p 들이 옆으로 나란히 -->
   <h2>display: flex — 옆으로 나란히</h2>
   <div class="box flex">
     <p class="item">1</p><p class="item">2</p><p class="item">3</p>
   </div>
+  <!-- 방향만 세로로 (flex 기능은 그대로) -->
   <h2>flex-direction: column — 다시 세로로 (하지만 flex 기능은 그대로)</h2>
   <div class="box flex col">
     <p class="item">1</p><p class="item">2</p><p class="item">3</p>

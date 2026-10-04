@@ -1,28 +1,37 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>랜딩 구도</title>
   <link rel="stylesheet" href="regions.css">
   <style>
     /* 배치: 세로로 구역 나열, 기능 카드는 3칸 */
+    /* 히어로는 글자를 가운데로, 위아래 여백을 넉넉하게 */
     .hero { text-align: center; padding: 30px 12px; }
+    /* 카드 3개를 같은 너비로 한 줄에 */
     .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 머리글: 메뉴의 #features 같은 주소는 아래 section 의 id 로 이동해요 -->
   <header>
     <p><strong>FloatWatch</strong></p>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#features">기능</a></li><li><a href="#how">사용법</a></li><li><a href="#start">시작하기</a></li></ul>
     </nav>
   </header>
+  <!-- ② 본문 = 세로로 이어지는 구역(section) 여러 개 -->
   <main>
+    <!-- 히어로: 첫 화면의 큰 소개 구역. h1 을 section 의 이름으로 연결(aria-labelledby) -->
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">바다 위 부유물을 AI 가 찾아 드려요</h1>
       <p>사진을 올리면 페트병 · 비닐 · 스티로폼을 자동으로 찾아요.</p>
     </section>
+    <!-- 기능 소개 구역: 카드 3개(article)를 한 줄에 -->
     <section id="features">
       <h2>주요 기능</h2>
       <div class="three">
@@ -31,15 +40,18 @@
         <article><h3>기록</h3><p>날짜별 통계</p></article>
       </div>
     </section>
+    <!-- 사용법 구역: 순서가 있으니 ol -->
     <section id="how">
       <h2>사용법</h2>
       <ol><li>사진 올리기</li><li>탐지 결과 확인</li></ol>
     </section>
+    <!-- 시작하기 구역 -->
     <section id="start">
       <h2>지금 시작하기</h2>
       <p><a href="#">무료로 써 보기</a></p>
     </section>
   </main>
+  <!-- ③ 바닥글 -->
   <footer>
     <p>© 2026 FloatWatch 팀</p>
   </footer>

@@ -13,9 +13,11 @@ HERE = Path(__file__).parent
 IMG = HERE / "images"; IMG.mkdir(exist_ok=True)
 tips = pd.read_csv(HERE / "data" / "tips.csv")   # 식당 팁 데이터 (244건)
 
+# 데이터 맨 앞 5행과 (행 수, 열 수) 확인
 print(tips.head())
 print(tips.shape)
 
+# data= 표, x · y = 열 이름, hue = 색으로 나눌 열 → seaborn 이 축 · 범례를 알아서 만들어요
 ax = sns.scatterplot(data=tips, x="total_bill", y="tip", hue="time")   # 열 이름만 쓰면 끝
 ax.set_title("계산 금액과 팁 (점심/저녁)")
 ax.set_xlabel("계산 금액 ($)")

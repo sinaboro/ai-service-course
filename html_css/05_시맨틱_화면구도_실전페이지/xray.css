@@ -1,4 +1,6 @@
 /* 구도보기 전용: 디자인 색을 지워 regions.css 이름표가 잘 보이게 */
+/* 머리글 · 바닥글 · 히어로의 진한 배경을 지워야 regions.css 의 태그 이름표가 보여요 */
 .site-header, .site-footer, .hero { background: none; color: #222; }
 .site-header a, .hero h1 { color: #1f4e79; }
+/* 이름표가 글자와 겹치지 않게 위쪽 안쪽 여백 확보 */
 .note, .card, .headline, .hero, .side-nav { padding: 26px 12px 10px; }

@@ -16,13 +16,16 @@ tips = pd.read_csv(HERE / "data" / "tips.csv")   # 식당 팁 데이터 (244건)
 order = ["Thur", "Fri", "Sat", "Sun"]
 fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))
 ax = sns.countplot(data=tips, x="day", hue="time", order=order, ax=axes[0])   # 개수 세기
+# 막대 묶음(containers)마다 끝에 개수 숫자 붙이기
 for c in ax.containers:
     ax.bar_label(c)
 axes[0].set_title("countplot: 요일별 손님 수")
 
+# barplot: 막대 = 평균, 검은 선 = 신뢰구간(평균이 있을 법한 범위)
 sns.barplot(data=tips, x="day", y="tip", hue="smoker", order=order, ax=axes[1])  # 평균 + 신뢰구간
 axes[1].set_title("barplot: 요일 x 흡연 평균 팁")
 fig.tight_layout()
 fig.savefig(IMG / "ex04_count_bar.png", dpi=100, bbox_inches="tight")
+# 그래프와 같은 값을 표로 확인 (unstack: 흡연 여부를 열로 펼치기)
 print(tips.groupby(["day", "smoker"])["tip"].mean().round(2).unstack().reindex(order))
 plt.show()

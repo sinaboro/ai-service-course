@@ -1,3 +1,4 @@
+# time.sleep: 기다리는 동안 그 일꾼(스레드)이 멈춰요 / asyncio.sleep: 기다리는 동안 다른 요청을 처리할 수 있어요
 import asyncio
 import time
 from fastapi import FastAPI
@@ -24,7 +25,9 @@ async def fetch(name: str, sec: float) -> str:
 
 @app.get("/gather")
 async def gather():
+    # 걸린 시간 재기 시작
     start = time.perf_counter()
     results = await asyncio.gather(fetch("날씨", 0.3), fetch("환율", 0.3), fetch("뉴스", 0.3))  # 동시에 기다리기
+    # 세 일을 하나씩 하면 0.9초, 동시에 기다리면 약 0.3초
     took = time.perf_counter() - start
     return {"results": results, "under_0_5s": took < 0.5}

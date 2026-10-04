@@ -1,12 +1,16 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>상품 상세 — AI 카메라</title>
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 머리글: 로고 + 카테고리 메뉴 + 상품 검색 -->
   <header class="site-header">
     <p class="logo">AI 마켓</p>
     <nav aria-label="카테고리">
@@ -21,15 +25,18 @@
   </header>
   <div class="page">
     <main>
+      <!-- ⭐ 상품 하나 = article: 사진(figure) + 상품 정보(section) -->
       <article class="product">
         <figure>
           <img src="images/camera.svg" alt="동그란 렌즈가 달린 하늘색 AI 카메라" width="300" height="220">
           <figcaption>AI 탐지 카메라 X1</figcaption>
         </figure>
+        <!-- 상품 정보: 이름(h1) · 가격 · 구매 옵션 폼 -->
         <section aria-labelledby="p-name">
           <h1 id="p-name">AI 탐지 카메라 X1</h1>
           <p class="price">189,000원</p>
           <p>YOLO 모델 내장 · 초당 30장 탐지</p>
+          <!-- 장바구니 폼: 색상 고르기 + 수량 + 담기 버튼 -->
           <form action="/cart" method="post">
             <label for="color">색상</label>
             <select id="color" name="color"><option>하늘색</option><option>흰색</option></select>
@@ -39,16 +46,19 @@
           </form>
         </section>
       </article>
+      <!-- 상세 설명 단원 -->
       <section>
         <h2>상세 설명</h2>
         <p>렌즈 앞의 물체를 실시간으로 찾아 화면에 상자로 표시해요.</p>
       </section>
+      <!-- 구매 후기 단원: 후기 하나하나가 독립된 글 = article -->
       <section>
         <h2>구매 후기 (2)</h2>
         <article class="card"><h3>⭐ 5 · 학교 프로젝트에 딱</h3><p>설치가 쉬워요.</p></article>
         <article class="card"><h3>⭐ 4 · 밤에는 아쉬워요</h3><p>어두우면 정확도가 떨어져요.</p></article>
       </section>
     </main>
+    <!-- 사이드바: 함께 본 상품 -->
     <aside aria-labelledby="rec">
       <h2 id="rec">함께 본 상품</h2>
       <ul><li><a href="#">탐지 드론 D2</a></li><li><a href="#">삼각대</a></li></ul>

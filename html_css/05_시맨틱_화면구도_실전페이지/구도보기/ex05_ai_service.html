@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FloatWatch — AI 부유물 탐지</title>
@@ -9,6 +11,8 @@
   <link rel="stylesheet" href="../xray.css">
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 머리글: #upload 같은 메뉴 주소는 아래 section 의 id 로 이동 -->
   <header class="site-header">
     <p class="logo">FloatWatch</p>
     <nav aria-label="주 메뉴">
@@ -17,10 +21,12 @@
   </header>
   <div class="page">
     <main>
+      <!-- 히어로: 서비스를 한 문장으로 소개 (이 페이지의 h1) -->
       <section class="hero" aria-labelledby="title">
         <h1 id="title">사진 한 장으로 바다 쓰레기를 찾아요</h1>
         <p>YOLO 객체 탐지 모델 · 클래스 3종 (bottle, can, bag)</p>
       </section>
+      <!-- 1. 사진 올리기: FastAPI 서버의 /detect 로 사진(file)과 신뢰도(conf)를 보내는 폼 -->
       <section id="upload" aria-labelledby="upload-title">
         <h2 id="upload-title">1. 사진 올리기</h2>
         <form action="/detect" method="post" enctype="multipart/form-data">
@@ -31,6 +37,7 @@
           <button class="btn" type="submit">탐지</button>
         </form>
       </section>
+      <!-- 2. 탐지 결과: 결과 그림(figure) + 탐지 목록(table) -->
       <section id="result" aria-labelledby="result-title">
         <h2 id="result-title">2. 탐지 결과</h2>
         <figure>
@@ -46,6 +53,7 @@
           </tbody>
         </table>
       </section>
+      <!-- 3. 팀 소개: 팀원 카드(article) 3개 -->
       <section id="team" aria-labelledby="team-title">
         <h2 id="team-title">3. 팀 소개</h2>
         <div class="grid3">
@@ -55,6 +63,7 @@
         </div>
       </section>
     </main>
+    <!-- 사이드바: 사용 안내 -->
     <aside aria-labelledby="guide">
       <h2 id="guide">사용 안내</h2>
       <ul><li>PNG · JPG, 5MB 이하</li><li>밝은 낮 사진이 정확해요</li><li>신뢰도를 낮추면 더 많이 찾아요</li></ul>

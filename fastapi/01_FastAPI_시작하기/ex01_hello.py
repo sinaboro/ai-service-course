@@ -1,3 +1,4 @@
+# FastAPI: 웹 API 서버를 만드는 도구
 from fastapi import FastAPI
 
 app = FastAPI(title="첫 번째 API", version="1.0")   # API 서버(앱) 만들기
@@ -9,6 +10,7 @@ def root():                           # 이 함수가 실행되고
 
 
 @app.get("/hello/{name}")             # 주소의 일부를 변수로 받기
+# {name}: 주소 /hello/홍길동 의 "홍길동" 부분이 name 변수로 들어와요
 def hello(name: str):
     return {"greeting": f"{name}님, 반가워요!"}
 

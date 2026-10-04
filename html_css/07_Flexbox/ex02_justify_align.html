@@ -1,25 +1,33 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>정렬</title>
   <style>
+    /* 7장 예제가 함께 쓰는 기본 모양 */
     * { box-sizing: border-box; }
     body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
     h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
+    /* 모든 줄의 공통 모양: flex 컨테이너 */
     .row { display: flex; border: 2px dashed #2e75b6; background: #f0f7fd; }
     .row p { margin: 4px; padding: 6px 18px; background: #c55a11; color: #fff; }
+    /* justify-content = 주축(가로) 정렬 */
     .start   { justify-content: flex-start; }
     .center  { justify-content: center; }
     .between { justify-content: space-between; }
     .around  { justify-content: space-around; }
+    /* align-items = 교차축(세로) 정렬. 높이가 있어야 차이가 보여요 */
     .tall    { height: 90px; }
     .middle  { align-items: center; }
     .big     { padding: 22px 18px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 같은 A B C 를 justify-content 값만 바꿔서 비교 -->
   <h2>justify-content: flex-start (기본)</h2>
   <div class="row start"><p>A</p><p>B</p><p>C</p></div>
   <h2>justify-content: center</h2>
@@ -28,6 +36,7 @@
   <div class="row between"><p>A</p><p>B</p><p>C</p></div>
   <h2>justify-content: space-around</h2>
   <div class="row around"><p>A</p><p>B</p><p>C</p></div>
+  <!-- 높이가 다른 아이템을 세로 가운데로 맞추기 -->
   <h2>align-items: center (세로 가운데) — 높이가 다른 아이템</h2>
   <div class="row tall middle"><p>A</p><p class="big">B</p><p>C</p></div>
 </body>

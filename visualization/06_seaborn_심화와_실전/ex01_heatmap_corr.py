@@ -13,14 +13,17 @@ HERE = Path(__file__).parent
 IMG = HERE / "images"; IMG.mkdir(exist_ok=True)
 tips = pd.read_csv(HERE / "data" / "tips.csv")   # 식당 팁 데이터 (244건)
 
+# 숫자 열 3개만 골라 상관계수(-1 ~ 1) 표 만들기
 num = tips[["total_bill", "tip", "size"]]
 corr = num.corr().round(2)                        # 상관계수 표
 print(corr)
 
 fig, axes = plt.subplots(1, 2, figsize=(13, 4.5))
+# heatmap: 표의 값을 색으로. annot=True 로 칸에 숫자 쓰기, vmin · vmax 로 색 범위 고정
 sns.heatmap(corr, annot=True, cmap="coolwarm", vmin=-1, vmax=1, ax=axes[0])
 axes[0].set_title("상관계수 히트맵")
 
+# 피벗 표(요일 × 시간대의 평균 팁)도 히트맵으로 그릴 수 있어요
 pt = tips.pivot_table(index="day", columns="time", values="tip", aggfunc="mean").reindex(["Thur", "Fri", "Sat", "Sun"])
 sns.heatmap(pt, annot=True, fmt=".2f", cmap="YlGnBu", linewidths=1, ax=axes[1])
 axes[1].set_title("요일 x 시간 평균 팁 (피벗 히트맵)")

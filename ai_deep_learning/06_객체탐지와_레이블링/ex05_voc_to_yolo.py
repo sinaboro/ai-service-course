@@ -14,14 +14,18 @@ xml_text = """<annotation>
   <object><name>bag</name><difficult>0</difficult>
     <bndbox><xmin>400</xmin><ymin>100</ymin><xmax>480</xmax><ymax>160</ymax></bndbox></object>
 </annotation>"""
+# xml 문자열을 파일로 저장 (labelImg 가 저장한 파일이라고 생각하기)
 (HERE / "beach_010.xml").write_text(xml_text, encoding="utf-8")
 
 
+# xml 파일 하나 → YOLO 레이블 줄 목록
 def voc_to_yolo(xml_path):
     root = ET.parse(xml_path).getroot()
+    # 사진 크기 (비율 계산에 필요)
     W = int(root.find("size/width").text)
     H = int(root.find("size/height").text)
     lines = []
+    # object 태그(물체)마다 한 줄씩
     for obj in root.iter("object"):
         c = CLASSES.index(obj.find("name").text)         # 이름 → 번호
         b = obj.find("bndbox")
@@ -30,6 +34,7 @@ def voc_to_yolo(xml_path):
     return lines
 
 
+# 변환 결과를 같은 이름의 .txt 로 저장하고 출력
 lines = voc_to_yolo(HERE / "beach_010.xml")
 (HERE / "beach_010.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
 print("\n".join(lines))

@@ -1,34 +1,43 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2단 구도</title>
   <link rel="stylesheet" href="regions.css">
   <style>
     /* 배치: 본문 3 : 사이드바 1 */
+    /* 3fr 1fr: 남은 너비를 3 : 1 로 나눠 main 과 aside 에 주기 (Grid 는 8장) */
     .layout { display: grid; grid-template-columns: 3fr 1fr; gap: 12px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 머리글 -->
   <header>
     <h1>AI 수업 노트</h1>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#">홈</a></li><li><a href="#">강의</a></li><li><a href="#">소개</a></li></ul>
     </nav>
   </header>
+  <!-- ② 본문 + 사이드바를 나란히 놓으려고 감싸는 배치용 div (뜻은 없어요) -->
   <div class="layout">
+    <!-- 왼쪽: 핵심 내용 -->
     <main>
       <article>
         <h2>labelImg 로 레이블링하기</h2>
         <p>윈도우에서 labelImg.exe 를 실행하고, 상자를 그려 이름을 붙여요.</p>
       </article>
     </main>
+    <!-- 오른쪽: 곁가지 정보 (관련 글) -->
     <aside>
       <h2>함께 보면 좋은 글</h2>
       <ul><li>YOLO 데이터 폴더 구조</li><li>클래스 이름 정하기</li></ul>
     </aside>
   </div>
+  <!-- ③ 바닥글 -->
   <footer>
     <p>© 2026 AI 수업 노트</p>
   </footer>

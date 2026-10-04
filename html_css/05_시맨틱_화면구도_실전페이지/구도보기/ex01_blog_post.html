@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>블로그 글 — YOLO 첫 학습 후기</title>
@@ -9,38 +11,48 @@
   <link rel="stylesheet" href="../xray.css">
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 머리글: 로고 + 주 메뉴 -->
   <header class="site-header">
     <p class="logo"><a href="#">AI 수업 노트</a></p>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#">강의</a></li><li><a href="#">프로젝트</a></li><li><a href="#">소개</a></li></ul>
     </nav>
   </header>
+  <!-- 본문 + 사이드바 2단 배치용 div -->
   <div class="page">
     <main>
+      <!-- ⭐ 글 한 편 = article. 글 안에 글의 header · section · aside · footer 가 들어가요 -->
       <article>
+        <!-- 글의 머리글: 이 페이지의 h1 은 "글 제목" -->
         <header>
           <h1>YOLO 첫 학습 후기</h1>
           <p class="meta">김민수 · <time datetime="2026-10-04">2026년 10월 4일</time> · 읽는 데 3분</p>
         </header>
+        <!-- 글의 단원 1 -->
         <section>
           <h2>데이터 준비</h2>
           <p>labelImg 로 사진 120장에 상자를 그렸어요. 클래스는 bottle, can 두 가지예요.</p>
         </section>
+        <!-- 글의 단원 2: 그림(figure) + 용어 설명(aside) -->
         <section>
           <h2>학습 결과</h2>
           <figure>
             <img src="../images/curve.svg" alt="에폭이 늘수록 mAP 가 0.2 에서 0.75 까지 오르는 그래프" width="420" height="160">
             <figcaption>그림 1. 에폭별 mAP50 변화</figcaption>
           </figure>
+          <!-- 글 안의 aside: 이 글에만 관련된 곁가지 설명 -->
           <aside class="note">
             <p><strong>mAP</strong> 는 탐지 정확도를 0 ~ 1 로 나타낸 값이에요.</p>
           </aside>
         </section>
+        <!-- 글의 바닥글: 태그 -->
         <footer class="tags">
           <p>태그: YOLO · 레이블링 · 학습</p>
         </footer>
       </article>
     </main>
+    <!-- 페이지 사이드바: 글쓴이 · 관련 글 (aria-label 로 이름 붙이기) -->
     <aside aria-label="글쓴이와 관련 글">
       <section>
         <h2>글쓴이</h2>
@@ -52,6 +64,7 @@
       </section>
     </aside>
   </div>
+  <!-- 사이트 바닥글 -->
   <footer class="site-footer">
     <p>© 2026 AI 수업 노트</p>
   </footer>

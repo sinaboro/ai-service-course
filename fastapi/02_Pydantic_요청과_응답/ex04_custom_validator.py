@@ -7,6 +7,7 @@ app = FastAPI()
 class Features(BaseModel):         # 모델 입력: 숫자 4개 (예: 꽃잎·꽃받침 길이)
     values: list[float] = Field(min_length=4, max_length=4)
 
+    # field_validator: 필드 하나를 직접 검사하는 함수 (ValueError 를 내면 422 오류)
     @field_validator("values")
     @classmethod
     def no_negative(cls, v: list[float]) -> list[float]:
@@ -15,6 +16,7 @@ class Features(BaseModel):         # 모델 입력: 숫자 4개 (예: 꽃잎·�
         return [round(x, 2) for x in v]           # 검사 + 정리(반올림)까지
 
 
+# 두 필드를 비교하려면 model_validator (모든 값이 들어온 뒤 실행)
 class DateRange(BaseModel):
     start: int
     end: int

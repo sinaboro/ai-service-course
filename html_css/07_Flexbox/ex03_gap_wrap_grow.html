@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>간격 줄바꿈 크기</title>
   <style>
+    /* 7장 예제가 함께 쓰는 기본 모양 */
     * { box-sizing: border-box; }
     body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
     h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
@@ -19,12 +22,16 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 아이템 사이 간격 -->
   <h2>gap: 12px — 아이템 사이 간격</h2>
   <div class="row gap"><p>A</p><p>B</p><p>C</p></div>
+  <!-- 자리가 모자라면 다음 줄로 (부모 너비 520px, 아이템 150px) -->
   <h2>flex-wrap: wrap — 넘치면 다음 줄로</h2>
   <div class="row gap wrap">
     <p class="w">1</p><p class="w">2</p><p class="w">3</p><p class="w">4</p><p class="w">5</p>
   </div>
+  <!-- flex 숫자 = 남은 공간을 나눠 갖는 비율 -->
   <h2>flex: 1 — 남은 공간을 똑같이 나누기</h2>
   <div class="row gap"><p class="g1">1</p><p class="g1">1</p><p class="g1">1</p></div>
   <h2>flex: 2 와 flex: 1 — 2 : 1 로 나누기</h2>

@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 
 from model_core import PassModel
 
+# 모델 파일 위치: 환경 변수 MODEL_PATH 가 있으면 그것, 없으면 이 폴더의 model/pass_model.npz
 MODEL_PATH = os.getenv("MODEL_PATH", os.path.join(os.path.dirname(__file__), "model", "pass_model.npz"))
 
 
@@ -18,12 +19,14 @@ class StudentFeatures(BaseModel):
     phone_h: float = Field(ge=0, le=24, description="하루 휴대폰 사용 시간", examples=[2.0])
 
 
+# 응답 하나의 모양: 합격 확률 · 결과 · 모델 버전
 class Prediction(BaseModel):
     pass_probability: float
     label: str
     model_version: str
 
 
+# 여러 명을 한 번에 (1 ~ 100명)
 class BatchRequest(BaseModel):
     students: list[StudentFeatures] = Field(min_length=1, max_length=100)
 
@@ -42,6 +45,7 @@ async def lifespan(app: FastAPI):
     except Exception as e:                       # 모델이 없어도 서버는 켜지게
         app.state.model = None
         app.state.model_error = f"{type(e).__name__}: {e}"
+    # 예측 횟수 세기용 변수
     app.state.n_predictions = 0
     yield
     app.state.model = None
@@ -57,6 +61,7 @@ def get_model(request: Request) -> PassModel:   # 의존성: 모델 꺼내기 (�
     return model
 
 
+# 다른 함수에서 model: Model 로 쓰면 get_model 을 거쳐 모델이 들어와요
 Model = Annotated[PassModel, Depends(get_model)]
 
 
@@ -69,6 +74,7 @@ def make_prediction(p: float, version: str) -> Prediction:
                       model_version=version)
 
 
+# 상태 확인: 모델이 불러와졌는지, 실패했다면 이유
 @app.get("/health", tags=["status"])
 def health(request: Request):
     return {"status": "ok", "model_loaded": request.app.state.model is not None,
@@ -80,6 +86,7 @@ def model_info(model: Model, request: Request):
     return {**model.card, "predictions_served": request.app.state.n_predictions}
 
 
+# 한 명 예측: 입력 → 배열 → 확률 → 응답 모양
 @app.post("/predict", response_model=Prediction, tags=["predict"])
 def predict(student: StudentFeatures, model: Model, request: Request):
     p = model.predict_proba(to_array([student]))[0]
@@ -87,6 +94,7 @@ def predict(student: StudentFeatures, model: Model, request: Request):
     return make_prediction(p, model.version)
 
 
+# 여러 명 예측
 @app.post("/predict/batch", response_model=BatchResponse, tags=["predict"])
 def predict_batch(req: BatchRequest, model: Model, request: Request):
     probs = model.predict_proba(to_array(req.students))       # 한 번에 계산 (빠름)

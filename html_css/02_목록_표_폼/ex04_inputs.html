@@ -1,45 +1,56 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>여러 가지 입력</title>
   <style>
+    /* 모든 예제에 공통으로 쓰는 글꼴과 여백 (CSS 는 6장에서 자세히 배워요) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
     fieldset { margin-bottom: 12px; }
     legend { font-weight: bold; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>프로젝트 설문</h1>
   <form action="/survey" method="post">
+    <!-- fieldset: 관련 있는 입력을 묶는 상자 / legend: 그 상자의 제목 -->
     <fieldset>
       <legend>기본 정보</legend>
+      <!-- number: 숫자만 (min ~ max) / date: 날짜 고르기 / range: 막대를 밀어서 고르기 -->
       <p><label for="age">나이</label> <input type="number" id="age" name="age" min="10" max="99" value="20"></p>
       <p><label for="day">시작일</label> <input type="date" id="day" name="day" value="2026-10-05"></p>
       <p><label for="level">파이썬 실력</label> <input type="range" id="level" name="level" min="1" max="5" value="3"></p>
     </fieldset>
     <fieldset>
+      <!-- checkbox: 여러 개 고를 수 있어요. 같은 name 으로 묶고 value 가 서버로 가요 / checked: 처음부터 선택됨 -->
       <legend>관심 주제 (여러 개 선택)</legend>
       <label><input type="checkbox" name="topic" value="trash" checked> 해양 쓰레기</label>
       <label><input type="checkbox" name="topic" value="traffic"> 교통</label>
       <label><input type="checkbox" name="topic" value="safety"> 안전모 착용</label>
     </fieldset>
     <fieldset>
+      <!-- radio: 같은 name 끼리는 하나만 고를 수 있어요 -->
       <legend>팀 역할 (하나만 선택)</legend>
       <label><input type="radio" name="role" value="data" checked> 데이터</label>
       <label><input type="radio" name="role" value="model"> 모델</label>
       <label><input type="radio" name="role" value="web"> 웹</label>
     </fieldset>
     <p>
+      <!-- select: 펼쳐서 고르는 목록 / option: 고를 항목 하나 / selected: 처음 선택된 항목 -->
       <label for="tool">레이블링 도구</label>
       <select id="tool" name="tool">
         <option value="labelimg" selected>labelImg</option>
         <option value="roboflow">Roboflow</option>
       </select>
     </p>
+    <!-- textarea: 여러 줄 입력칸 (rows = 줄 수, cols = 글자 폭) -->
     <p><label for="memo">하고 싶은 말</label><br>
       <textarea id="memo" name="memo" rows="3" cols="40" placeholder="자유롭게 적어 주세요"></textarea></p>
+    <!-- reset: 입력한 내용을 처음 상태로 되돌리기 -->
     <button type="submit">제출</button> <button type="reset">다시 쓰기</button>
   </form>
 </body>

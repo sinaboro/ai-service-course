@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>grid 기초</title>
   <style>
+    /* 8장 예제가 함께 쓰는 기본 모양: 파란 칸 = grid 아이템 */
     * { box-sizing: border-box; }
     body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
     h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
@@ -17,12 +20,17 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 아이템 6개를 열 3개짜리 격자에: 자동으로 2줄이 돼요 -->
   <h2>grid-template-columns: 200px 200px 200px</h2>
   <div class="grid g1"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div>
+  <!-- fr: 남은 공간을 비율로 나누기 -->
   <h2>grid-template-columns: 1fr 2fr 1fr (남은 공간을 1 : 2 : 1)</h2>
   <div class="grid g2"><div>1fr</div><div>2fr</div><div>1fr</div></div>
+  <!-- repeat(4, 1fr) = 1fr 1fr 1fr 1fr -->
   <h2>repeat(4, 1fr) + gap: 10px</h2>
   <div class="grid g3"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>
+  <!-- 행 높이도 정할 수 있어요 -->
   <h2>grid-template-rows: 40px 80px (행 높이)</h2>
   <div class="grid g4"><div>40px</div><div>40px</div><div>80px</div><div>80px</div></div>
 </body>

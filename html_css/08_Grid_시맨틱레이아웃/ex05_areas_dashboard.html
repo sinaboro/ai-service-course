@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>areas 대시보드</title>
@@ -8,6 +10,7 @@
   <style>
     body {
       display: grid;
+      /* 바깥 구도: 왼쪽 메뉴 160px + 본문 */
       grid-template-columns: 160px 1fr;
       grid-template-areas:
         "header header"
@@ -37,6 +40,8 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 바깥 구도: header / nav + main / footer -->
   <header>
     <h1>탐지 관리자</h1>
   </header>
@@ -44,16 +49,19 @@
     <ul><li><a href="#">대시보드</a></li><li><a href="#">기록</a></li><li><a href="#">모델</a></li></ul>
   </nav>
   <main>
+    <!-- 요약 카드 단원 (main 안에서 또 grid) -->
     <section class="stats" aria-labelledby="s1">
       <h2 id="s1">오늘 요약</h2>
       <article><h3>업로드</h3><p>128</p></article>
       <article><h3>탐지</h3><p>412</p></article>
       <article><h3>신뢰도</h3><p>0.81</p></article>
     </section>
+    <!-- 그래프 자리 -->
     <section class="chart" aria-labelledby="s2">
       <h2 id="s2">시간대별 탐지</h2>
       <p>(그래프 자리)</p>
     </section>
+    <!-- 최근 기록 -->
     <section class="log" aria-labelledby="s3">
       <h2 id="s3">최근 기록</h2>
       <p>10:21 bottle 0.92</p>

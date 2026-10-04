@@ -1,19 +1,25 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>시맨틱 태그 꾸미기</title>
   <style>
     :root { --main: #1f4e79; --light: #ddebf7; }   /* CSS 변수: 색을 한곳에서 관리 */
+    /* 모든 상자의 크기 계산을 border-box 로 */
     * { box-sizing: border-box; }
     body { margin: 0; font-family: "Malgun Gothic", sans-serif; background: #f5f7fa; }
+    /* 머리글 = 진한 파랑 배경, 흰 글자 */
     header { background: var(--main); color: #fff; padding: 12px 24px; }
     header h1 { margin: 0 0 6px; font-size: 22px; }
+    /* 메뉴 목록: 점 · 기본 여백 없애고 가로로 */
     nav ul { list-style: none; margin: 0; padding: 0; }
     nav li { display: inline-block; margin-right: 16px; }
     nav a { color: #fff; text-decoration: none; }
     nav a:hover { text-decoration: underline; }
+    /* 본문 최대 너비 720px + 가운데 */
     main { max-width: 720px; margin: 20px auto; padding: 0 16px; }
     article { background: #fff; border-left: 6px solid var(--main); padding: 12px 18px; margin-bottom: 14px; border-radius: 6px; }
     article h2 { margin: 0 0 6px; color: var(--main); font-size: 18px; }
@@ -21,6 +27,8 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- class 를 거의 쓰지 않고 시맨틱 태그 이름으로 꾸며요 (CSS 쪽을 보세요) -->
   <header>
     <h1>FloatWatch</h1>
     <nav aria-label="주 메뉴">
@@ -28,6 +36,7 @@
     </nav>
   </header>
   <main>
+    <!-- article 마다 왼쪽 파란 줄이 있는 카드 모양 -->
     <article>
       <h2>오늘의 탐지 결과</h2>
       <p>사진 12장에서 쓰레기 31개를 찾았어요.</p>

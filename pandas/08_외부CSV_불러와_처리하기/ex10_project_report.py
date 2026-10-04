@@ -16,15 +16,18 @@ print(f"[1] 읽기: {len(df)}행 {df.shape[1]}열")
 # 2) 정리
 df["판매일"] = pd.to_datetime(df["판매일"], format="%Y.%m.%d")
 df["매출"] = df["수량"] * df["단가"]
+# 중복 행 제거 전후 개수를 비교해서 몇 행 지웠는지 출력
 before = len(df)
 df = df.drop_duplicates()
 print(f"[2] 정리: 중복 {before - len(df)}행 제거, 빈 값 {int(df.isna().sum().sum())}개")
 
 # 3) 분석
 total = df["매출"].sum()
+# 지점별 매출 · 판매 수량 + 전체 매출 중 비중(%)
 by_store = df.groupby("지점", as_index=False).agg(매출=("매출", "sum"), 판매수량=("수량", "sum"))
 by_store["비중(%)"] = (by_store["매출"] / total * 100).round(1)
 by_store = by_store.sort_values("매출", ascending=False)
+# 상품별 매출, 매출이 가장 큰 날(idxmax: 최댓값의 인덱스 = 날짜)
 by_item = df.groupby("상품")["매출"].sum().sort_values(ascending=False)
 best_day = df.groupby("판매일")["매출"].sum().idxmax()
 

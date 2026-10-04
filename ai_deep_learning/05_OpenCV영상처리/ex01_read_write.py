@@ -5,6 +5,7 @@ import cv2
 from cvutil import imread, imwrite
 
 HERE = Path(__file__).parent
+# 읽을 사진 경로 (폴더 이름에 한글이 들어 있어요)
 path = HERE / "samples" / "beach_01.png"
 print("폴더 이름에 한글이 있나요?", any(ord(ch) > 127 for ch in str(path)))
 
@@ -14,11 +15,13 @@ print("cv2.imread 결과:", None if img is None else img.shape)
 img = imread(path)                               # ② cvutil.imread (한글 경로 OK)
 print("cvutil.imread 결과:", img.shape, img.dtype)
 
+# shape 는 (높이, 너비, 채널) 순서
 h, w, c = img.shape
 print(f"높이 {h} · 너비 {w} · 채널 {c}")
 print("가운데 픽셀 (B, G, R):", img[h // 2, w // 2])
 print("맨 위 줄 첫 픽셀 (바다):", img[0, 0], "← 파랑(B) 값이 가장 커요")
 
+# 흑백으로 바꿔서 cvutil.imwrite 로 저장 (성공하면 True)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 print("흑백 모양:", gray.shape)
 print("저장 성공?", imwrite(HERE / "images" / "beach_gray.png", gray))

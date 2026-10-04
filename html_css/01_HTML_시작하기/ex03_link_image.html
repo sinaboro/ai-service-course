@@ -1,17 +1,26 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>링크와 이미지</title>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>링크와 이미지</h1>
+  <!-- a href: 클릭하면 다른 사이트로 이동하는 링크 -->
   <p><a href="https://www.python.org">파이썬 공식 사이트</a>로 이동해요.</p>
+  <!-- target="_blank": 새 탭에서 열기 (rel="noopener" 는 보안을 위해 함께 써요) -->
   <p><a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">FastAPI 문서 (새 탭)</a></p>
+  <!-- 상대 경로: 지금 파일이 있는 폴더 기준으로 찾아가요 -->
   <p><a href="ex02_text.html">같은 폴더의 다른 페이지(상대 경로)</a></p>
+  <!-- #bottom: 이 페이지 안의 id="bottom" 위치로 이동 -->
   <p><a href="#bottom">이 페이지의 맨 아래로</a></p>
+  <!-- img: 그림 넣기. src = 파일 위치, alt = 그림 설명(꼭 쓰기), width/height = 크기 -->
   <img src="images/logo.svg" alt="AI Lab 로고" width="240" height="120">
+  <!-- id: 페이지 안에서 하나뿐인 이름표 (위의 #bottom 링크가 여기로 와요) -->
   <p id="bottom">여기가 맨 아래예요.</p>
 </body>
 </html>

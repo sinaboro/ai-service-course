@@ -4,6 +4,7 @@ os.environ["MODEL_PATH"] = "model/없는_모델.npz"      # 일부러 없는 경
 from fastapi.testclient import TestClient
 from ex01_serving_app import app
 
+# 모델이 없으면: /health 는 model_loaded False, /predict 는 503
 with TestClient(app) as client:
     print(client.get("/health").json())
     res = client.post("/predict", json={"study_h": 3, "sleep_h": 7, "phone_h": 2})

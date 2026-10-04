@@ -1,14 +1,18 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>span</title>
   <style>
+    /* 8장 예제가 함께 쓰는 기본 모양: 파란 칸 = grid 아이템 */
     * { box-sizing: border-box; }
     body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
     h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
     .grid div { background: #2e75b6; color: #fff; padding: 10px; text-align: center; font-weight: bold; }
+    /* 모든 줄이 4칸 격자 */
     .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
     .wide { grid-column: span 2; background: #c55a11 !important; }
     .full { grid-column: 1 / -1; background: #548235 !important; }   /* 1번 선부터 마지막 선까지 */
@@ -16,10 +20,14 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- span 2: 가로 두 칸 차지 -->
   <h2>grid-column: span 2 — 두 칸 차지</h2>
   <div class="grid"><div class="wide">span 2</div><div>1</div><div>1</div><div>1</div><div class="wide">span 2</div></div>
+  <!-- 1 / -1: 첫 선부터 마지막 선까지 = 한 줄 전체 -->
   <h2>grid-column: 1 / -1 — 처음부터 끝까지</h2>
   <div class="grid"><div class="full">1 / -1 (맨 위 배너)</div><div>1</div><div>1</div><div>1</div><div>1</div></div>
+  <!-- 세로로 두 줄 차지 -->
   <h2>grid-row: span 2 — 두 줄 차지</h2>
   <div class="grid"><div class="tall">row span 2</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div><div>1</div></div>
 </body>

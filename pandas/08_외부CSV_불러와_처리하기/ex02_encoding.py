@@ -4,6 +4,7 @@ import pandas as pd
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더
 
+# 연습할 파일: 한글 윈도우 엑셀에서 저장한 CSV
 path = DATA / "sales_excel_cp949.csv"
 
 # 1) 기본(utf-8)으로 읽으면?
@@ -18,6 +19,7 @@ print(df.head(3))
 
 # 3) 인코딩을 모를 때: 차례로 시도하는 함수
 def read_csv_auto(p, encodings=("utf-8", "utf-8-sig", "cp949")):
+    # 인코딩 목록을 차례로 시도해서, 처음 성공한 것으로 읽기
     for enc in encodings:
         try:
             result = pd.read_csv(p, encoding=enc)
@@ -27,5 +29,6 @@ def read_csv_auto(p, encodings=("utf-8", "utf-8-sig", "cp949")):
             continue
     raise ValueError("알려진 인코딩으로 읽을 수 없어요")
 
+# 두 파일 모두 자동으로 알맞은 인코딩을 찾아 읽어요
 read_csv_auto(DATA / "students.csv")
 read_csv_auto(path)

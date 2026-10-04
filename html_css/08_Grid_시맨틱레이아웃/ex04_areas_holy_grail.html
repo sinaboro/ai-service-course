@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>areas 3단 페이지</title>
@@ -8,12 +10,16 @@
   <style>
     body {
       display: grid;
+      /* 열 너비 3개: 메뉴 180px | 본문 남는 만큼 | 사이드바 200px */
       grid-template-columns: 180px 1fr 200px;
+      /* 행 높이 3개: 머리글 내용만큼 | 가운데 남는 만큼 | 바닥글 내용만큼 */
       grid-template-rows: auto 1fr auto;
+      /* ⭐ 구도를 글자로 그리기: 따옴표 한 쌍 = 한 줄, 단어 하나 = 칸 하나 */
       grid-template-areas:
         "header header header"
         "nav    main   aside"
         "footer footer footer";
+      /* 줄 사이 · 칸 사이 간격 */
       gap: 8px;
       min-height: 420px;
     }
@@ -26,6 +32,8 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- body 바로 아래 다섯 시맨틱 태그가 grid 아이템. 배치용 div 가 하나도 없어요 -->
   <header>
     <h1>AI 수업 노트</h1>
   </header>

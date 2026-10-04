@@ -8,6 +8,7 @@ plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호 깨�
 IMG = Path(__file__).parent / "images"            # 그래프를 저장할 폴더
 IMG.mkdir(exist_ok=True)
 
+# 도시 이름: 1 ~ 6월 기온 / x 축용 월 이름
 cities = {"서울": [-2, 1, 6, 13, 19, 23], "부산": [3, 5, 9, 14, 18, 21],
           "대구": [0, 3, 8, 15, 20, 24], "강릉": [0, 2, 6, 12, 17, 21]}
 months = [f"{m}월" for m in range(1, 7)]
@@ -15,8 +16,10 @@ months = [f"{m}월" for m in range(1, 7)]
 fig, axes = plt.subplots(2, 2, figsize=(10, 6), sharex=True, sharey=True)  # 축 공유
 for ax, (city, temps) in zip(axes.flat, cities.items()):                      # 칸을 하나씩
     ax.plot(months, temps, marker="o")
+    # 0도 기준선 (영하인지 쉽게 보기)
     ax.axhline(0, color="gray", linewidth=0.8)
     ax.set_title(city)
+# 그림 전체의 제목과 공통 y 축 이름
 fig.suptitle("도시별 월평균 기온 (같은 눈금으로 비교)")
 fig.supylabel("기온 (도)")
 fig.tight_layout()

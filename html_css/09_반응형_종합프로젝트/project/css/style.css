@@ -1,4 +1,5 @@
 /* FloatWatch 스타일: 모바일 먼저 (mobile first) */
+/* CSS 변수: 팀 색 · 모서리 둥글기를 한곳에서 관리 (var(--main) 으로 사용) */
 :root {
   --main: #1f4e79;
   --accent: #c00000;
@@ -7,18 +8,22 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: "Malgun Gothic", sans-serif; color: #222; background: var(--bg); line-height: 1.5; }
+/* 그림이 부모보다 커지지 않게 (반응형 필수) */
 img { max-width: 100%; height: auto; }
 
 /* ---------- header ---------- */
+/* 머리글: 좁은 화면에서는 메뉴가 다음 줄로 내려가요(flex-wrap) */
 .site-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; background: var(--main); }
 .site-header a { color: #fff; text-decoration: none; }
 .logo { margin: 0; font-size: 20px; font-weight: bold; }
 .site-header ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; }
 
 /* ---------- main ---------- */
+/* 본문 최대 너비 1100px + 가운데 */
 main { max-width: 1100px; margin: 0 auto; padding: 16px; }
 .hero { text-align: center; color: #fff; background: linear-gradient(135deg, #1f4e79, #2e75b6); border-radius: var(--radius); padding: 24px 16px; }
 .hero h1 { font-size: 22px; margin: 0 0 6px; }
+/* 버튼 모양 (a 태그와 button 둘 다) */
 .btn { display: inline-block; background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 8px 18px; font-size: 15px; text-decoration: none; }
 .hero .btn { background: #fff; color: var(--main); font-weight: bold; }
 h2 { color: var(--main); font-size: 19px; margin: 0 0 8px; }
@@ -34,7 +39,9 @@ h2 { color: var(--main); font-size: 19px; margin: 0 0 8px; }
 #upload { grid-area: upload; }
 #result { grid-area: result; }
 .guide  { grid-area: guide; }
+/* 흰 카드 모양 */
 .panel { background: #fff; border-radius: var(--radius); padding: 14px 16px; box-shadow: 0 1px 4px rgb(0 0 0 / 0.08); }
+/* 입력칸 제목은 한 줄 전체 */
 label { display: block; font-weight: bold; margin-bottom: 4px; }
 figure { margin: 0 0 8px; }
 figcaption { color: #666; font-size: 13px; }

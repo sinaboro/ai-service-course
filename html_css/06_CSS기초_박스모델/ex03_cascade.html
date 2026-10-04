@@ -1,20 +1,28 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>우선순위와 상속</title>
   <style>
     body { font-family: "Malgun Gothic", sans-serif; font-size: 17px; }
     main { color: #548235; border: 2px solid #ccc; padding: 10px; }  /* border 는 상속되지 않음 */
+    /* 태그 선택자 (1점) */
     p { color: #548235; }
+    /* class 선택자 (10점) → p 보다 강해요 */
     .blue { color: #2e75b6; }
+    /* id 선택자 (100점) → class 보다 강해요 */
     #red { color: #c00000; }
+    /* 같은 .later 가 두 번: 점수가 같으면 나중에 쓴 규칙(주황)이 이겨요 */
     .later { color: #222; }
     .later { color: #c55a11; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 다섯 문단에 같은 color 규칙이 여러 개 겹쳐요. 어느 규칙이 이기는지 보세요 -->
   <main class="box">
     <p>1. 상속: main 의 color 를 물려받아 초록색</p>
     <p class="blue">2. class 가 태그보다 강해서 파란색</p>

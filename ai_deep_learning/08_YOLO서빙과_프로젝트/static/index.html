@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FloatWatch — AI 부유물 탐지</title>
@@ -8,6 +10,8 @@
   <script src="/static/js/app.js" defer></script>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ===== 사이트 머리글: 로고 + 주 메뉴 (메뉴 주소 #upload 등은 아래 section 의 id) ===== -->
   <header class="site-header">
     <p class="logo"><a href="#">FloatWatch</a></p>
     <nav aria-label="주 메뉴">
@@ -20,22 +24,28 @@
     </nav>
   </header>
 
+  <!-- ===== 본문 ===== -->
   <main>
+    <!-- 히어로: 서비스 한 줄 소개 + 시작 버튼 (이 페이지의 h1) -->
     <section class="hero" aria-labelledby="title">
       <h1 id="title">사진 한 장으로 바다 쓰레기를 찾아요</h1>
       <p>YOLO 객체 탐지 · bottle · can · bag</p>
       <p><a class="btn" href="#upload">지금 탐지하기</a></p>
     </section>
 
+    <!-- 작업 영역: 업로드 · 결과 · 안내 세 칸을 grid 로 배치하는 div (휴대폰 1열, PC 3열) -->
     <div class="work">
+      <!-- 1. 사진 올리기 폼: 10장에서 JavaScript 가 id="detect-form" 으로 이 폼을 찾아요 -->
       <section id="upload" class="panel" aria-labelledby="upload-title">
         <h2 id="upload-title">1. 사진 올리기</h2>
         <form id="detect-form" action="/detect" method="post" enctype="multipart/form-data">
           <p>
+            <!-- 사진 파일: name="file" 은 서버의 매개변수 이름과 같아야 해요 -->
             <label for="file">사진 (PNG · JPG)</label>
             <input type="file" id="file" name="file" accept="image/png, image/jpeg" required>
           </p>
           <p>
+            <!-- 신뢰도 기준: 낮추면 더 많이 찾고, 높이면 확실한 것만 찾아요 -->
             <label for="conf">신뢰도 기준</label>
             <input type="number" id="conf" name="conf" value="0.25" min="0.05" max="0.95" step="0.05">
           </p>
@@ -47,12 +57,15 @@
         </form>
       </section>
 
+      <!-- 2. 탐지 결과: aria-live="polite" → 내용이 바뀌면 화면 낭독기가 알려 줘요 -->
       <section id="result" class="panel" aria-labelledby="result-title" aria-live="polite">
         <h2 id="result-title">2. 탐지 결과</h2>
+        <!-- 결과 이미지 자리 (10장에서 서버가 그린 결과로 바뀌어요) -->
         <figure>
           <img id="result-img" src="/static/images/sample_result.svg" alt="해변 사진에 bottle 과 can 상자가 그려진 예시 결과" width="480" height="270">
           <figcaption id="result-caption">예시 결과 · 객체 2개</figcaption>
         </figure>
+        <!-- 탐지 목록 표 (10장에서 tbody 안이 서버 결과로 채워져요) -->
         <table>
           <caption>탐지 목록</caption>
           <thead><tr><th scope="col">클래스</th><th scope="col">신뢰도</th></tr></thead>
@@ -63,6 +76,7 @@
         </table>
       </section>
 
+      <!-- 사용 안내 (곁가지 정보) -->
       <aside class="panel guide" aria-labelledby="guide-title">
         <h2 id="guide-title">사용 안내</h2>
         <ul>
@@ -73,6 +87,7 @@
       </aside>
     </div>
 
+    <!-- 3. 모델 정보 카드 -->
     <section id="model" aria-labelledby="model-title">
       <h2 id="model-title">3. 모델 정보</h2>
       <div class="cards">
@@ -82,6 +97,7 @@
       </div>
     </section>
 
+    <!-- 4. 팀 소개 카드 -->
     <section id="team" aria-labelledby="team-title">
       <h2 id="team-title">4. 팀 소개</h2>
       <div class="cards">
@@ -92,6 +108,7 @@
     </section>
   </main>
 
+  <!-- ===== 사이트 바닥글: 저작권 + 연락처 ===== -->
   <footer class="site-footer">
     <p>© 2026 FloatWatch 팀 · AI 객체 탐지 프로젝트</p>
     <address>문의: <a href="mailto:team@example.com">team@example.com</a></address>

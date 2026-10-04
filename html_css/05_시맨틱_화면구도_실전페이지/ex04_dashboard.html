@@ -1,17 +1,23 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>관리자 대시보드</title>
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- 사이트 머리글 -->
   <header class="site-header">
     <p class="logo">탐지 관리자</p>
     <p>관리자님, 안녕하세요</p>
   </header>
+  <!-- 3단 배치: 왼쪽 메뉴 | 본문 | 오른쪽 알림 -->
   <div class="page admin">
+    <!-- 왼쪽 세로 메뉴 / aria-current="page": 지금 보고 있는 메뉴 -->
     <nav class="side-nav" aria-label="관리 메뉴">
       <ul>
         <li><a href="#" aria-current="page">대시보드</a></li>
@@ -20,8 +26,10 @@
         <li><a href="#">설정</a></li>
       </ul>
     </nav>
+    <!-- 본문 -->
     <main>
       <h1>대시보드</h1>
+      <!-- 요약 카드 3개: 숫자 하나씩 담은 독립된 정보 묶음 -->
       <section aria-labelledby="summary">
         <h2 id="summary">오늘 요약</h2>
         <div class="grid3">
@@ -30,6 +38,7 @@
           <article class="card"><h3>평균 신뢰도</h3><p class="stat">0.81</p></article>
         </div>
       </section>
+      <!-- 최근 탐지 기록: 표로 보여 줄 데이터라서 table -->
       <section aria-labelledby="recent">
         <h2 id="recent">최근 탐지</h2>
         <table>
@@ -43,6 +52,7 @@
         </table>
       </section>
     </main>
+    <!-- 오른쪽 알림 -->
     <aside aria-labelledby="alerts">
       <h2 id="alerts">알림</h2>
       <p>모델 v1.2 배포 완료</p>

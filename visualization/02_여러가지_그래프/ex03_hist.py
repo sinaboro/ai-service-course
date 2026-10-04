@@ -10,11 +10,14 @@ IMG.mkdir(exist_ok=True)
 
 import numpy as np
 
+# 평균 72, 표준편차 12 인 정규분포 점수 300개 (clip: 0 ~ 100 밖은 잘라 내기)
 rng = np.random.default_rng(seed=0)
 scores = rng.normal(loc=72, scale=12, size=300).clip(0, 100)   # 평균 72, 표준편차 12
 
 fig, ax = plt.subplots(figsize=(8, 4.5))
+# hist: 값을 bins(15) 개 구간으로 나눠 구간마다 몇 명인지 막대로
 ax.hist(scores, bins=15, color="mediumseagreen", edgecolor="white")
+# axvline: 세로 기준선 (여기서는 평균 위치에 빨간 점선)
 ax.axvline(scores.mean(), color="red", linestyle="--", label=f"평균 {scores.mean():.1f}")
 ax.set_title("시험 점수 분포 (300명)")
 ax.set_xlabel("점수")

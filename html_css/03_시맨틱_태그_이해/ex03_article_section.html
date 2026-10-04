@@ -1,11 +1,14 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>section 과 article</title>
   <style>
     body { font-family: "Malgun Gothic", sans-serif; margin: 20px; }
+    /* 파란 테두리 = section, 초록 테두리 = article 로 구조를 눈으로 확인 */
     section, article { border: 2px solid; border-radius: 8px; padding: 4px 14px; margin: 10px 0; }
     section { border-color: #2e75b6; }
     article { border-color: #70ad47; background: #f4fbef; }
@@ -14,11 +17,14 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
     <h1>AI 수업 블로그</h1>
 
+    <!-- section: 주제가 같은 내용을 묶는 "단원" (h2 같은 제목을 꼭 가져요) -->
     <section>
       <h2>최신 글</h2>
+      <!-- article: 단원 안의 독립된 글 한 편 (따로 떼어 내도 말이 돼요) -->
       <article>
         <h3>labelImg 설치하기</h3>
         <p>윈도우에서 압축을 풀고 labelImg.exe 를 실행해요.</p>
@@ -37,6 +43,7 @@
       </ul>
     </section>
 
+    <!-- article 안의 section: 글 한 편을 다시 작은 단원으로 나누기 -->
     <article>
       <h2>프로젝트 회고</h2>
       <section>

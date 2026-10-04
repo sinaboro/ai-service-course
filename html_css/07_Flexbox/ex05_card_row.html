@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>카드 줄</title>
@@ -14,16 +16,21 @@
       display: flex; flex-direction: column;    /* 카드 안은 세로 flex */
       background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 14px;
     }
+    /* 카드 제목 · 문단 기본 여백 줄이기 */
     .card h2 { margin: 0 0 6px; font-size: 18px; color: #1f4e79; }
     .card p { margin: 4px 0; }
     .card .more { margin-top: auto; }           /* ⭐ 링크를 카드 바닥으로 밀기 */
+    /* 버튼처럼 보이는 링크 */
     .more a { display: inline-block; padding: 6px 12px; background: #1f4e79; color: #fff; border-radius: 6px; text-decoration: none; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
     <h1>탐지 가능한 클래스</h1>
+    <!-- section = 카드 3개를 나란히 놓는 flex 컨테이너 -->
     <section class="cards" aria-label="클래스 목록">
+      <!-- 카드마다 글 길이가 달라도 "예시 보기" 버튼은 같은 높이로 맞춰져요 -->
       <article class="card">
         <h2>bottle</h2>
         <p>플라스틱 병</p>

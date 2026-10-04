@@ -12,6 +12,7 @@ import pandas as pd
 DATA = Path(__file__).parent / "data"
 df = pd.read_csv(DATA / "store_sales.csv", parse_dates=["date"])
 
+# 행 = 날짜, 열 = 지점인 표 → 열마다 선 하나씩 그려져요
 ts = df.pivot_table(index="date", columns="store", values="sales", aggfunc="sum")
 print(ts.head(3))
 
@@ -19,8 +20,10 @@ ax = ts.plot(figsize=(9, 4.5), marker="o", title="지점별 월 매출 추이")
 ax.set_ylabel("매출 (만원)")
 ax.figure.savefig(IMG / "ex03_store_trend.png", dpi=100, bbox_inches="tight")
 
+# 월별 전체 매출 (가로 방향 합계)
 total = ts.sum(axis=1)
 ma3 = total.rolling(3).mean()                 # 3개월 이동평균
+# 같은 칸(ax)에 원래 값과 이동평균을 겹쳐 그리기
 fig, ax = plt.subplots(figsize=(9, 4.5))
 total.plot(ax=ax, marker="o", alpha=0.5, label="월 매출")
 ma3.plot(ax=ax, linewidth=3, label="3개월 이동평균")

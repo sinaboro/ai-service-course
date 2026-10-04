@@ -2,7 +2,9 @@ import platform
 from pathlib import Path
 import matplotlib.pyplot as plt
 
+# 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
+# 마이너스(-) 기호가 네모로 깨지지 않게
 plt.rcParams["axes.unicode_minus"] = False
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
 IMG.mkdir(exist_ok=True)
@@ -11,20 +13,24 @@ import matplotlib.patches as patches
 import numpy as np
 
 # 같은 장면으로 세 가지 문제 비교: 분류 · 객체 탐지 · 분할
+# 실습용 장면 만들기: 0 ~ 1 사이 실수로 색을 칠한 (100, 160, 3) 배열
 scene = np.zeros((100, 160, 3))
 scene[:60] = [0.55, 0.75, 0.9]       # 바다
 scene[60:] = [0.95, 0.85, 0.6]       # 모래
 scene[45:80, 30:42] = [0.35, 0.7, 0.35]     # 병
 scene[55:75, 100:114] = [0.75, 0.75, 0.78]  # 캔
 
+# 분할용 "정답 지도": 물체가 있는 픽셀만 색칠
 mask = np.zeros((100, 160, 3)) + 0.15
 mask[45:80, 30:42] = [1, 0.2, 0.2]
 mask[55:75, 100:114] = [1, 0.6, 0]
 
+# 그림 3칸을 나란히
 fig, axes = plt.subplots(1, 3, figsize=(12, 3.2))
 axes[0].imshow(scene)
 axes[0].set_title("① 분류: '쓰레기 있음' (사진 전체에 답 하나)")
 axes[1].imshow(scene)
+# 객체 탐지 그림: 사각형(Rectangle) 상자와 "이름 신뢰도" 글자 그리기
 for (x, y, w, h, name, c) in [(28, 43, 16, 39, "bottle 0.91", "red"), (98, 53, 18, 24, "can 0.84", "orange")]:
     axes[1].add_patch(patches.Rectangle((x, y), w, h, fill=False, edgecolor=c, linewidth=2))
     axes[1].text(x, y - 3, name, color=c, fontsize=9)

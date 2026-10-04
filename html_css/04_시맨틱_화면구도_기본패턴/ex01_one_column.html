@@ -1,26 +1,33 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>1단 구도</title>
   <link rel="stylesheet" href="regions.css">
   <style>
     /* 배치: 가운데 한 줄 (CSS 배치는 7·8장에서 자세히) */
+    /* 가운데 760px 폭으로 모으기 (margin: 0 auto = 좌우 여백을 똑같이) */
     body { max-width: 760px; margin: 0 auto; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
+  <!-- ① 머리글: 사이트 이름(h1) + 주 메뉴 -->
   <header>
     <h1>AI 수업 노트</h1>
     <nav aria-label="주 메뉴">
       <ul><li><a href="#">홈</a></li><li><a href="#">강의</a></li><li><a href="#">소개</a></li></ul>
     </nav>
   </header>
+  <!-- ② 본문: 1단 구도는 main 하나에 글(article)이 세로로 이어져요 -->
   <main>
     <article>
       <h2>YOLO 로 객체 탐지 시작하기</h2>
       <p>이미지 속 물체의 위치와 종류를 한 번에 찾는 방법을 정리했어요.</p>
+      <!-- article 안을 section(단원)으로 나눠요. 단원마다 h3 제목 -->
       <section>
         <h3>1. 준비</h3>
         <p>파이썬과 ultralytics 를 설치해요.</p>
@@ -31,6 +38,7 @@
       </section>
     </article>
   </main>
+  <!-- ③ 바닥글 -->
   <footer>
     <p>© 2026 AI 수업 노트</p>
   </footer>

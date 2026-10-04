@@ -15,6 +15,7 @@ tips = pd.read_csv(HERE / "data" / "tips.csv")   # 식당 팁 데이터 (244건)
 
 import numpy as np
 
+# 연습 데이터: 지점 3곳 × 12주 × 7일. 주가 지날수록 조금씩 늘어나는 매출 + 잡음
 rng = np.random.default_rng(seed=10)
 rows = []
 for store, base in [("강남", 120), ("홍대", 100), ("잠실", 85)]:
@@ -25,6 +26,7 @@ for store, base in [("강남", 120), ("홍대", 100), ("잠실", 85)]:
 daily = pd.DataFrame(rows)
 print(daily.shape)
 
+# 같은 주의 7일 값을 평균한 선 + 그림자(신뢰구간)를 seaborn 이 자동으로
 fig, ax = plt.subplots(figsize=(9, 4.5))
 sns.lineplot(data=daily, x="week", y="sales", hue="store", marker="o", ax=ax)   # 평균 선 + 범위
 ax.set_title("주차별 일 평균 매출 (그림자 = 95% 신뢰구간)")

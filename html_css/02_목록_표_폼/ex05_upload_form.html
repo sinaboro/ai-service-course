@@ -1,22 +1,30 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>이미지 업로드</title>
   <style>
+    /* 모든 예제에 공통으로 쓰는 글꼴과 여백 (CSS 는 6장에서 자세히 배워요) */
     body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
     label { display: inline-block; width: 110px; }
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <h1>객체 탐지해 보기</h1>
+  <!-- ⭐ 파일을 보내려면 method="post" + enctype="multipart/form-data" 가 꼭 필요해요 -->
+  <!-- action="/detect": FastAPI 서버의 탐지 주소 (HTML/CSS 10장, AI 8장에서 실제로 연결) -->
   <form action="/detect" method="post" enctype="multipart/form-data">
     <p>
+      <!-- type="file": 파일 고르기 / name="file": 서버(FastAPI)의 매개변수 이름과 같아야 해요 / accept: 고를 수 있는 파일 종류 -->
       <label for="image">사진 선택</label>
       <input type="file" id="image" name="file" accept="image/png, image/jpeg" required>
     </p>
     <p>
+      <!-- step="0.05": 화살표를 누를 때마다 0.05 씩 바뀌어요 -->
       <label for="conf">신뢰도 기준</label>
       <input type="number" id="conf" name="conf" min="0.1" max="0.9" step="0.05" value="0.25">
     </p>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!-- 이 문서는 HTML5 문서예요 (항상 맨 첫 줄) -->
 <html lang="ko">
 <head>
+  <!-- head: 화면에 보이지 않는 문서 정보 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>display</title>
@@ -14,15 +16,20 @@
   </style>
 </head>
 <body>
+  <!-- body: 화면에 보이는 내용 -->
   <main>
     <h2>block: 한 줄을 다 차지</h2>
+    <!-- block: div, p 는 한 줄을 다 차지해요 -->
     <div class="b">div</div><p class="b">p</p>
     <h2>inline: 글자처럼 옆으로, width 무시</h2>
+    <!-- inline: span, a, strong 은 글자처럼 옆으로 이어져요 -->
     <span class="i">span</span><a class="i" href="#">a</a><strong class="i">strong</strong>
     <h2>inline-block: 옆으로 + width 적용</h2>
+    <!-- inline-block: 옆으로 놓이면서 width 도 먹어요 (버튼 · 메뉴에 좋아요) -->
     <span class="ib">버튼1</span><span class="ib">버튼2</span><span class="ib">버튼3</span>
     <h2>none: 화면에서 사라짐</h2>
     <p>아래 줄은 display: none 이라 보이지 않아요.</p>
+    <!-- none: 화면에서 자리까지 사라져요 -->
     <p class="hide">숨겨진 줄</p>
   </main>
 </body>
