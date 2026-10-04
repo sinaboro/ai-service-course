@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid 기초</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; margin: 12px; }
+    h2 { font-size: 16px; color: #1f4e79; margin: 14px 0 4px; }
+    .grid div { background: #2e75b6; color: #fff; padding: 10px; text-align: center; font-weight: bold; }
+    .grid { display: grid; gap: 6px; }                       /* ⭐ 부모에 grid */
+    .g1 { grid-template-columns: 200px 200px 200px; }        /* 열 3개 */
+    .g2 { grid-template-columns: 1fr 2fr 1fr; }
+    .g3 { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .g4 { grid-template-columns: 1fr 1fr; grid-template-rows: 40px 80px; }
+  </style>
+</head>
+<body>
+  <h2>grid-template-columns: 200px 200px 200px</h2>
+  <div class="grid g1"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div></div>
+  <h2>grid-template-columns: 1fr 2fr 1fr (남은 공간을 1 : 2 : 1)</h2>
+  <div class="grid g2"><div>1fr</div><div>2fr</div><div>1fr</div></div>
+  <h2>repeat(4, 1fr) + gap: 10px</h2>
+  <div class="grid g3"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div></div>
+  <h2>grid-template-rows: 40px 80px (행 높이)</h2>
+  <div class="grid g4"><div>40px</div><div>40px</div><div>80px</div><div>80px</div></div>
+</body>
+</html>

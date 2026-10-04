@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 그리드 구도</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    /* 배치: 카드 3열 격자 */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>팀 프로젝트 갤러리</h1>
+  </header>
+  <main>
+    <search>
+      <form action="/projects">
+        <label for="q">검색</label> <input type="search" id="q" name="q">
+      </form>
+    </search>
+    <section>
+      <h2>2026 가을 프로젝트</h2>
+      <div class="cards">
+        <article><h3>해양 쓰레기 탐지</h3><p>1팀 · YOLO</p></article>
+        <article><h3>안전모 착용 탐지</h3><p>2팀 · YOLO</p></article>
+        <article><h3>불법 주차 탐지</h3><p>3팀 · YOLO</p></article>
+        <article><h3>과일 분류</h3><p>4팀 · Keras CNN</p></article>
+        <article><h3>마스크 착용</h3><p>5팀 · YOLO</p></article>
+        <article><h3>도로 파손 탐지</h3><p>6팀 · YOLO</p></article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>프로젝트 6개</p>
+  </footer>
+</body>
+</html>

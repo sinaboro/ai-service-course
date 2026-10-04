@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카드 줄</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; margin: 16px; background: #f5f7fa; }
+    h1 { font-size: 22px; }
+    .cards { display: flex; gap: 16px; }        /* 카드를 가로로 */
+    .card {
+      flex: 1;                                  /* 세 카드가 같은 너비 */
+      display: flex; flex-direction: column;    /* 카드 안은 세로 flex */
+      background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 14px;
+    }
+    .card h2 { margin: 0 0 6px; font-size: 18px; color: #1f4e79; }
+    .card p { margin: 4px 0; }
+    .card .more { margin-top: auto; }           /* ⭐ 링크를 카드 바닥으로 밀기 */
+    .more a { display: inline-block; padding: 6px 12px; background: #1f4e79; color: #fff; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>탐지 가능한 클래스</h1>
+    <section class="cards" aria-label="클래스 목록">
+      <article class="card">
+        <h2>bottle</h2>
+        <p>플라스틱 병</p>
+        <p class="more"><a href="#">예시 보기</a></p>
+      </article>
+      <article class="card">
+        <h2>can</h2>
+        <p>알루미늄 캔. 찌그러진 캔도 학습했어요. 반사광이 심하면 놓칠 수 있어요.</p>
+        <p class="more"><a href="#">예시 보기</a></p>
+      </article>
+      <article class="card">
+        <h2>bag</h2>
+        <p>비닐봉지</p>
+        <p class="more"><a href="#">예시 보기</a></p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

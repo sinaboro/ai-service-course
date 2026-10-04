@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기능 소개</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Malgun Gothic", sans-serif; }
+    .site-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 24px; background: #333; }
+    .site-header a, .logo { color: #fff; text-decoration: none; }
+    .logo { margin: 0; font-weight: bold; }
+    .site-header ul { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; }
+    main { padding: 16px 24px; }
+    .features { display: flex; gap: 16px; }
+    .features article { flex: 1; background: #fff2cc; padding: 12px; border-radius: 8px; }
+    .features h2 { margin: 0 0 4px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo">SafeHat</p>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#">소개</a></li><li><a href="#">체험</a></li><li><a href="#">문의</a></li></ul>
+    </nav>
+  </header>
+  <main>
+    <h1>안전모 착용 탐지</h1>
+    <section class="features" aria-label="주요 기능">
+      <article><h2>실시간</h2><p>CCTV 영상을 초당 20장 분석</p></article>
+      <article><h2>알림</h2><p>미착용자 발견 시 관리자에게 알림</p></article>
+      <article><h2>통계</h2><p>현장별 착용률 그래프</p></article>
+    </section>
+  </main>
+</body>
+</html>

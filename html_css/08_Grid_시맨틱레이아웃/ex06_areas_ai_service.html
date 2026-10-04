@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>areas AI 서비스</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr 220px;
+      grid-template-areas:
+        "hero   hero   hero"
+        "upload result guide";
+      gap: 8px;
+    }
+    .hero   { grid-area: hero; text-align: center; }
+    .upload { grid-area: upload; }
+    .result { grid-area: result; }
+    .guide  { grid-area: guide; }
+    .result img { width: 100%; height: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; }   /* flex + grid 함께 */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FloatWatch</h1>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#upload">탐지하기</a></li><li><a href="#result">결과</a></li></ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="t">
+      <h2 id="t">사진 한 장으로 바다 쓰레기 찾기</h2>
+    </section>
+    <section class="upload" id="upload" aria-labelledby="u">
+      <h2 id="u">사진 올리기</h2>
+      <form action="/detect" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" aria-label="사진 파일">
+        <button type="submit">탐지</button>
+      </form>
+    </section>
+    <section class="result" id="result" aria-labelledby="r">
+      <h2 id="r">탐지 결과</h2>
+      <figure>
+        <img src="images/thumb.svg" alt="탐지 결과 이미지" width="320" height="200">
+        <figcaption>bottle 1개</figcaption>
+      </figure>
+    </section>
+    <aside class="guide" aria-labelledby="g">
+      <h2 id="g">사용 안내</h2>
+      <p>PNG · JPG</p>
+    </aside>
+  </main>
+  <footer>
+    <p>© 2026 FloatWatch 팀</p>
+  </footer>
+</body>
+</html>

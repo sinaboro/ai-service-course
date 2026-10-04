@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3단 구도</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    /* 배치: 왼쪽 메뉴 | 본문 | 오른쪽 정보 */
+    .layout { display: grid; grid-template-columns: 180px 1fr 200px; gap: 12px; }
+    nav ul.vertical { flex-direction: column; gap: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>탐지 결과 관리</h1>
+  </header>
+  <div class="layout">
+    <nav aria-label="관리 메뉴">
+      <h2>메뉴</h2>
+      <ul class="vertical"><li><a href="#">대시보드</a></li><li><a href="#">데이터셋</a></li><li><a href="#">모델</a></li></ul>
+    </nav>
+    <main>
+      <h2>오늘의 탐지 현황</h2>
+      <section>
+        <h3>최근 업로드</h3>
+        <p>사진 12장, 탐지 객체 37개</p>
+      </section>
+    </main>
+    <aside>
+      <h2>도움말</h2>
+      <p>신뢰도 0.5 미만은 회색으로 표시돼요.</p>
+    </aside>
+  </div>
+  <footer>
+    <p>관리자 페이지 v1.0</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 구도</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    header { grid-area: header; } nav { grid-area: nav; } main { grid-area: main; }
+    aside  { grid-area: aside; }  footer { grid-area: footer; }
+    
+    /* 기본 = 휴대폰: 한 줄에 하나 (8장 구도 C) */
+    body {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+      grid-template-areas: "header" "nav" "main" "aside" "footer";
+    }
+    
+    /* PC: 3단 (8장 구도 A) */
+    @media (min-width: 900px) {
+      body {
+        grid-template-columns: 140px 1fr 160px;
+        grid-template-areas:
+          "header header header"
+          "nav    main   aside"
+          "footer footer footer";
+      }
+      nav ul { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header><h1>FloatWatch</h1></header>
+  <nav aria-label="주 메뉴"><ul><li><a href="#">탐지</a></li><li><a href="#">기록</a></li></ul></nav>
+  <main><h2>탐지 결과</h2><p>객체 2개</p></main>
+  <aside aria-label="안내"><p>사용 안내</p></aside>
+  <footer><p>© 2026</p></footer>
+</body>
+</html>

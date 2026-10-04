@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>표</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #999; padding: 6px 14px; text-align: center; }
+    caption { font-weight: bold; margin-bottom: 8px; }
+    thead { background: #dfe9f5; }
+  </style>
+</head>
+<body>
+  <h1>모델 실험 기록</h1>
+  <table>
+    <caption>YOLO 모델 크기별 실험 결과</caption>
+    <thead>
+      <tr>
+        <th scope="col">모델</th>
+        <th scope="col">에폭</th>
+        <th scope="col">mAP50</th>
+        <th scope="col">비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">yolo11n</th>
+        <td>50</td>
+        <td>0.72</td>
+        <td rowspan="2">CPU 학습</td>
+      </tr>
+      <tr>
+        <th scope="row">yolo11s</th>
+        <td>50</td>
+        <td>0.78</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">※ 실습용 예시 값이에요.</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 바</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Malgun Gothic", sans-serif; }
+    .site-header {
+      display: flex;            /* 로고 · nav · 검색을 한 줄로 */
+      align-items: center;      /* 세로 가운데 */
+      gap: 28px;
+      padding: 10px 24px;
+      background: #1f4e79;
+      color: #fff;
+    }
+    .logo { margin: 0; font-size: 20px; font-weight: bold; }
+    nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }   /* 메뉴도 flex */
+    nav a { color: #fff; text-decoration: none; padding: 6px 10px; border-radius: 6px; }
+    nav a:hover { background: rgb(255 255 255 / 0.2); }
+    search { margin-left: auto; }   /* ⭐ 남은 공간을 왼쪽에 몰아 → 오른쪽 끝으로 */
+    search input { margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo">FloatWatch</p>
+    <nav aria-label="주 메뉴">
+      <ul>
+        <li><a href="#">탐지하기</a></li>
+        <li><a href="#">결과</a></li>
+        <li><a href="#">팀 소개</a></li>
+      </ul>
+    </nav>
+    <search>
+      <form action="/search">
+        <label for="q">검색</label>
+        <input type="search" id="q" name="q">
+      </form>
+    </search>
+  </header>
+</body>
+</html>

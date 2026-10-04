@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>areas 대시보드</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      grid-template-areas:
+        "header header"
+        "nav    main"
+        "footer footer";
+      gap: 8px;
+    }
+    header { grid-area: header; }
+    nav    { grid-area: nav; }
+    main   { grid-area: main; }
+    footer { grid-area: footer; }
+    nav ul { flex-direction: column; gap: 6px; }
+    
+    /* main 안에서 또 grid: 영역 안의 영역 */
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+        "stats stats"
+        "chart log";
+      gap: 8px;
+    }
+    .stats { grid-area: stats; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .stats h2 { grid-column: 1 / -1; }   /* 제목은 세 칸 전체 */
+    .chart { grid-area: chart; min-height: 120px; }
+    .log   { grid-area: log; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>탐지 관리자</h1>
+  </header>
+  <nav aria-label="관리 메뉴">
+    <ul><li><a href="#">대시보드</a></li><li><a href="#">기록</a></li><li><a href="#">모델</a></li></ul>
+  </nav>
+  <main>
+    <section class="stats" aria-labelledby="s1">
+      <h2 id="s1">오늘 요약</h2>
+      <article><h3>업로드</h3><p>128</p></article>
+      <article><h3>탐지</h3><p>412</p></article>
+      <article><h3>신뢰도</h3><p>0.81</p></article>
+    </section>
+    <section class="chart" aria-labelledby="s2">
+      <h2 id="s2">시간대별 탐지</h2>
+      <p>(그래프 자리)</p>
+    </section>
+    <section class="log" aria-labelledby="s3">
+      <h2 id="s3">최근 기록</h2>
+      <p>10:21 bottle 0.92</p>
+    </section>
+  </main>
+  <footer>
+    <p>v1.2</p>
+  </footer>
+</body>
+</html>

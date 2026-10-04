@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박스 모델</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; }
+    .box {
+      width: 200px;
+      padding: 20px;
+      border: 5px solid #2e75b6;
+      margin: 10px;
+      background: #ddebf7;
+    }
+    .border-box { box-sizing: border-box; border-color: #c00000; background: #fbe5d6; }
+    .m1 { margin-bottom: 30px; background: #e2efda; }
+    .m2 { margin-top: 20px; background: #fff2cc; }
+    .center { width: 300px; margin: 0 auto; background: #ededed; padding: 8px; text-align: center; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="box">content-box: width 200 + padding 20×2 + border 5×2 = 250px</div>
+    <div class="box border-box">border-box: 전체가 딱 200px</div>
+    <p class="m1">margin-bottom: 30px</p>
+    <p class="m2">margin-top: 20px → 둘 사이는 50 이 아니라 30 (마진 겹침)</p>
+    <div class="center">margin: 0 auto → 가운데 정렬</div>
+  </main>
+</body>
+</html>

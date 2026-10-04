@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매거진 구도</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    main {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+        "top a"
+        "top b"
+        "ad  ad";
+      gap: 8px;
+    }
+    .top { grid-area: top; }
+    .a   { grid-area: a; }
+    .b   { grid-area: b; }
+    .ad  { grid-area: ad; }
+  </style>
+</head>
+<body>
+  <header><h1>AI 매거진</h1></header>
+  <main>
+    <article class="top"><h2>이달의 특집: 객체 탐지</h2><p>YOLO 가 바꾼 세상</p></article>
+    <article class="a"><h2>labelImg 꿀팁</h2></article>
+    <article class="b"><h2>데이터 증강</h2></article>
+    <aside class="ad" aria-label="광고"><p>AI 카메라 할인</p></aside>
+  </main>
+  <footer><p>© 2026 AI 매거진</p></footer>
+</body>
+</html>

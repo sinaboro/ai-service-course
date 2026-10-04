@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폼 기초</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
+    label { display: inline-block; width: 90px; }
+  </style>
+</head>
+<body>
+  <h1>수업 신청</h1>
+  <form action="/apply" method="post">
+    <p>
+      <label for="name">이름</label>
+      <input type="text" id="name" name="name" placeholder="홍길동" required>
+    </p>
+    <p>
+      <label for="email">이메일</label>
+      <input type="email" id="email" name="email" placeholder="me@example.com">
+    </p>
+    <p>
+      <label for="pw">비밀번호</label>
+      <input type="password" id="pw" name="password" minlength="8">
+    </p>
+    <button type="submit">신청하기</button>
+  </form>
+</body>
+</html>

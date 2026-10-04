@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="200" viewBox="0 0 900 200">
+  <rect width="900" height="200" fill="#9fd3f5"/>
+  <rect y="130" width="900" height="70" fill="#f2d49b"/>
+  <text x="20" y="40" font-size="22" font-family="Arial" fill="#1f4e79">900 x 200 image</text>
+</svg>

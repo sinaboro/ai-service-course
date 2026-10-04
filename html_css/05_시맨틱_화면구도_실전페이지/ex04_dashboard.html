@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 대시보드</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo">탐지 관리자</p>
+    <p>관리자님, 안녕하세요</p>
+  </header>
+  <div class="page admin">
+    <nav class="side-nav" aria-label="관리 메뉴">
+      <ul>
+        <li><a href="#" aria-current="page">대시보드</a></li>
+        <li><a href="#">탐지 기록</a></li>
+        <li><a href="#">모델 관리</a></li>
+        <li><a href="#">설정</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h1>대시보드</h1>
+      <section aria-labelledby="summary">
+        <h2 id="summary">오늘 요약</h2>
+        <div class="grid3">
+          <article class="card"><h3>업로드</h3><p class="stat">128</p></article>
+          <article class="card"><h3>탐지 객체</h3><p class="stat">412</p></article>
+          <article class="card"><h3>평균 신뢰도</h3><p class="stat">0.81</p></article>
+        </div>
+      </section>
+      <section aria-labelledby="recent">
+        <h2 id="recent">최근 탐지</h2>
+        <table>
+          <caption>최근 탐지 3건</caption>
+          <thead><tr><th scope="col">시간</th><th scope="col">클래스</th><th scope="col">신뢰도</th></tr></thead>
+          <tbody>
+            <tr><td><time datetime="10:21">10:21</time></td><td>bottle</td><td>0.92</td></tr>
+            <tr><td><time datetime="10:19">10:19</time></td><td>can</td><td>0.77</td></tr>
+            <tr><td><time datetime="10:15">10:15</time></td><td>bag</td><td>0.64</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <aside aria-labelledby="alerts">
+      <h2 id="alerts">알림</h2>
+      <p>모델 v1.2 배포 완료</p>
+      <p>저장 공간 80% 사용</p>
+    </aside>
+  </div>
+  <footer class="site-footer">
+    <p>탐지 관리자 v1.2</p>
+  </footer>
+</body>
+</html>

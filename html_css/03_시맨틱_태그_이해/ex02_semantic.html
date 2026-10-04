@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시맨틱 태그로 만든 페이지</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; margin: 0; background: #f4f6f8; }
+    .header, header { background: #1f4e79; color: #fff; padding: 12px 24px; }
+    .nav ul, nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+    .nav a, nav a { color: #ffd966; text-decoration: none; }
+    .wrap { display: flex; gap: 16px; padding: 16px 24px; }
+    .main, main { flex: 3; background: #fff; padding: 16px; border-radius: 8px; }
+    .aside, aside { flex: 1; background: #fff8e1; padding: 16px; border-radius: 8px; }
+    .footer, footer { text-align: center; color: #666; padding: 12px; }
+    .logo { font-size: 20px; font-weight: bold; margin: 0 0 6px; }
+    h1, h2 { font-size: 20px; margin: 0 0 8px; }
+    article h2 { font-size: 16px; }
+    footer p { margin: 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="logo">AI 객체탐지 랩</p>
+    <nav aria-label="주 메뉴">
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">프로젝트</a></li>
+        <li><a href="#">문의</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="wrap">
+    <main>
+      <h1>이번 주 프로젝트</h1>
+      <article>
+        <h2>해양 부유물 탐지</h2>
+        <p>YOLO 로 바다 위 쓰레기를 찾는 모델을 만들었어요.</p>
+      </article>
+    </main>
+    <aside>
+      <h2>공지</h2>
+      <p>금요일 발표가 있어요.</p>
+    </aside>
+  </div>
+  <footer>
+    <p>© 2026 AI Lab</p>
+  </footer>
+</body>
+</html>

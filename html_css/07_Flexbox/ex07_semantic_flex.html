@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex 2단 구도</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Malgun Gothic", sans-serif; background: #f5f7fa; }
+    .site-header { display: flex; align-items: center; gap: 24px; padding: 10px 24px; background: #1f4e79; }
+    .site-header a, .logo { color: #fff; text-decoration: none; }
+    .logo { margin: 0; font-weight: bold; font-size: 20px; }
+    .site-header ul { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; }
+    .layout { display: flex; gap: 20px; max-width: 1000px; margin: 20px auto; padding: 0 16px; }  /* ⭐ main + aside */
+    main { flex: 1; background: #fff; padding: 16px 20px; border-radius: 10px; }                  /* 남는 너비 전부 */
+    aside { width: 240px; flex-shrink: 0; background: #fff8e1; padding: 16px 20px; border-radius: 10px; }  /* 고정 너비 */
+    h1 { font-size: 22px; margin-top: 0; }
+    aside h2 { font-size: 17px; margin-top: 0; }
+    footer { text-align: center; color: #777; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo">AI 수업 노트</p>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#">강의</a></li><li><a href="#">프로젝트</a></li><li><a href="#">소개</a></li></ul>
+    </nav>
+  </header>
+  <div class="layout">
+    <main>
+      <article>
+        <h1>labelImg 사용법</h1>
+        <p>W 키로 상자를 그리고, D 키로 다음 사진으로 넘어가요.</p>
+      </article>
+    </main>
+    <aside aria-labelledby="side-title">
+      <h2 id="side-title">단축키</h2>
+      <ul><li>W: 상자 그리기</li><li>D: 다음</li><li>A: 이전</li></ul>
+    </aside>
+  </div>
+  <footer>
+    <p>© 2026 AI 수업 노트</p>
+  </footer>
+</body>
+</html>

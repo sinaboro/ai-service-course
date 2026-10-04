@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블로그 글 — YOLO 첫 학습 후기</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo"><a href="#">AI 수업 노트</a></p>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#">강의</a></li><li><a href="#">프로젝트</a></li><li><a href="#">소개</a></li></ul>
+    </nav>
+  </header>
+  <div class="page">
+    <main>
+      <article>
+        <header>
+          <h1>YOLO 첫 학습 후기</h1>
+          <p class="meta">김민수 · <time datetime="2026-10-04">2026년 10월 4일</time> · 읽는 데 3분</p>
+        </header>
+        <section>
+          <h2>데이터 준비</h2>
+          <p>labelImg 로 사진 120장에 상자를 그렸어요. 클래스는 bottle, can 두 가지예요.</p>
+        </section>
+        <section>
+          <h2>학습 결과</h2>
+          <figure>
+            <img src="images/curve.svg" alt="에폭이 늘수록 mAP 가 0.2 에서 0.75 까지 오르는 그래프" width="420" height="160">
+            <figcaption>그림 1. 에폭별 mAP50 변화</figcaption>
+          </figure>
+          <aside class="note">
+            <p><strong>mAP</strong> 는 탐지 정확도를 0 ~ 1 로 나타낸 값이에요.</p>
+          </aside>
+        </section>
+        <footer class="tags">
+          <p>태그: YOLO · 레이블링 · 학습</p>
+        </footer>
+      </article>
+    </main>
+    <aside aria-label="글쓴이와 관련 글">
+      <section>
+        <h2>글쓴이</h2>
+        <p>김민수 · 해양 쓰레기 탐지 팀</p>
+      </section>
+      <section>
+        <h2>관련 글</h2>
+        <ul><li><a href="#">labelImg 단축키 정리</a></li><li><a href="#">YOLO 데이터 폴더 구조</a></li></ul>
+      </section>
+    </aside>
+  </div>
+  <footer class="site-footer">
+    <p>© 2026 AI 수업 노트</p>
+  </footer>
+</body>
+</html>

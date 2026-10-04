@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="160" viewBox="0 0 420 160">
+  <rect width="420" height="160" fill="#ffffff" stroke="#dddddd"/>
+  <polyline points="20,140 80,118 140,90 200,66 260,52 320,44 400,40" fill="none" stroke="#2e75b6" stroke-width="3"/>
+  <text x="300" y="30" font-size="13" font-family="Arial" fill="#2e75b6">mAP50 0.75</text>
+</svg>

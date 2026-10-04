@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 상세 — AI 카메라</title>
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="../regions.css">
+  <link rel="stylesheet" href="../xray.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="logo">AI 마켓</p>
+    <nav aria-label="카테고리">
+      <ul><li><a href="#">카메라</a></li><li><a href="#">드론</a></li><li><a href="#">센서</a></li></ul>
+    </nav>
+    <search>
+      <form action="/search">
+        <label for="q">상품 검색</label>
+        <input type="search" id="q" name="q">
+      </form>
+    </search>
+  </header>
+  <div class="page">
+    <main>
+      <article class="product">
+        <figure>
+          <img src="../images/camera.svg" alt="동그란 렌즈가 달린 하늘색 AI 카메라" width="300" height="220">
+          <figcaption>AI 탐지 카메라 X1</figcaption>
+        </figure>
+        <section aria-labelledby="p-name">
+          <h1 id="p-name">AI 탐지 카메라 X1</h1>
+          <p class="price">189,000원</p>
+          <p>YOLO 모델 내장 · 초당 30장 탐지</p>
+          <form action="/cart" method="post">
+            <label for="color">색상</label>
+            <select id="color" name="color"><option>하늘색</option><option>흰색</option></select>
+            <label for="qty">수량</label>
+            <input type="number" id="qty" name="qty" value="1" min="1" max="5">
+            <button class="btn" type="submit">장바구니 담기</button>
+          </form>
+        </section>
+      </article>
+      <section>
+        <h2>상세 설명</h2>
+        <p>렌즈 앞의 물체를 실시간으로 찾아 화면에 상자로 표시해요.</p>
+      </section>
+      <section>
+        <h2>구매 후기 (2)</h2>
+        <article class="card"><h3>⭐ 5 · 학교 프로젝트에 딱</h3><p>설치가 쉬워요.</p></article>
+        <article class="card"><h3>⭐ 4 · 밤에는 아쉬워요</h3><p>어두우면 정확도가 떨어져요.</p></article>
+      </section>
+    </main>
+    <aside aria-labelledby="rec">
+      <h2 id="rec">함께 본 상품</h2>
+      <ul><li><a href="#">탐지 드론 D2</a></li><li><a href="#">삼각대</a></li></ul>
+    </aside>
+  </div>
+  <footer class="site-footer">
+    <p>© 2026 AI 마켓 · 사업자 정보</p>
+  </footer>
+</body>
+</html>

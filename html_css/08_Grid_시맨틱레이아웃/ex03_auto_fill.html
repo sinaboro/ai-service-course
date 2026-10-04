@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자동 카드 갤러리</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; margin: 16px; background: #f5f7fa; }
+    h1 { font-size: 22px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));   /* ⭐ 180px 이상으로 들어가는 만큼 */
+      gap: 14px;
+    }
+    .gallery figure { margin: 0; background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px; }
+    .gallery img { width: 100%; height: auto; display: block; border-radius: 4px; }
+    .gallery figcaption { font-size: 13px; color: #555; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>탐지 결과 갤러리</h1>
+    <section class="gallery" aria-label="결과 사진">
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 1" width="160" height="100"><figcaption>beach_01.jpg · 3개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 2" width="160" height="100"><figcaption>beach_02.jpg · 1개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 3" width="160" height="100"><figcaption>river_01.jpg · 5개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 4" width="160" height="100"><figcaption>river_02.jpg · 2개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 5" width="160" height="100"><figcaption>port_01.jpg · 0개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 6" width="160" height="100"><figcaption>port_02.jpg · 4개</figcaption></figure>
+      <figure><img src="images/thumb.svg" alt="병 탐지 결과 7" width="160" height="100"><figcaption>lake_01.jpg · 2개</figcaption></figure>
+    </section>
+  </main>
+</body>
+</html>

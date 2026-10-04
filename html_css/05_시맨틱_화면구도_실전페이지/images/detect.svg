@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="180" viewBox="0 0 420 180">
+  <rect width="420" height="180" fill="#9fd3f5"/>
+  <rect y="120" width="420" height="60" fill="#f2d49b"/>
+  <rect x="70" y="100" width="26" height="50" rx="6" fill="#7fbf7f"/>
+  <rect x="235" y="108" width="26" height="44" rx="6" fill="#c0c0c0"/>
+  <rect x="62" y="92" width="42" height="66" fill="none" stroke="#e00000" stroke-width="3"/>
+  <rect x="227" y="100" width="42" height="60" fill="none" stroke="#ff8c00" stroke-width="3"/>
+  <text x="62" y="87" font-size="13" font-family="Arial" fill="#e00000">bottle 0.91</text>
+  <text x="227" y="95" font-size="13" font-family="Arial" fill="#ff8c00">can 0.84</text>
+</svg>

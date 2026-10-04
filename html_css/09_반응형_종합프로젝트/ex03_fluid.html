@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>넘치지 않게</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: "Malgun Gothic", sans-serif; margin: 0; padding: 12px; }
+    h1 { font-size: 20px; }
+    img { max-width: 100%; height: auto; }                 /* ⭐ 이미지가 부모보다 커지지 않게 */
+    figure { margin: 0 0 10px; }
+    nav ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }   /* ⭐ 메뉴가 넘치면 다음 줄 */
+    nav a { display: inline-block; padding: 4px 10px; background: #ddebf7; border-radius: 12px; }
+    .table-wrap { overflow-x: auto; }                      /* ⭐ 표만 가로 스크롤 */
+    table { border-collapse: collapse; min-width: 560px; }
+    th, td { border: 1px solid #ccc; padding: 4px 8px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>넘치지 않는 요소들</h1>
+    <figure>
+      <img src="images/wide.svg" alt="가로로 긴 해변 사진" width="900" height="200">
+      <figcaption>img { max-width: 100%; } 덕분에 화면보다 커지지 않아요</figcaption>
+    </figure>
+    <nav aria-label="분야">
+      <ul><li><a href="#">전체</a></li><li><a href="#">병</a></li><li><a href="#">캔</a></li><li><a href="#">비닐</a></li><li><a href="#">스티로폼</a></li><li><a href="#">그물</a></li></ul>
+    </nav>
+    <div class="table-wrap">
+      <table>
+        <caption>탐지 기록 (넓은 표는 가로 스크롤)</caption>
+        <thead><tr><th scope="col">파일</th><th scope="col">클래스</th><th scope="col">신뢰도</th><th scope="col">x</th><th scope="col">y</th><th scope="col">너비</th><th scope="col">높이</th></tr></thead>
+        <tbody><tr><td>beach_01.jpg</td><td>bottle</td><td>0.91</td><td>80</td><td>140</td><td>50</td><td>80</td></tr></tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

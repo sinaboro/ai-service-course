@@ -1,0 +1,36 @@
+/* 5장 공통 스타일: 실제 서비스처럼 보이게 꾸미기 (CSS 는 6 ~ 9장에서 배워요) */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Malgun Gothic", sans-serif; color: #222; background: #f5f7fa; font-size: 15px; }
+a { color: #1f4e79; }
+.site-header { display: flex; align-items: center; gap: 24px; padding: 12px 28px; background: #1f4e79; color: #fff; }
+.site-header a { color: #fff; text-decoration: none; }
+.logo { font-size: 20px; font-weight: bold; margin: 0; }
+.site-header nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+.site-header search { margin-left: auto; }
+.page { display: grid; grid-template-columns: 1fr 260px; gap: 20px; max-width: 1100px; margin: 20px auto; padding: 0 20px; }
+.page.wide { grid-template-columns: 1fr; }
+.page.admin { grid-template-columns: 180px 1fr 230px; max-width: 1200px; }
+main, .page > aside, .side-nav { background: #fff; border-radius: 10px; padding: 18px 22px; box-shadow: 0 1px 4px rgba(0, 0, 0, .08); }
+h1 { font-size: 26px; margin: 4px 0 10px; }
+h2 { font-size: 19px; margin: 18px 0 8px; color: #1f4e79; }
+h3 { font-size: 16px; margin: 10px 0 6px; }
+.meta { color: #777; font-size: 13px; }
+figure { margin: 12px 0; }
+figcaption { color: #666; font-size: 13px; }
+.tags { color: #777; font-size: 13px; border-top: 1px solid #eee; padding-top: 8px; }
+.note { background: #fff8e1; padding: 8px 12px; border-radius: 6px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.card { background: #f7f9fc; border: 1px solid #e3e8ef; border-radius: 8px; padding: 10px 12px; }
+.headline { background: #eef4fb; border-radius: 8px; padding: 12px 16px; }
+.price { font-size: 22px; color: #c00000; font-weight: bold; }
+.product { display: grid; grid-template-columns: 320px 1fr; gap: 20px; }
+.btn { background: #c00000; color: #fff; border: 0; border-radius: 6px; padding: 8px 18px; font-size: 15px; }
+.stat { font-size: 26px; font-weight: bold; color: #1f4e79; margin: 0; }
+.side-nav ul { list-style: none; padding: 0; margin: 0; }
+.side-nav li { padding: 6px 0; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border-bottom: 1px solid #e5e5e5; padding: 6px 8px; text-align: left; }
+.hero { text-align: center; background: linear-gradient(135deg, #1f4e79, #2e75b6); color: #fff; border-radius: 10px; padding: 26px; }
+.hero h1 { color: #fff; }
+.site-footer { text-align: center; color: #777; padding: 16px; font-size: 13px; }
+.site-footer address { font-style: normal; }

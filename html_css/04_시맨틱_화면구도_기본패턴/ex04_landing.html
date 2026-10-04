@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>랜딩 구도</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    /* 배치: 세로로 구역 나열, 기능 카드는 3칸 */
+    .hero { text-align: center; padding: 30px 12px; }
+    .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <p><strong>FloatWatch</strong></p>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#features">기능</a></li><li><a href="#how">사용법</a></li><li><a href="#start">시작하기</a></li></ul>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">바다 위 부유물을 AI 가 찾아 드려요</h1>
+      <p>사진을 올리면 페트병 · 비닐 · 스티로폼을 자동으로 찾아요.</p>
+    </section>
+    <section id="features">
+      <h2>주요 기능</h2>
+      <div class="three">
+        <article><h3>빠른 탐지</h3><p>사진 한 장 0.1초</p></article>
+        <article><h3>정확도</h3><p>mAP 0.8 이상</p></article>
+        <article><h3>기록</h3><p>날짜별 통계</p></article>
+      </div>
+    </section>
+    <section id="how">
+      <h2>사용법</h2>
+      <ol><li>사진 올리기</li><li>탐지 결과 확인</li></ol>
+    </section>
+    <section id="start">
+      <h2>지금 시작하기</h2>
+      <p><a href="#">무료로 써 보기</a></p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 FloatWatch 팀</p>
+  </footer>
+</body>
+</html>

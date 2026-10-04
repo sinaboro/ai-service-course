@@ -117,4 +117,4 @@ python ex01_first_plot.py
 
 > 각 장 폴더로 이동(`cd`)한 뒤 실행하세요. 파일을 읽고 쓰는 예제는 실행한 폴더 또는 예제 파일 위치를 기준으로 동작해요.
 
-➡ 다음 과정: [FastAPI 모델 서빙](../fastapi/README.md)
+➡ 다음 과정: [AI 딥러닝 (Keras · OpenCV · YOLO)](../ai_deep_learning/README.md)

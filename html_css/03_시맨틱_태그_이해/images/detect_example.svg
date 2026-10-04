@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="200" viewBox="0 0 360 200">
+  <rect width="360" height="200" fill="#9fd3f5"/>
+  <rect y="140" width="360" height="60" fill="#f2d49b"/>
+  <rect x="70" y="110" width="26" height="50" rx="6" fill="#7fbf7f"/>
+  <rect x="230" y="120" width="26" height="44" rx="6" fill="#bfe0ff"/>
+  <rect x="62" y="102" width="42" height="66" fill="none" stroke="#e00000" stroke-width="3"/>
+  <rect x="222" y="112" width="42" height="60" fill="none" stroke="#e00000" stroke-width="3"/>
+  <text x="62" y="97" font-size="13" font-family="Arial" fill="#e00000">bottle 0.91</text>
+  <text x="222" y="107" font-size="13" font-family="Arial" fill="#e00000">bottle 0.84</text>
+</svg>

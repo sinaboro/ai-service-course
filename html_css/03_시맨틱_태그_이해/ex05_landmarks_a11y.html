@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>랜드마크와 접근성</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; margin: 0; }
+    .skip { position: absolute; left: 8px; top: -40px; background: #ffd966; padding: 6px 10px; }
+    .skip:focus { top: 8px; }
+    header, footer { background: #eef3f8; padding: 10px 20px; }
+    nav ul { display: flex; gap: 14px; list-style: none; margin: 0; padding: 0; }
+    main { padding: 10px 20px; }
+    .logo { font-weight: bold; margin: 0 0 6px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">본문으로 건너뛰기</a>
+  <header>
+    <p class="logo">AI 객체탐지 랩</p>
+    <nav aria-label="주 메뉴">
+      <ul>
+        <li><a href="#" aria-current="page">홈</a></li>
+        <li><a href="#">프로젝트</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content">
+    <h1>프로젝트 목록</h1>
+    <search>
+      <form action="/search">
+        <label for="q">프로젝트 검색</label>
+        <input type="search" id="q" name="q">
+        <button type="submit">검색</button>
+      </form>
+    </search>
+    <section aria-labelledby="done-title">
+      <h2 id="done-title">완료한 프로젝트</h2>
+      <p>해양 부유물 탐지, 안전모 착용 탐지</p>
+    </section>
+  </main>
+  <footer>
+    <nav aria-label="바닥 메뉴">
+      <ul>
+        <li><a href="#">개인정보 처리방침</a></li>
+        <li><a href="#">이용 약관</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

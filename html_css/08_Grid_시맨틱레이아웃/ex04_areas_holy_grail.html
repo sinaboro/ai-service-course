@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>areas 3단 페이지</title>
+  <link rel="stylesheet" href="regions.css">
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 180px 1fr 200px;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header header"
+        "nav    main   aside"
+        "footer footer footer";
+      gap: 8px;
+      min-height: 420px;
+    }
+    header { grid-area: header; }   /* ⭐ 시맨틱 태그 ↔ 영역 이름 연결 */
+    nav    { grid-area: nav; }
+    main   { grid-area: main; }
+    aside  { grid-area: aside; }
+    footer { grid-area: footer; }
+    nav ul { flex-direction: column; gap: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI 수업 노트</h1>
+  </header>
+  <nav aria-label="강의 목차">
+    <ul><li><a href="#">1. AI 개요</a></li><li><a href="#">2. 딥러닝</a></li><li><a href="#">3. YOLO</a></li></ul>
+  </nav>
+  <main>
+    <article>
+      <h2>3. YOLO 학습하기</h2>
+      <p>data.yaml 을 만들고 model.train() 을 실행해요.</p>
+    </article>
+  </main>
+  <aside aria-label="참고 자료">
+    <h2>참고</h2>
+    <p>Ultralytics 문서</p>
+  </aside>
+  <footer>
+    <p>© 2026 AI 수업 노트</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시맨틱 태그 꾸미기</title>
+  <style>
+    :root { --main: #1f4e79; --light: #ddebf7; }   /* CSS 변수: 색을 한곳에서 관리 */
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Malgun Gothic", sans-serif; background: #f5f7fa; }
+    header { background: var(--main); color: #fff; padding: 12px 24px; }
+    header h1 { margin: 0 0 6px; font-size: 22px; }
+    nav ul { list-style: none; margin: 0; padding: 0; }
+    nav li { display: inline-block; margin-right: 16px; }
+    nav a { color: #fff; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    main { max-width: 720px; margin: 20px auto; padding: 0 16px; }
+    article { background: #fff; border-left: 6px solid var(--main); padding: 12px 18px; margin-bottom: 14px; border-radius: 6px; }
+    article h2 { margin: 0 0 6px; color: var(--main); font-size: 18px; }
+    footer { text-align: center; color: #777; padding: 12px; border-top: 1px solid var(--light); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FloatWatch</h1>
+    <nav aria-label="주 메뉴">
+      <ul><li><a href="#">탐지하기</a></li><li><a href="#">결과</a></li><li><a href="#">팀</a></li></ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h2>오늘의 탐지 결과</h2>
+      <p>사진 12장에서 쓰레기 31개를 찾았어요.</p>
+    </article>
+    <article>
+      <h2>모델 업데이트</h2>
+      <p>클래스 bag 을 새로 추가했어요.</p>
+    </article>
+  </main>
+  <footer>
+    <p>© 2026 FloatWatch 팀</p>
+  </footer>
+</body>
+</html>

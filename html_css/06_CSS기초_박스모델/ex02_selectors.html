@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; }
+    p { margin: 6px 0; }                       /* 태그 */
+    .tip { background: #e2efda; }              /* class (점 .) */
+    #notice { border: 2px solid #c00000; }     /* id (샵 #) */
+    article p { color: #7030a0; }              /* 자손: article 안의 p */
+    header > h1 { font-size: 24px; }           /* 자식: header 바로 아래 h1 */
+    li:nth-child(odd) { background: #ddebf7; } /* 홀수 번째 li */
+    li:first-child { font-weight: bold; }      /* 첫째 li */
+    a:hover { color: #c00000; }                /* 마우스를 올렸을 때 */
+    input[required] { border: 2px solid #bf8f00; }  /* 속성 선택자 */
+    h1, h2 { margin: 4px 0; }                  /* 여러 개 한꺼번에 (쉼표) */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>선택자 연습</h1>
+  </header>
+  <main>
+    <p>태그 선택자: 모든 p</p>
+    <p class="tip">class 선택자: .tip</p>
+    <p id="notice">id 선택자: #notice</p>
+    <article>
+      <p>자손 선택자: article p</p>
+    </article>
+    <ul>
+      <li>첫째</li><li>둘째</li><li>셋째</li><li>넷째</li>
+    </ul>
+    <p><a href="#">마우스를 올려 보세요 (:hover)</a></p>
+    <p>
+      <input type="text" placeholder="일반 입력">
+      <input type="text" placeholder="필수 입력" required>
+    </p>
+  </main>
+</body>
+</html>

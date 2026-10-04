@@ -1,6 +1,6 @@
 # pyhton_numpy_pandas
 
-파이썬 → 넘파이 → 판다스 → 시각화 → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
+파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
@@ -8,21 +8,26 @@
 | [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
 | [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
+| [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
+| [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid · 반응형, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
 | [FastAPI 모델 서빙](fastapi/README.md) | 7 | 학습한 모델을 웹 API로 서비스하기. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
 
 ## 📥 교안 한 번에 받기
 
-- [교안_전체.zip](교안_전체.zip) — 38개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
+- [교안_전체.zip](교안_전체.zip) — 56개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
 
 ## 🗺 학습 순서
 
 ```mermaid
 flowchart LR
-  P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> F["FastAPI 모델 서빙<br/>7장"]
+  P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> A["AI 딥러닝 1 ~ 7장<br/>Keras · OpenCV · YOLO"]
+  H["HTML · CSS<br/>10장"] --> F["FastAPI<br/>7장"]
+  A --> X["AI 8장<br/>YOLO 서빙 · 팀 프로젝트"]
+  F --> X
   D -.-> F
 ```
 
-> 딥러닝 학습은 이 저장소 밖에서 진행하고, 학습이 끝난 모델은 **FastAPI 6 ~ 7장**의 구조에 연결해 서비스할 수 있어요.
+> AI 과정(1 ~ 7장)과 웹 과정(HTML · CSS → FastAPI)은 나란히 공부할 수 있어요. 두 길은 **AI 8장**에서 만나요: 7장에서 학습한 YOLO 모델을 HTML/CSS 10장의 웹 화면 · FastAPI 서버에 연결해 팀 프로젝트(예: 부유물 탐지, 주제는 팀이 선택)를 완성해요. 레이블링은 윈도우용 **labelImg** 로 해요(AI 6장).
 
 ### Python 기초
 
@@ -75,6 +80,34 @@ flowchart LR
 | 05 | [seaborn 기초](visualization/05_seaborn_%EA%B8%B0%EC%B4%88/) | [📘](visualization/05_seaborn_%EA%B8%B0%EC%B4%88/05_seaborn_%EA%B8%B0%EC%B4%88_%EA%B5%90%EC%95%88.docx) |
 | 06 | [seaborn 심화와 실전 분석](visualization/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84/) | [📘](visualization/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84_%EA%B5%90%EC%95%88.docx) |
 
+### AI 딥러닝 (Keras · OpenCV · YOLO)
+
+| 장 | 주제 | 교안 |
+|:---:|---|---|
+| 01 | [AI 기술 개요 — 인공지능 · 머신러닝 · 딥러닝 · 객체 탐지](ai_deep_learning/01_AI%EA%B0%9C%EC%9A%94/) | [📘](ai_deep_learning/01_AI%EA%B0%9C%EC%9A%94/01_AI%EA%B0%9C%EC%9A%94_%EA%B5%90%EC%95%88.docx) |
+| 02 | [머신러닝 기초 — 학습 · 평가 · 과대적합](ai_deep_learning/02_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88/) | [📘](ai_deep_learning/02_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88/02_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88_%EA%B5%90%EC%95%88.docx) |
+| 03 | [Keras 로 배우는 딥러닝 기초](ai_deep_learning/03_Keras%EB%94%A5%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88/) | [📘](ai_deep_learning/03_Keras%EB%94%A5%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88/03_Keras%EB%94%A5%EB%9F%AC%EB%8B%9D%EA%B8%B0%EC%B4%88_%EA%B5%90%EC%95%88.docx) |
+| 04 | [CNN — 이미지를 보는 신경망](ai_deep_learning/04_CNN%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%B6%84%EB%A5%98/) | [📘](ai_deep_learning/04_CNN%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%B6%84%EB%A5%98/04_CNN%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%B6%84%EB%A5%98_%EA%B5%90%EC%95%88.docx) |
+| 05 | [OpenCV 로 영상 다루기](ai_deep_learning/05_OpenCV%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/) | [📘](ai_deep_learning/05_OpenCV%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC/05_OpenCV%EC%98%81%EC%83%81%EC%B2%98%EB%A6%AC_%EA%B5%90%EC%95%88.docx) |
+| 06 | [객체 탐지 개념과 레이블링 (labelImg · YOLO 데이터셋)](ai_deep_learning/06_%EA%B0%9D%EC%B2%B4%ED%83%90%EC%A7%80%EC%99%80_%EB%A0%88%EC%9D%B4%EB%B8%94%EB%A7%81/) | [📘](ai_deep_learning/06_%EA%B0%9D%EC%B2%B4%ED%83%90%EC%A7%80%EC%99%80_%EB%A0%88%EC%9D%B4%EB%B8%94%EB%A7%81/06_%EA%B0%9D%EC%B2%B4%ED%83%90%EC%A7%80%EC%99%80_%EB%A0%88%EC%9D%B4%EB%B8%94%EB%A7%81_%EA%B5%90%EC%95%88.docx) |
+| 07 | [YOLO 학습과 추론](ai_deep_learning/07_YOLO%ED%95%99%EC%8A%B5%EA%B3%BC%EC%B6%94%EB%A1%A0/) | [📘](ai_deep_learning/07_YOLO%ED%95%99%EC%8A%B5%EA%B3%BC%EC%B6%94%EB%A1%A0/07_YOLO%ED%95%99%EC%8A%B5%EA%B3%BC%EC%B6%94%EB%A1%A0_%EA%B5%90%EC%95%88.docx) |
+| 08 | [AI 시스템 구축 — YOLO 서빙과 팀 프로젝트](ai_deep_learning/08_YOLO%EC%84%9C%EB%B9%99%EA%B3%BC_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](ai_deep_learning/08_YOLO%EC%84%9C%EB%B9%99%EA%B3%BC_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/08_YOLO%EC%84%9C%EB%B9%99%EA%B3%BC_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
+
+### HTML · CSS (시맨틱 화면 구도)
+
+| 장 | 주제 | 교안 |
+|:---:|---|---|
+| 01 | [HTML 시작하기](html_css/01_HTML_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](html_css/01_HTML_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_HTML_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 02 | [목록 · 표 · 폼](html_css/02_%EB%AA%A9%EB%A1%9D_%ED%91%9C_%ED%8F%BC/) | [📘](html_css/02_%EB%AA%A9%EB%A1%9D_%ED%91%9C_%ED%8F%BC/02_%EB%AA%A9%EB%A1%9D_%ED%91%9C_%ED%8F%BC_%EA%B5%90%EC%95%88.docx) |
+| 03 | [시맨틱 태그 이해하기](html_css/03_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%83%9C%EA%B7%B8_%EC%9D%B4%ED%95%B4/) | [📘](html_css/03_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%83%9C%EA%B7%B8_%EC%9D%B4%ED%95%B4/03_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%83%9C%EA%B7%B8_%EC%9D%B4%ED%95%B4_%EA%B5%90%EC%95%88.docx) |
+| 04 | [시맨틱 태그로 화면 구도 잡기 ① — 기본 패턴](html_css/04_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%84%B4/) | [📘](html_css/04_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%84%B4/04_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EA%B8%B0%EB%B3%B8%ED%8C%A8%ED%84%B4_%EA%B5%90%EC%95%88.docx) |
+| 05 | [시맨틱 태그로 화면 구도 잡기 ② — 실전 페이지 5종](html_css/05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80/) | [📘](html_css/05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80/05_%EC%8B%9C%EB%A7%A8%ED%8B%B1_%ED%99%94%EB%A9%B4%EA%B5%AC%EB%8F%84_%EC%8B%A4%EC%A0%84%ED%8E%98%EC%9D%B4%EC%A7%80_%EA%B5%90%EC%95%88.docx) |
+| 06 | [CSS 기초와 박스 모델](html_css/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/) | [📘](html_css/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/06_CSS%EA%B8%B0%EC%B4%88_%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8_%EA%B5%90%EC%95%88.docx) |
+| 07 | [Flexbox — 한 줄로 늘어놓고 정렬하기](html_css/07_Flexbox/) | [📘](html_css/07_Flexbox/07_Flexbox_%EA%B5%90%EC%95%88.docx) |
+| 08 | [CSS Grid — 시맨틱 태그로 화면 구도 완성하기](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/) | [📘](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83_%EA%B5%90%EC%95%88.docx) |
+| 09 | [반응형 웹과 종합 프로젝트 페이지](html_css/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](html_css/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EB%B0%98%EC%9D%91%ED%98%95_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
+| 10 | [HTML · CSS 페이지를 FastAPI 서버와 연결하기](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/) | [📘](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/10_FastAPI%EC%97%B0%EA%B2%B0_%EA%B5%90%EC%95%88.docx) |
+
 ### FastAPI 모델 서빙
 
 | 장 | 주제 | 교안 |
@@ -94,15 +127,17 @@ flowchart LR
 1. **학습 목표**와 개념을 일상에 빗댄 설명
 2. **예제 파일**: 폴더의 `.py` 코드를 줄 번호와 함께 싣고, 중요한 줄마다 "줄 · 코드 · 설명" 표로 해설
 3. **추가 설명 코드**: 개념을 더 잘 이해하도록 만든 짧은 예제
-4. **실행 결과**: 모든 코드를 실제로 실행해서 나온 출력·그래프·API 응답 그대로
+4. **실행 결과**: 모든 코드를 실제로 실행해서 나온 출력·그래프·API 응답·브라우저 화면 그대로 (실행할 수 없는 GUI · 웹캠 · 웹 서비스 조작 안내는 "미실행 참고"로 표시)
 5. **자주 하는 실수**(실제 오류 메시지), 요약표, **연습문제와 정답**
 
 ## 🛠 준비
 
 - Python 3.10 이상 (교안 실행 결과는 Python 3.13 기준)
-- 교안 기준 버전: numpy 2.5, pandas 3.0, matplotlib 3.11, seaborn 0.13, FastAPI 0.142, Pydantic 2.13 (다른 버전에서는 출력 모양이 조금 다를 수 있어요)
+- 교안 기준 버전: numpy 2.5, pandas 3.0, matplotlib 3.11, seaborn 0.13, FastAPI 0.142, Pydantic 2.13, scikit-learn 1.6, TensorFlow 2.21 · Keras 3.15, OpenCV 5.0, PyTorch 2.14 (CPU), Ultralytics 8.4 (다른 버전에서는 출력 모양이 조금 다를 수 있어요)
+- AI 과정은 GPU 없이 CPU 노트북에서 모두 실행해 확인했어요 (YOLO 학습은 작은 연습 데이터 · 적은 에폭)
+- 레이블링: Windows 용 labelImg (windows_v1.8.1, 설치 없이 실행)
 - 편집기: VS Code + Python 확장 (또는 IDLE, Google Colab)
 
 ```bash
-pip install numpy pandas matplotlib seaborn fastapi uvicorn python-multipart pillow httpx2 pytest
+pip install numpy pandas matplotlib seaborn scikit-learn tensorflow opencv-python ultralytics fastapi uvicorn python-multipart pillow httpx2 pytest
 ```

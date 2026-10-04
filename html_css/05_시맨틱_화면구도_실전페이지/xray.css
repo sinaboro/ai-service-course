@@ -1,0 +1,4 @@
+/* 구도보기 전용: 디자인 색을 지워 regions.css 이름표가 잘 보이게 */
+.site-header, .site-footer, .hero { background: none; color: #222; }
+.site-header a, .hero h1 { color: #1f4e79; }
+.note, .card, .headline, .hero, .side-nav { padding: 26px 12px 10px; }

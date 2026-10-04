@@ -1,0 +1,21 @@
+/* 화면 구도 확인용: 시맨틱 태그마다 색 + 태그 이름표 */
+body { font-family: "Malgun Gothic", sans-serif; margin: 0; padding: 12px; background: #f4f6f8; font-size: 15px; }
+header, nav, main, section, article, aside, footer, figure, search {
+  position: relative; border: 2px dashed; border-radius: 8px;
+  padding: 26px 12px 10px; margin: 6px 0;
+}
+header::before, nav::before, main::before, section::before, article::before,
+aside::before, footer::before, figure::before, search::before {
+  position: absolute; top: 3px; left: 8px; font: bold 12px Consolas, monospace;
+}
+header  { border-color: #1f4e79; background: #dfe9f5; }  header::before  { content: "<header>"; color: #1f4e79; }
+nav     { border-color: #7030a0; background: #efe3f7; }  nav::before     { content: "<nav>"; color: #7030a0; }
+main    { border-color: #c00000; background: #fff; }     main::before    { content: "<main>"; color: #c00000; }
+section { border-color: #2e75b6; background: #f0f7fd; }  section::before { content: "<section>"; color: #2e75b6; }
+article { border-color: #548235; background: #eef7e8; }  article::before { content: "<article>"; color: #548235; }
+aside   { border-color: #bf8f00; background: #fff6d9; }  aside::before   { content: "<aside>"; color: #bf8f00; }
+footer  { border-color: #595959; background: #ececec; }  footer::before  { content: "<footer>"; color: #595959; }
+figure  { border-color: #c55a11; background: #fdeee4; margin: 6px 0; }  figure::before { content: "<figure>"; color: #c55a11; }
+search  { border-color: #00808a; background: #e2f4f5; display: block; }  search::before { content: "<search>"; color: #00808a; }
+h1, h2, h3, p { margin: 4px 0; }
+nav ul { list-style: none; display: flex; gap: 14px; margin: 0; padding: 0; }

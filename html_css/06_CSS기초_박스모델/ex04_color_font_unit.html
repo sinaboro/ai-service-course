@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>색 글꼴 단위</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; }
+    h2 { margin: 8px 0 4px; font-size: 18px; }
+    p { margin: 3px 0; }
+    .c1 { color: tomato; }
+    .c2 { color: #2e75b6; }
+    .c3 { color: rgb(84 130 53); }
+    .c4 { background: rgb(255 0 0 / 0.15); }
+    .f1 { font-weight: bold; font-style: italic; line-height: 1.8; text-align: center; text-decoration: underline; }
+    .u-px { font-size: 16px; }
+    .u-rem { font-size: 1.5rem; }
+    .u-em { font-size: 20px; }
+    .u-em span { font-size: 0.8em; color: #c55a11; }
+    .u-pct { width: 50%; background: #ddebf7; padding: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <h2>색을 쓰는 방법</h2>
+      <p class="c1">이름: tomato</p>
+      <p class="c2">16진수: #2e75b6</p>
+      <p class="c3">rgb: rgb(84 130 53)</p>
+      <p class="c4">반투명 배경: rgb(255 0 0 / 0.15)</p>
+    </section>
+    <section>
+      <h2>글꼴</h2>
+      <p class="f1">굵게 · 기울임 · 줄 간격 1.8 · 가운데 정렬 · 밑줄</p>
+    </section>
+    <section class="units">
+      <h2>단위</h2>
+      <p class="u-px">16px: 고정 크기</p>
+      <p class="u-rem">1.5rem: 기본 글자(16px)의 1.5배 = 24px</p>
+      <p class="u-em">이 상자 글자 20px · <span>안쪽 0.8em = 16px</span></p>
+      <div class="u-pct">width: 50% (부모의 절반)</div>
+    </section>
+  </main>
+</body>
+</html>

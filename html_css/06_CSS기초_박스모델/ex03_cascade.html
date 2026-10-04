@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우선순위와 상속</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; font-size: 17px; }
+    main { color: #548235; border: 2px solid #ccc; padding: 10px; }  /* border 는 상속되지 않음 */
+    p { color: #548235; }
+    .blue { color: #2e75b6; }
+    #red { color: #c00000; }
+    .later { color: #222; }
+    .later { color: #c55a11; }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <p>1. 상속: main 의 color 를 물려받아 초록색</p>
+    <p class="blue">2. class 가 태그보다 강해서 파란색</p>
+    <p class="blue" id="red">3. id 가 class 보다 강해서 빨간색</p>
+    <p class="later">4. 같은 세기면 나중 규칙이 이겨서 주황색</p>
+    <p class="blue" style="color: #7030a0;">5. 인라인 style 이 가장 강해서 보라색</p>
+  </main>
+</body>
+</html>

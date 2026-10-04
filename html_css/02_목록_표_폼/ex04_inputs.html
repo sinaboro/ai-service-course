@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>여러 가지 입력</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; margin: 24px; }
+    fieldset { margin-bottom: 12px; }
+    legend { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>프로젝트 설문</h1>
+  <form action="/survey" method="post">
+    <fieldset>
+      <legend>기본 정보</legend>
+      <p><label for="age">나이</label> <input type="number" id="age" name="age" min="10" max="99" value="20"></p>
+      <p><label for="day">시작일</label> <input type="date" id="day" name="day" value="2026-10-05"></p>
+      <p><label for="level">파이썬 실력</label> <input type="range" id="level" name="level" min="1" max="5" value="3"></p>
+    </fieldset>
+    <fieldset>
+      <legend>관심 주제 (여러 개 선택)</legend>
+      <label><input type="checkbox" name="topic" value="trash" checked> 해양 쓰레기</label>
+      <label><input type="checkbox" name="topic" value="traffic"> 교통</label>
+      <label><input type="checkbox" name="topic" value="safety"> 안전모 착용</label>
+    </fieldset>
+    <fieldset>
+      <legend>팀 역할 (하나만 선택)</legend>
+      <label><input type="radio" name="role" value="data" checked> 데이터</label>
+      <label><input type="radio" name="role" value="model"> 모델</label>
+      <label><input type="radio" name="role" value="web"> 웹</label>
+    </fieldset>
+    <p>
+      <label for="tool">레이블링 도구</label>
+      <select id="tool" name="tool">
+        <option value="labelimg" selected>labelImg</option>
+        <option value="roboflow">Roboflow</option>
+      </select>
+    </p>
+    <p><label for="memo">하고 싶은 말</label><br>
+      <textarea id="memo" name="memo" rows="3" cols="40" placeholder="자유롭게 적어 주세요"></textarea></p>
+    <button type="submit">제출</button> <button type="reset">다시 쓰기</button>
+  </form>
+</body>
+</html>
