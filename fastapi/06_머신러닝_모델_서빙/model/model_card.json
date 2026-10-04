@@ -1,0 +1,12 @@
+{
+  "name": "pass-predictor",
+  "version": "1.0.0",
+  "features": [
+    "study_h",
+    "sleep_h",
+    "phone_h"
+  ],
+  "algorithm": "logistic regression (numpy)",
+  "test_accuracy": 0.9125,
+  "trained_on": 320
+}

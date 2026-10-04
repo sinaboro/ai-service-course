@@ -13,3 +13,4 @@ pandas/07_파일입출력과_실전분석/store_total.csv
 ~$*
 # 예제를 실행하면 생기는 보고서 폴더
 pandas/08_외부CSV_불러와_처리하기/output/
+.pytest_cache/

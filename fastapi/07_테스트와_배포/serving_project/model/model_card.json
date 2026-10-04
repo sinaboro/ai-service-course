@@ -1,0 +1,5 @@
+{
+  "name": "pass-predictor",
+  "version": "1.0.0",
+  "test_accuracy": 0.9125
+}

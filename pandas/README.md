@@ -4,6 +4,10 @@
 
 > 🧭 [저장소 처음으로](../README.md)
 
+```bash
+pip install pandas
+```
+
 ## 📚 목차
 
 | 장 | 주제 | 예제 폴더 | 교안 (Word) | 핵심 키워드 |
@@ -133,4 +137,6 @@ cd pandas/01_시리즈
 python ex01_series_create.py
 ```
 
-> 각 장 폴더로 이동(`cd`)한 뒤 실행하세요. 파일을 읽고 쓰는 예제는 실행한 폴더를 기준으로 동작해요.
+> 각 장 폴더로 이동(`cd`)한 뒤 실행하세요. 파일을 읽고 쓰는 예제는 실행한 폴더 또는 예제 파일 위치를 기준으로 동작해요.
+
+➡ 다음 과정: [데이터 시각화 (matplotlib · seaborn)](../visualization/README.md)

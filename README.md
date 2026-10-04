@@ -1,23 +1,28 @@
 # pyhton_numpy_pandas
 
-파이썬, 넘파이, 판다스 기초 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
+파이썬 → 넘파이 → 판다스 → 시각화 → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
 | [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. |
 | [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
 | [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
+| [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
+| [FastAPI 모델 서빙](fastapi/README.md) | 7 | 학습한 모델을 웹 API로 서비스하기. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
 
 ## 📥 교안 한 번에 받기
 
-- [교안_전체.zip](교안_전체.zip) — 25개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
+- [교안_전체.zip](교안_전체.zip) — 38개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
 
 ## 🗺 학습 순서
 
 ```mermaid
 flowchart LR
-  P["Python 기초<br/>01~11장"] --> N["NumPy<br/>01~06장"] --> D["pandas<br/>01~08장"]
+  P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> F["FastAPI 모델 서빙<br/>7장"]
+  D -.-> F
 ```
+
+> 딥러닝 학습은 이 저장소 밖에서 진행하고, 학습이 끝난 모델은 **FastAPI 6 ~ 7장**의 구조에 연결해 서비스할 수 있어요.
 
 ### Python 기초
 
@@ -59,6 +64,29 @@ flowchart LR
 | 07 | [파일 입출력과 실전 분석](pandas/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/) | [📘](pandas/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D_%EA%B5%90%EC%95%88.docx) |
 | 08 | [외부 CSV 파일 불러와 처리하기](pandas/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/) | [📘](pandas/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
 
+### 데이터 시각화 (matplotlib · seaborn)
+
+| 장 | 주제 | 교안 |
+|:---:|---|---|
+| 01 | [matplotlib 시작하기 — 선 그래프](visualization/01_matplotlib_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](visualization/01_matplotlib_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_matplotlib_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 02 | [여러 가지 그래프](visualization/02_%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80_%EA%B7%B8%EB%9E%98%ED%94%84/) | [📘](visualization/02_%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80_%EA%B7%B8%EB%9E%98%ED%94%84/02_%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80_%EA%B7%B8%EB%9E%98%ED%94%84_%EA%B5%90%EC%95%88.docx) |
+| 03 | [여러 그래프 나눠 그리기와 꾸미기](visualization/03_%EC%97%AC%EB%9F%AC%EA%B7%B8%EB%9E%98%ED%94%84%EC%99%80_%EA%BE%B8%EB%AF%B8%EA%B8%B0/) | [📘](visualization/03_%EC%97%AC%EB%9F%AC%EA%B7%B8%EB%9E%98%ED%94%84%EC%99%80_%EA%BE%B8%EB%AF%B8%EA%B8%B0/03_%EC%97%AC%EB%9F%AC%EA%B7%B8%EB%9E%98%ED%94%84%EC%99%80_%EA%BE%B8%EB%AF%B8%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 04 | [pandas 와 함께 시각화](visualization/04_pandas%EC%99%80_%EC%8B%9C%EA%B0%81%ED%99%94/) | [📘](visualization/04_pandas%EC%99%80_%EC%8B%9C%EA%B0%81%ED%99%94/04_pandas%EC%99%80_%EC%8B%9C%EA%B0%81%ED%99%94_%EA%B5%90%EC%95%88.docx) |
+| 05 | [seaborn 기초](visualization/05_seaborn_%EA%B8%B0%EC%B4%88/) | [📘](visualization/05_seaborn_%EA%B8%B0%EC%B4%88/05_seaborn_%EA%B8%B0%EC%B4%88_%EA%B5%90%EC%95%88.docx) |
+| 06 | [seaborn 심화와 실전 분석](visualization/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84/) | [📘](visualization/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84/06_seaborn_%EC%8B%AC%ED%99%94%EC%99%80_%EC%8B%A4%EC%A0%84_%EA%B5%90%EC%95%88.docx) |
+
+### FastAPI 모델 서빙
+
+| 장 | 주제 | 교안 |
+|:---:|---|---|
+| 01 | [FastAPI 시작하기](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 02 | [Pydantic 으로 요청과 응답 다루기](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/) | [📘](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5_%EA%B5%90%EC%95%88.docx) |
+| 03 | [CRUD API 만들기](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/) | [📘](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 04 | [의존성 · 비동기 · 수명주기 · 미들웨어](fastapi/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0/) | [📘](fastapi/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 05 | [파일 업로드와 이미지 처리](fastapi/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80/) | [📘](fastapi/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80_%EA%B5%90%EC%95%88.docx) |
+| 06 | [머신러닝 모델 서빙](fastapi/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99/) | [📘](fastapi/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99_%EA%B5%90%EC%95%88.docx) |
+| 07 | [프로젝트 구조 · 테스트 · 배포](fastapi/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC/) | [📘](fastapi/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC_%EA%B5%90%EC%95%88.docx) |
+
 ## 📘 교안 구성
 
 각 장의 Word 교안은 다음 순서로 되어 있어요.
@@ -66,15 +94,15 @@ flowchart LR
 1. **학습 목표**와 개념을 일상에 빗댄 설명
 2. **예제 파일**: 폴더의 `.py` 코드를 줄 번호와 함께 싣고, 중요한 줄마다 "줄 · 코드 · 설명" 표로 해설
 3. **추가 설명 코드**: 개념을 더 잘 이해하도록 만든 짧은 예제
-4. **실행 결과**: 모든 코드를 실제로 실행해서 나온 출력 그대로
+4. **실행 결과**: 모든 코드를 실제로 실행해서 나온 출력·그래프·API 응답 그대로
 5. **자주 하는 실수**(실제 오류 메시지), 요약표, **연습문제와 정답**
 
 ## 🛠 준비
 
 - Python 3.10 이상 (교안 실행 결과는 Python 3.13 기준)
-- `pip install numpy pandas` (교안은 numpy 2.5, pandas 3.0 기준. pandas 2.x에서는 출력 모양이 조금 다를 수 있어요)
+- 교안 기준 버전: numpy 2.5, pandas 3.0, matplotlib 3.11, seaborn 0.13, FastAPI 0.142, Pydantic 2.13 (다른 버전에서는 출력 모양이 조금 다를 수 있어요)
 - 편집기: VS Code + Python 확장 (또는 IDLE, Google Colab)
 
 ```bash
-pip install numpy pandas
+pip install numpy pandas matplotlib seaborn fastapi uvicorn python-multipart pillow httpx2 pytest
 ```
