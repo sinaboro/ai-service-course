@@ -1,6 +1,6 @@
 # pandas 기초
 
-표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, CSV 분석까지.
+표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지.
 
 > 🧭 [저장소 처음으로](../README.md)
 
@@ -15,6 +15,7 @@
 | 05 | 그룹과 집계 | [05_그룹과_집계](05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84/) | [📘 교안](05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84/05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84_%EA%B5%90%EC%95%88.docx) | `groupby` `agg` |
 | 06 | 데이터 합치기 — concat · merge | [06_데이터_합치기](06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0/) | [📘 교안](06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0/06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) | `concat` `merge` `how="inner" / "left" / "right" / "outer"` |
 | 07 | 파일 입출력과 실전 분석 | [07_파일입출력과_실전분석](07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/) | [📘 교안](07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D_%EA%B5%90%EC%95%88.docx) | `read_csv` `to_csv` |
+| 08 | 외부 CSV 파일 불러와 처리하기 | [08_외부CSV_불러와_처리하기](08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/) | [📘 교안](08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) | `pathlib` `encoding="cp949"` `sep` `comment` `skipfooter` |
 
 ## 📂 각 장 폴더 구성
 
@@ -109,6 +110,21 @@ CSV 파일을 읽고, 정리하고, 분석하고, 결과를 저장합니다
 - 1 ~ 6장을 종합해 매출 보고서를 만들 수 있어요.
 
 예제: `cafe_sales.csv`, `ex01_read_csv.py`, `ex02_clean.py`, `ex03_datetime.py`, `ex04_report.py`
+
+### 08. 외부 CSV 파일 불러와 처리하기
+
+엑셀·공공데이터·인터넷에서 받은 진짜 CSV 파일을 읽고, 정리하고, 분석합니다
+
+- 실행 위치와 상관없이 CSV 파일 경로를 정확히 지정할 수 있어요 (`pathlib`).
+- 한글이 깨지는 CSV를 `encoding="cp949"` 등으로 읽을 수 있어요.
+- `sep`, `comment`, `skipfooter`, `thousands`, `na_values`, `usecols`, `dtype` 옵션을 상황에 맞게 쓸 수 있어요.
+- 공백·단위·빈 값 표시가 섞인 **지저분한 CSV**를 깨끗하게 정리할 수 있어요.
+- `2026.09.01` 같은 날짜 문자열을 날짜로 바꿔 월별·요일별로 분석할 수 있어요.
+- 폴더 안의 **여러 CSV 파일**을 한 번에 읽어 합칠 수 있어요 (`glob`).
+- 두 CSV를 `merge`로 연결하고, **큰 CSV**를 `chunksize`로 나눠 처리할 수 있어요.
+- 인터넷 주소(URL)의 CSV를 읽고, 결과를 엑셀에서 열리는 CSV로 저장할 수 있어요.
+
+예제: `data/students.csv`, `data/population.txt`, `data/survey_messy.csv`, `data/monthly/sales_2026-07.csv`, `data/monthly/sales_2026-08.csv`, `data/monthly/sales_2026-09.csv`, `data/products.csv`, `data/orders.csv`, `data/tips_backup.csv`, `ex00_make_data.py`, `ex01_read_basic.py`, `ex02_encoding.py`, `ex03_read_options.py`, `ex04_clean_messy.py`, `ex05_dates.py`, `ex06_multi_files.py`, `ex07_merge_files.py`, `ex08_big_file.py`, `ex09_read_url.py`, `ex10_project_report.py`
 
 ## ▶ 실행 방법
 

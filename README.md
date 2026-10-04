@@ -6,17 +6,17 @@
 |---|:---:|---|
 | [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. |
 | [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
-| [pandas 기초](pandas/README.md) | 7 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, CSV 분석까지. |
+| [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
 
 ## 📥 교안 한 번에 받기
 
-- [교안_전체.zip](교안_전체.zip) — 24개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
+- [교안_전체.zip](교안_전체.zip) — 25개 Word 교안 전체 (파일 화면에서 오른쪽 위 다운로드 ⬇ 버튼)
 
 ## 🗺 학습 순서
 
 ```mermaid
 flowchart LR
-  P["Python 기초<br/>01~11장"] --> N["NumPy<br/>01~06장"] --> D["pandas<br/>01~07장"]
+  P["Python 기초<br/>01~11장"] --> N["NumPy<br/>01~06장"] --> D["pandas<br/>01~08장"]
 ```
 
 ### Python 기초
@@ -57,6 +57,7 @@ flowchart LR
 | 05 | [그룹과 집계](pandas/05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84/) | [📘](pandas/05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84/05_%EA%B7%B8%EB%A3%B9%EA%B3%BC_%EC%A7%91%EA%B3%84_%EA%B5%90%EC%95%88.docx) |
 | 06 | [데이터 합치기 — concat · merge](pandas/06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0/) | [📘](pandas/06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0/06_%EB%8D%B0%EC%9D%B4%ED%84%B0_%ED%95%A9%EC%B9%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
 | 07 | [파일 입출력과 실전 분석](pandas/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/) | [📘](pandas/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D/07_%ED%8C%8C%EC%9D%BC%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B3%BC_%EC%8B%A4%EC%A0%84%EB%B6%84%EC%84%9D_%EA%B5%90%EC%95%88.docx) |
+| 08 | [외부 CSV 파일 불러와 처리하기](pandas/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/) | [📘](pandas/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0/08_%EC%99%B8%EB%B6%80CSV_%EB%B6%88%EB%9F%AC%EC%99%80_%EC%B2%98%EB%A6%AC%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
 
 ## 📘 교안 구성
 
