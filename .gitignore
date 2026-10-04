@@ -1,0 +1,13 @@
+# 파이썬 캐시
+__pycache__/
+*.pyc
+# 예제를 실행하면 생기는 파일
+python/10_예외처리_파일_모듈/memo.txt
+python/10_예외처리_파일_모듈/scores.csv
+python/10_예외처리_파일_모듈/squares.txt
+numpy/06_난수와_실전예제/data.csv
+numpy/06_난수와_실전예제/data.npy
+pandas/07_파일입출력과_실전분석/report_by_store.csv
+pandas/07_파일입출력과_실전분석/store_total.csv
+# Word 임시 파일
+~$*

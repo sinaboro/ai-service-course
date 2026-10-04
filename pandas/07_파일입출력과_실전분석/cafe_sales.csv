@@ -1,0 +1,16 @@
+date,store,category,product,qty,price
+2026-09-01,Gangnam,Drink,Americano,12,4000
+2026-09-01,Gangnam,Dessert,Cake,3,6500
+2026-09-01,Hongdae,Drink,Latte,8,4500
+2026-09-02,Gangnam,Drink,Latte,6,4500
+2026-09-02,Hongdae,Drink,Americano,15,4000
+2026-09-02,Hongdae,Dessert,Cookie,10,2500
+2026-09-03,Jamsil,Drink,Americano,9,4000
+2026-09-03,Gangnam,Dessert,Cookie,5,2500
+2026-09-03,Jamsil,Dessert,Cake,,6500
+2026-09-04,Hongdae,Drink,Tea,4,3500
+2026-09-04,Jamsil,Drink,Latte,7,4500
+2026-09-04,Gangnam,Drink,Americano,14,4000
+2026-09-05,Hongdae,Dessert,Cake,2,6500
+2026-09-05,Jamsil,Drink,Tea,6,3500
+2026-09-05,Gangnam,Drink,Tea,3,3500
