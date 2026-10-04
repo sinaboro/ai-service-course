@@ -155,11 +155,11 @@ py --list
 ### 2) 저장소 받기
 
 ```bash
-git clone https://github.com/sinaboro/pyhton_numpy_pandas.git
-cd pyhton_numpy_pandas
+git clone https://github.com/sinaboro/ai-service-course.git
+cd ai-service-course
 ```
 
-> 폴더는 `C:\study\pyhton_numpy_pandas` 처럼 **영어 · 숫자만 있는 경로**에 두는 것을 추천해요 (OpenCV 는 한글 경로에서 사진 읽기 · 저장이 실패할 수 있어요. AI 5장 참고).
+> 폴더는 `C:\study\ai-service-course` 처럼 **영어 · 숫자만 있는 경로**에 두는 것을 추천해요 (OpenCV 는 한글 경로에서 사진 읽기 · 저장이 실패할 수 있어요. AI 5장 참고).
 
 ### 3) 가상 환경 만들기 · 켜기
 
