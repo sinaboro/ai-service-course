@@ -1,4 +1,4 @@
-# pyhton_numpy_pandas 전체 과정 패키지 (Python 3.12.x · 3.13.x)
+# AI 서비스 개발 입문 교안 — 전체 과정 패키지 (Python 3.12.x · 3.13.x)
 # 설치: pip install -r requirements.txt
 # 교안 실행 결과는 괄호 안 버전 기준이에요. 다른 버전에서는 출력 모양이 조금 다를 수 있어요.
 

@@ -1,4 +1,4 @@
-# pyhton_numpy_pandas
+# 🤖 AI 서비스 개발 입문 — Python 부터 YOLO 객체 탐지 웹 서비스까지
 
 파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
 
