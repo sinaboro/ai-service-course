@@ -132,12 +132,85 @@ flowchart LR
 
 ## 🛠 준비
 
-- Python 3.10 이상 (교안 실행 결과는 Python 3.13 기준)
+- **Python 3.12.x 권장** (교안 실행 결과는 Python 3.13 에서 만들었고, 3.12 에서도 같은 코드로 동작해요)
 - 교안 기준 버전: numpy 2.5, pandas 3.0, matplotlib 3.11, seaborn 0.13, FastAPI 0.142, Pydantic 2.13, scikit-learn 1.6, TensorFlow 2.21 · Keras 3.15, OpenCV 5.0, PyTorch 2.14 (CPU), Ultralytics 8.4 (다른 버전에서는 출력 모양이 조금 다를 수 있어요)
 - AI 과정은 GPU 없이 CPU 노트북에서 모두 실행해 확인했어요 (YOLO 학습은 작은 연습 데이터 · 적은 에폭)
 - 레이블링: Windows 용 labelImg (windows_v1.8.1, 설치 없이 실행)
-- 편집기: VS Code + Python 확장 (또는 IDLE, Google Colab)
+- 편집기: **VS Code** (내 PC) · **Google Colab** (브라우저, 무료 GPU) — 아래 설치 방법 참고
+
+## 🐍 가상 환경 만들고 한 번에 설치하기
+
+과정마다 패키지를 따로 설치하지 않아도 되도록, 저장소 맨 위에 [requirements.txt](requirements.txt) 가 있어요. **가상 환경(venv)** 을 만들어 그 안에 설치하면 다른 프로젝트와 패키지가 섞이지 않아요.
+
+### 1) Python 3.12 설치 (Windows)
+
+1. [python.org](https://www.python.org/downloads/windows/) 에서 **Python 3.12.x** (Windows installer 64-bit) 를 내려받아요.
+2. 설치 첫 화면에서 **"Add python.exe to PATH"** 를 꼭 체크하고 설치해요.
+3. 명령 프롬프트(또는 VS Code 터미널)에서 확인해요.
 
 ```bash
-pip install numpy pandas matplotlib seaborn scikit-learn tensorflow opencv-python ultralytics fastapi uvicorn python-multipart pillow httpx2 pytest
+py -3.12 --version
 ```
+
+### 2) 저장소 받기
+
+```bash
+git clone https://github.com/sinaboro/pyhton_numpy_pandas.git
+cd pyhton_numpy_pandas
+```
+
+> 폴더는 `C:\study\pyhton_numpy_pandas` 처럼 **영어 · 숫자만 있는 경로**에 두는 것을 추천해요 (OpenCV 는 한글 경로에서 사진 읽기 · 저장이 실패할 수 있어요. AI 5장 참고).
+
+### 3) 가상 환경 만들기 · 켜기
+
+```bash
+py -3.12 -m venv .venv
+```
+
+```bash
+.venv\Scripts\activate
+```
+
+켜지면 명령 줄 앞에 `(.venv)` 가 붙어요. macOS · Linux 에서는 `python3.12 -m venv .venv` → `source .venv/bin/activate` 를 써요.
+
+> PowerShell 에서 "스크립트를 실행할 수 없습니다" 오류가 나면 명령 프롬프트(cmd)를 쓰거나, VS Code 의 인터프리터 선택(아래 4번)으로 가상 환경을 켜세요.
+
+### 4) requirements.txt 로 한 번에 설치
+
+```bash
+python -m pip install --upgrade pip
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+TensorFlow · PyTorch(YOLO) 가 함께 설치되어 **수 GB, 10분 이상** 걸릴 수 있어요. 설치가 끝나면 확인해 보세요.
+
+```bash
+python ai_deep_learning/01_AI개요/ex00_check_env.py
+```
+
+가상 환경을 끌 때는 `deactivate`, 다음에 다시 공부할 때는 저장소 폴더에서 `.venv\Scripts\activate` 만 하면 돼요.
+
+### 5) VS Code 에서 쓰기
+
+1. [VS Code](https://code.visualstudio.com/) 를 설치하고, 확장(Extensions)에서 **Python**(Microsoft) 과 **Jupyter** 를 설치해요.
+2. **파일 → 폴더 열기** 로 `pyhton_numpy_pandas` 폴더를 열어요.
+3. `Ctrl + Shift + P` → **Python: Select Interpreter** → `.venv` 가 들어간 항목을 골라요.
+4. **터미널 → 새 터미널** 을 열면 `(.venv)` 가 자동으로 켜져요. 예제 폴더로 `cd` 한 뒤 `python ex01_....py` 로 실행하거나, 편집기 오른쪽 위 ▶ 버튼을 눌러요.
+5. HTML/CSS 예제는 확장 **Live Server** 를 설치하면 `.html` 파일에서 오른쪽 클릭 → **Open with Live Server** 로 저장할 때마다 자동 새로고침돼요.
+
+### 6) Google Colab 에서 쓰기
+
+Colab 은 설치 없이 브라우저에서 쓰고, **무료 GPU** 로 YOLO 를 빠르게 학습할 수 있어요 (AI 7장 10절). Colab 에는 numpy · pandas · matplotlib · scikit-learn · tensorflow · opencv 가 이미 들어 있어서 보통 아래만 설치하면 돼요.
+
+```python
+!git clone https://github.com/sinaboro/pyhton_numpy_pandas.git
+%cd pyhton_numpy_pandas
+!pip install -q ultralytics fastapi uvicorn python-multipart httpx2 mypy
+```
+
+GPU 는 메뉴 **런타임 → 런타임 유형 변경 → T4 GPU** 로 켜요. 예제 파일은 `%cd ai_deep_learning/07_YOLO학습과추론` 처럼 폴더로 이동한 뒤 `!python ex02_train.py` 로 실행해요.
+
+> Colab 에서는 창이 뜨는 코드(`cv2.imshow`), 웹캠, `uvicorn` 서버 화면 보기가 PC 와 다르게 동작해요. 이런 예제(OpenCV 창, 웹캠, FastAPI · HTML 서빙)는 **VS Code(내 PC)** 에서 하고, 오래 걸리는 **학습만 Colab** 에서 하는 것을 추천해요. Colab 런타임이 끝나면 파일이 사라지니 `best.pt` 같은 결과는 내려받거나 Google Drive 에 저장하세요.

@@ -1,0 +1,24 @@
+# pyhton_numpy_pandas 전체 과정 패키지 (Python 3.12.x 권장)
+# 설치: pip install -r requirements.txt
+# 교안 실행 결과는 괄호 안 버전 기준이에요. 다른 버전에서는 출력 모양이 조금 다를 수 있어요.
+
+# ---------- Python · NumPy · pandas · 시각화 ----------
+numpy>=2.0             # (2.5)
+pandas>=2.2            # (3.0)
+matplotlib>=3.9        # (3.11)
+seaborn>=0.13          # (0.13)
+mypy>=1.10             # Python 11장 타입 체크
+
+# ---------- FastAPI · HTML/CSS 10장 서빙 ----------
+fastapi>=0.115         # (0.142)
+uvicorn>=0.30          # (0.54)
+python-multipart>=0.0.9
+pillow>=10.1           # ImageFont.load_default(size=...) 를 쓰려면 10.1 이상
+httpx2                 # TestClient 용 (최신 Starlette)
+pytest>=8.0
+
+# ---------- AI 딥러닝 (Keras · OpenCV · YOLO) ----------
+scikit-learn>=1.5      # (1.6)
+tensorflow>=2.17       # (2.21) Keras 3 포함
+opencv-python>=4.10    # (5.0)
+ultralytics>=8.3       # (8.4) YOLO11, PyTorch 도 함께 설치돼요

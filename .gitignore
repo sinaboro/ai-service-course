@@ -27,3 +27,5 @@ ai_deep_learning/06_객체탐지와_레이블링/beach_010.*
 *.pt
 *.keras
 *.cache
+# 가상 환경
+.venv/
