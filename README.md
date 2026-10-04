@@ -196,7 +196,7 @@ python ai_deep_learning/01_AI개요/ex00_check_env.py
 ### 5) VS Code 에서 쓰기
 
 1. [VS Code](https://code.visualstudio.com/) 를 설치하고, 확장(Extensions)에서 **Python**(Microsoft) 과 **Jupyter** 를 설치해요.
-2. **파일 → 폴더 열기** 로 `pyhton_numpy_pandas` 폴더를 열어요.
+2. **파일 → 폴더 열기** 로 `ai-service-course` 폴더를 열어요.
 3. `Ctrl + Shift + P` → **Python: Select Interpreter** → `.venv` 가 들어간 항목을 골라요.
 4. **터미널 → 새 터미널** 을 열면 `(.venv)` 가 자동으로 켜져요. 예제 폴더로 `cd` 한 뒤 `python ex01_....py` 로 실행하거나, 편집기 오른쪽 위 ▶ 버튼을 눌러요.
 5. HTML/CSS 예제는 확장 **Live Server** 를 설치하면 `.html` 파일에서 오른쪽 클릭 → **Open with Live Server** 로 저장할 때마다 자동 새로고침돼요.
@@ -206,8 +206,8 @@ python ai_deep_learning/01_AI개요/ex00_check_env.py
 Colab 은 설치 없이 브라우저에서 쓰고, **무료 GPU** 로 YOLO 를 빠르게 학습할 수 있어요 (AI 7장 10절). Colab 에는 numpy · pandas · matplotlib · scikit-learn · tensorflow · opencv 가 이미 들어 있어서 보통 아래만 설치하면 돼요.
 
 ```python
-!git clone https://github.com/sinaboro/pyhton_numpy_pandas.git
-%cd pyhton_numpy_pandas
+!git clone https://github.com/sinaboro/ai-service-course.git
+%cd ai-service-course
 !pip install -q ultralytics fastapi uvicorn python-multipart httpx2 mypy
 ```
 
