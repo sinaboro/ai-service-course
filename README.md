@@ -132,7 +132,7 @@ flowchart LR
 
 ## 🛠 준비
 
-- **Python 3.12.x 권장** (교안 실행 결과는 Python 3.13 에서 만들었고, 3.12 에서도 같은 코드로 동작해요)
+- **Python 3.12.x 또는 3.13.x** (교안 실행 결과는 Python 3.13 기준)
 - 교안 기준 버전: numpy 2.5, pandas 3.0, matplotlib 3.11, seaborn 0.13, FastAPI 0.142, Pydantic 2.13, scikit-learn 1.6, TensorFlow 2.21 · Keras 3.15, OpenCV 5.0, PyTorch 2.14 (CPU), Ultralytics 8.4 (다른 버전에서는 출력 모양이 조금 다를 수 있어요)
 - AI 과정은 GPU 없이 CPU 노트북에서 모두 실행해 확인했어요 (YOLO 학습은 작은 연습 데이터 · 적은 에폭)
 - 레이블링: Windows 용 labelImg (windows_v1.8.1, 설치 없이 실행)
@@ -142,14 +142,14 @@ flowchart LR
 
 과정마다 패키지를 따로 설치하지 않아도 되도록, 저장소 맨 위에 [requirements.txt](requirements.txt) 가 있어요. **가상 환경(venv)** 을 만들어 그 안에 설치하면 다른 프로젝트와 패키지가 섞이지 않아요.
 
-### 1) Python 3.12 설치 (Windows)
+### 1) Python 3.12 또는 3.13 설치 (Windows)
 
-1. [python.org](https://www.python.org/downloads/windows/) 에서 **Python 3.12.x** (Windows installer 64-bit) 를 내려받아요.
+1. [python.org](https://www.python.org/downloads/windows/) 에서 **Python 3.12.x 또는 3.13.x** (Windows installer 64-bit) 를 내려받아요. 교안 실행 결과는 3.13 으로 만들었어요.
 2. 설치 첫 화면에서 **"Add python.exe to PATH"** 를 꼭 체크하고 설치해요.
-3. 명령 프롬프트(또는 VS Code 터미널)에서 확인해요.
+3. 명령 프롬프트(또는 VS Code 터미널)에서 설치된 버전을 확인해요 (`-V:3.13` 또는 `-V:3.12` 가 보이면 OK).
 
 ```bash
-py -3.12 --version
+py --list
 ```
 
 ### 2) 저장소 받기
@@ -164,14 +164,14 @@ cd pyhton_numpy_pandas
 ### 3) 가상 환경 만들기 · 켜기
 
 ```bash
-py -3.12 -m venv .venv
+py -3.13 -m venv .venv
 ```
 
 ```bash
 .venv\Scripts\activate
 ```
 
-켜지면 명령 줄 앞에 `(.venv)` 가 붙어요. macOS · Linux 에서는 `python3.12 -m venv .venv` → `source .venv/bin/activate` 를 써요.
+3.12 를 설치했다면 `py -3.12 -m venv .venv` 로 바꿔 쓰세요. 켜지면 명령 줄 앞에 `(.venv)` 가 붙어요. macOS · Linux 에서는 `python3.13 -m venv .venv` → `source .venv/bin/activate` 를 써요.
 
 > PowerShell 에서 "스크립트를 실행할 수 없습니다" 오류가 나면 명령 프롬프트(cmd)를 쓰거나, VS Code 의 인터프리터 선택(아래 4번)으로 가상 환경을 켜세요.
 
