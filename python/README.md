@@ -166,6 +166,20 @@
 
 예제: `ex01_type_isinstance.py`, `ex02_inheritance_check.py`, `ex03_type_hints.py`, `ex04_init_validation.py`, `ex05_property_setter.py`, `ex06_readonly_property.py`, `ex07_dataclass.py`, `ex08_optional_union_list.py`, `ex09_duck_typing.py`, `ex10_mypy_check.py`, `ex11_project_inventory.py`
 
+## 🎬 함께 보면 좋은 유튜브 무료 파이썬 강좌
+
+교안으로 공부한 뒤 복습용으로, 또는 예습용으로 보면 좋은 무료 강의입니다.
+
+| # | 강좌 | 채널 | 형식 | 추천 대상 |
+|:---:|---|---|---|---|
+| 1 | [파이썬 코딩 무료 강의 (기본편) - 6시간 뒤면 여러분도 개발자가 될 수 있어요](https://www.youtube.com/watch?v=kWiCuklohdY) | 나도코딩 | 영상 1편 (약 6시간) | 처음 배우는 사람, 한 번에 쭉 보고 싶은 사람 |
+| 2 | [최신 파이썬 코딩 무료 강의 - 2024 점프 투 파이썬 통합본](https://www.youtube.com/watch?v=ftQZo7XaTOA) | 조코딩 JoCoding | 영상 1편 (통합본) | 『점프 투 파이썬』 교재와 함께 공부할 사람 |
+| 3 | [[파이썬 기초 강의] 혼자 공부하는 파이썬(개정판)](https://www.youtube.com/playlist?list=PLVsNizTWUw7FvE4FSPmYTtqtwUe0je4r_) | 한빛미디어 | 재생목록 | 장별로 나눠서 차근차근 듣고 싶은 사람 |
+| 4 | [파이썬 기초 무료 강의 - 한양대 ERICA 도경구 교수](https://www.youtube.com/watch?v=ns61Ol2OIuo) | 메타코드M | 영상 1편 | 대학 강의처럼 개념을 깊이 이해하고 싶은 사람 |
+| 5 | [파이썬(python) 기초강의](https://www.youtube.com/playlist?list=PL5bK87xH5V1yNr-2G9nMjBNlGp0_bduIr) | 프로그래머 김플 스튜디오 | 재생목록 | 설치부터 짧은 영상으로 따라 하고 싶은 사람 |
+
+> 💡 영상만 보지 말고, 이 저장소의 예제 코드를 **직접 타이핑하며** 따라 해 보세요. 백견불여일타!
+
 ## ▶ 실행 방법
 
 ```bash
