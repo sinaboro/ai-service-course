@@ -5,13 +5,18 @@
 > 🧭 [저장소 처음으로](../README.md)
 
 ```bash
-pip install fastapi uvicorn python-multipart pillow httpx2 pytest
+pip install fastapi uvicorn python-multipart pillow numpy httpx2 pytest
 ```
+
+> 📕 **통합 교안 (PDF 한 권)** : [FastAPI_통합교안.pdf](FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) — 0~7장 + 부록, 126쪽
+> 웹을 처음 배우는 학생을 위해 **0장(웹과 API 첫걸음)**, `/docs` 화면 그림, 3장 **웹 페이지에서 API 쓰기**, 각 절의 **[필수] / [심화]** 표시, 용어 사전 · 오류 해결 모음을 더했어요.
+> 처음 배울 때는 0~3장 전체와 4~7장의 [필수] 절만 따라가고, [심화] 절은 2회차에 공부하세요.
 
 ## 📚 목차
 
 | 장 | 주제 | 예제 폴더 | 교안 (Word) | 핵심 키워드 |
 |:---:|---|---|---|---|
+| 00 | 웹과 API 첫걸음 (새로 추가) | [00_웹과_API_첫걸음](00_%EC%9B%B9%EA%B3%BC_API_%EC%B2%AB%EA%B1%B8%EC%9D%8C/) | [📕 통합 교안 0장](FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) | 요청·응답 `URL` `JSON` 가상환경 |
 | 01 | FastAPI 시작하기 | [01_FastAPI_시작하기](01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘 교안](01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) | `uvicorn` `/docs` |
 | 02 | Pydantic 으로 요청과 응답 다루기 | [02_Pydantic_요청과_응답](02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/) | [📘 교안](02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5_%EA%B5%90%EC%95%88.docx) | `Field` `Literal` `Optional` |
 | 03 | CRUD API 만들기 | [03_CRUD_API_만들기](03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/) | [📘 교안](03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0_%EA%B5%90%EC%95%88.docx) | `HTTPException` |
@@ -31,6 +36,18 @@ pip install fastapi uvicorn python-multipart pillow httpx2 pytest
 ```
 
 ## 📝 장별 학습 목표
+
+### 00. 웹과 API 첫걸음 (새로 추가)
+
+웹이 움직이는 원리를 알고, 실습 환경을 준비해 첫 서버를 켜 봅니다 — 교안은 통합 교안 PDF 의 0장
+
+- 클라이언트 · 서버 · 요청 · 응답 · API 를 그림으로 설명할 수 있어요.
+- URL 을 호스트 · 포트 · 경로 · 쿼리로 나눠 읽고, HTTP 메서드와 상태 코드의 뜻을 알아요.
+- JSON 과 파이썬 딕셔너리를 서로 바꿀 수 있어요.
+- 가상환경을 만들고 패키지를 설치한 뒤 `check_setup.py` 로 점검할 수 있어요.
+- `uvicorn` 으로 서버를 켜고, 브라우저로 접속하고, `Ctrl+C` 로 끌 수 있어요.
+
+예제: `ex01_json_basics.py`, `ex02_python_warmup.py`, `ex03_first_server.py`, `ex03_first_server_client.py`, `check_setup.py`
 
 ### 01. FastAPI 시작하기
 
@@ -69,7 +86,9 @@ pip install fastapi uvicorn python-multipart pillow httpx2 pytest
 - `APIRouter`로 API를 여러 파일로 나눌 수 있어요.
 - `tags`, `summary`, `prefix`로 `/docs` 문서를 정리할 수 있어요.
 
-예제: `ex01_todo_crud.py`, `ex01_todo_crud_client.py`, `routers/items.py`, `routers/models.py`, `ex02_main.py`, `ex02_main_client.py`
+- (새로 추가) 만든 API 를 **웹 페이지(HTML + fetch)** 에서 버튼으로 써 볼 수 있어요.
+
+예제: `ex01_todo_crud.py`, `ex01_todo_crud_client.py`, `routers/items.py`, `routers/models.py`, `ex02_main.py`, `ex02_main_client.py`, `ex03_todo_web.py`, `todo_page.html`, `ex03_todo_web_client.py`
 
 ### 04. 의존성 · 비동기 · 수명주기 · 미들웨어
 

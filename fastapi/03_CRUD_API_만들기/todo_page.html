@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>할 일 목록</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; background: #f5f7fb; }
+    h1 { font-size: 24px; }
+    form { display: flex; gap: 8px; margin-bottom: 16px; }
+    input[type=text] { flex: 1; padding: 8px; font-size: 15px; }
+    select, button { padding: 8px 12px; font-size: 15px; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: 8px; background: white; padding: 10px; margin-bottom: 6px; border-radius: 6px; }
+    li.done span { text-decoration: line-through; color: #999; }
+    li span { flex: 1; }
+    .pri { font-size: 12px; color: #c55a11; }
+    #msg { color: #c00000; min-height: 20px; }
+  </style>
+</head>
+<body>
+  <h1>할 일 목록</h1>
+
+  <!-- 입력 칸: 제목과 중요도를 적고 [추가] 를 누르면 POST /todos 요청 -->
+  <form id="add-form">
+    <input type="text" id="title" placeholder="할 일을 입력하세요">
+    <select id="priority">
+      <option value="1">중요도 1</option><option value="2">중요도 2</option>
+      <option value="3" selected>중요도 3</option><option value="4">중요도 4</option>
+      <option value="5">중요도 5</option>
+    </select>
+    <button type="submit">추가</button>
+  </form>
+  <p id="msg"></p>
+
+  <!-- 할 일 목록이 여기에 그려져요 -->
+  <ul id="list"></ul>
+
+  <script>
+    // fetch(주소, 옵션): 브라우저가 서버에 HTTP 요청을 보내는 함수 (TestClient 의 client.get / post 와 같은 역할)
+
+    // R: 목록 가져오기 → GET /todos
+    async function loadTodos() {
+      const res = await fetch("/todos?limit=50");
+      const todos = await res.json();              // 응답 JSON → 자바스크립트 배열
+      const list = document.getElementById("list");
+      list.innerHTML = "";                          // 화면을 비우고 다시 그리기
+      for (const t of todos) {
+        const li = document.createElement("li");
+        if (t.done) li.className = "done";
+        li.innerHTML = `
+          <input type="checkbox" ${t.done ? "checked" : ""}>
+          <span></span>
+          <small class="pri">중요도 ${t.priority}</small>
+          <button>삭제</button>`;
+        li.querySelector("span").textContent = t.title;   // textContent: 글자를 그대로 넣기 (안전)
+        li.querySelector("input").onchange = () => toggleDone(t);
+        li.querySelector("button").onclick = () => deleteTodo(t.id);
+        list.appendChild(li);
+      }
+    }
+
+    // C: 만들기 → POST /todos (본문에 JSON)
+    document.getElementById("add-form").onsubmit = async (event) => {
+      event.preventDefault();                       // 폼의 기본 동작(페이지 새로고침) 막기
+      const res = await fetch("/todos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: document.getElementById("title").value,
+          priority: Number(document.getElementById("priority").value),
+        }),
+      });
+      const msg = document.getElementById("msg");
+      if (res.status === 201) {
+        msg.textContent = "";
+        document.getElementById("title").value = "";
+        loadTodos();
+      } else {
+        // 422: 제목이 비었거나 너무 길 때 — 서버(Pydantic)가 알려 준 이유를 보여 줘요
+        const err = await res.json();
+        msg.textContent = `추가 실패(${res.status}): ${err.detail[0].msg}`;
+      }
+    };
+
+    // U: 완료 표시 바꾸기 → PATCH /todos/{id} (보낸 값만 수정)
+    async function toggleDone(todo) {
+      await fetch(`/todos/${todo.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ done: !todo.done }),
+      });
+      loadTodos();
+    }
+
+    // D: 삭제 → DELETE /todos/{id}
+    async function deleteTodo(id) {
+      await fetch(`/todos/${id}`, { method: "DELETE" });
+      loadTodos();
+    }
+
+    loadTodos();                                    // 페이지가 열리면 목록부터 불러오기
+  </script>
+</body>
+</html>

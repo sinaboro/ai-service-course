@@ -1,5 +1,12 @@
 # 문제 3. /predict의 응답에 advice(합격 확률이 0.5 미만이면 "공부 시간을 늘려 보세요", 아니면 "지금처럼!")를 추가한 새 앱을 만들어 보세요. (힌트: 기존 앱의 모델 클래스와 같은 방식으로 lifespan에서 불러오기)
 
+# 정답 폴더에서 실행해도 되도록: 장 폴더(06_...)를 import 경로와 작업 폴더로 지정
+import os
+import sys
+CHAPTER = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, CHAPTER)                      # model_core, ex01_serving_app 을 찾을 수 있게
+os.chdir(CHAPTER)                                # "model/pass_model.npz" 같은 상대 경로가 맞도록
+
 from contextlib import asynccontextmanager
 import numpy as np
 from fastapi import FastAPI, Request

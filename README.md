@@ -10,7 +10,7 @@
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
-| [FastAPI 모델 서빙](fastapi/README.md) | 7 | 학습한 모델을 웹 API로 서비스하기. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
+| [FastAPI 모델 서빙](fastapi/README.md) | 8 | 웹 첫걸음(0장)부터 학습한 모델을 웹 API로 서비스하기까지. 통합 교안 PDF 한 권 제공. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
 
 ## 📥 교안 한 번에 받기
 
@@ -112,6 +112,7 @@ flowchart LR
 
 | 장 | 주제 | 교안 |
 |:---:|---|---|
+| 00 | [웹과 API 첫걸음](fastapi/00_%EC%9B%B9%EA%B3%BC_API_%EC%B2%AB%EA%B1%B8%EC%9D%8C/) | [📕 통합 교안](fastapi/FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | 01 | [FastAPI 시작하기](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
 | 02 | [Pydantic 으로 요청과 응답 다루기](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/) | [📘](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5_%EA%B5%90%EC%95%88.docx) |
 | 03 | [CRUD API 만들기](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/) | [📘](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
