@@ -6,7 +6,7 @@ from ultralytics import YOLO
 HERE = Path(__file__).parent
 # 학습할 데이터셋의 설정 파일 (images · labels · 클래스 이름이 적혀 있어요)
 DATA = HERE / "datasets" / "floats" / "data.yaml"      # 6장에서 만든 것과 같은 구조
-
+(HERE / "models").mkdir(exist_ok=True)                 # 모델 저장 폴더 만들기
 model = YOLO("yolo11n.pt")                             # ⭐ 사전 학습 가중치에서 출발 (전이 학습)
 # ⭐ 학습 시작: 아래 값들을 바꿔 가며 실험해요
 results = model.train(

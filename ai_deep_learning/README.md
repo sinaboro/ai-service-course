@@ -129,6 +129,11 @@ IoU · NMS · mAP 이해하기 → 윈도우 labelImg 로 레이블링 → YOLO 
 
 예제: `cvutil.py`, `scene.py`, `ex00_make_dataset.py`, `ex01_pretrained.py`, `ex02_train.py`, `ex03_results.py`, `ex04_val.py`, `ex05_predict_draw.py`, `ex06_video.py`, `ex07_conf_threshold.py`
 
+> 📦 **데이터셋과 모델 파일은 저장소에 없어요 — 실행하면 만들어져요.**
+> ① `python ex00_make_dataset.py` 가 연습용 데이터셋(바다 위 병 · 캔 · 비닐봉지를 코드로 그린 사진, train 240장 / val 60장 + `data.yaml`)을 `datasets/floats/` 에 만들어요.
+> ② `python ex02_train.py` 가 처음 실행될 때 사전 학습 가중치 `yolo11n.pt`(약 5MB)를 자동으로 내려받고, 거기서 출발해 ①의 데이터로 다시 학습해요(전이 학습). 결과는 `models/best.pt` 에 저장돼요.
+> ③ `ex03` ~ `ex07` 과 8장은 `models/best.pt` 를 쓰니 **반드시 ① → ② 순서로 먼저 실행**하세요. 내 데이터셋(6장 labelImg)으로 바꾸려면 `ex02_train.py` 의 `DATA` 경로만 바꾸면 돼요.
+
 ### 08. AI 시스템 구축 — YOLO 서빙과 팀 프로젝트
 
 학습한 YOLO 를 FastAPI + HTML/CSS 웹 서비스로 만들고, 팀 프로젝트를 기획 · 진행 · 발표하기
