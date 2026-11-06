@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- 5장 메모장 화면: 4장에서 배운 fetch 로 메모장 API(GET · POST · PUT · DELETE)를 불러요 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 메모장</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; background: #fffaf0; }
+    form { display: flex; gap: 8px; margin-bottom: 8px; }
+    input { flex: 1; padding: 8px; font-size: 15px; }
+    button { padding: 6px 12px; font-size: 14px; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: 6px; background: white; padding: 10px; margin-bottom: 6px;
+         border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    li span { flex: 1; }
+    #msg { color: #c00000; min-height: 20px; }
+  </style>
+</head>
+<body>
+  <h1>나의 메모장</h1>
+
+  <form id="memo-form">
+    <input id="memo-text" placeholder="메모를 입력하세요">
+    <button type="submit">저장</button>
+  </form>
+  <p id="msg"></p>
+  <p>메모 <b id="count">0</b>개</p>
+  <ul id="list"></ul>
+
+  <script>
+    // ① 목록 불러와서 화면에 그리기 — GET /memos
+    async function loadMemos() {
+      const res = await fetch("/memos");
+      const memos = await res.json();                 // [{id: 1, text: "..."}, ...]
+      document.getElementById("count").textContent = memos.length;
+      const list = document.getElementById("list");
+      list.innerHTML = "";                            // 비우고 처음부터 다시 그리기
+      for (const memo of memos) {                     // 메모 하나마다 li 한 줄 만들기
+        const li = document.createElement("li");
+        li.innerHTML = `<span></span><button>고치기</button><button>지우기</button>`;
+        li.querySelector("span").textContent = memo.text;
+        const [editBtn, deleteBtn] = li.querySelectorAll("button");
+        editBtn.onclick = () => editMemo(memo);
+        deleteBtn.onclick = () => deleteMemo(memo.id);
+        list.appendChild(li);
+      }
+    }
+
+    // ② 메모 저장 — POST /memos (4장 3단계와 같은 방법)
+    document.getElementById("memo-form").onsubmit = async (event) => {
+      event.preventDefault();
+      const input = document.getElementById("memo-text");
+      const res = await fetch("/memos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: input.value }),
+      });
+      if (res.ok) {
+        input.value = "";
+        document.getElementById("msg").textContent = "";
+        loadMemos();
+      } else {
+        document.getElementById("msg").textContent = "메모를 1 ~ 100글자로 써 주세요";   // 422
+      }
+    };
+
+    // ③ 메모 고치기 — PUT /memos/번호
+    async function editMemo(memo) {
+      const newText = prompt("메모를 고쳐 쓰세요", memo.text);   // 작은 입력 창 띄우기
+      if (!newText) return;                                    // 취소하면 아무것도 안 해요
+      await fetch("/memos/" + memo.id, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: newText }),
+      });
+      loadMemos();
+    }
+
+    // ④ 메모 지우기 — DELETE /memos/번호
+    async function deleteMemo(id) {
+      await fetch("/memos/" + id, { method: "DELETE" });
+      loadMemos();
+    }
+
+    loadMemos();                                      // 페이지가 열리면 목록부터
+  </script>
+</body>
+</html>

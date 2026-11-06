@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- 4장 3단계 화면: 입력 칸(form) → POST + JSON 본문 → 성공이면 결과, 422 면 오류 이유 표시 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>3단계 - POST 보내기</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; max-width: 520px; margin: 40px auto; padding: 0 16px; }
+    form { display: flex; gap: 8px; margin-bottom: 14px; }
+    input { padding: 8px; font-size: 15px; }
+    input[type=number] { width: 90px; }
+    button { padding: 8px 14px; font-size: 15px; }
+    #result { padding: 12px; border-radius: 6px; min-height: 22px; }
+    .ok { background: #e2f0d9; color: #385723; }
+    .error { background: #fce4d6; color: #843c0c; }
+    pre { background: #1e1e1e; color: #e6e6e6; padding: 10px; border-radius: 6px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>3단계 · 학점 계산기 (POST)</h1>
+
+  <!-- form: 입력 칸들을 묶는 태그. [학점 계산] 버튼(type=submit)을 누르면 submit 이벤트가 일어나요 -->
+  <form id="grade-form">
+    <input id="name" placeholder="이름" value="영희">
+    <input id="score" type="number" placeholder="점수" value="87">
+    <button type="submit">학점 계산</button>
+  </form>
+
+  <div id="result"></div>
+  <p>서버에 실제로 보낸 JSON 본문:</p>
+  <pre id="sent">(아직 보내지 않았어요)</pre>
+
+  <script>
+    document.getElementById("grade-form").onsubmit = async (event) => {
+      // form 은 원래 제출하면 페이지를 새로 불러와요 → 그 기본 동작을 막고 fetch 로 직접 보내요
+      event.preventDefault();
+
+      // ① 보낼 데이터 만들기: 입력 칸의 값 → 자바스크립트 객체
+      const body = {
+        name: document.getElementById("name").value,
+        score: Number(document.getElementById("score").value),   // 입력 칸 값은 글자라서 숫자로 바꿔요
+      };
+      // JSON.stringify: 객체 → JSON 글자 (파이썬의 json.dumps 와 같아요)
+      document.getElementById("sent").textContent = JSON.stringify(body, null, 2);
+
+      // ② POST 요청: method, headers(본문이 JSON 이라고 알리기), body(JSON 글자)
+      const res = await fetch("/api/grade", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+
+      // ③ 상태 코드에 따라 다르게 보여 주기 — res.ok 는 200번대 성공이면 true
+      const box = document.getElementById("result");
+      if (res.ok) {
+        box.className = "ok";
+        box.textContent = `${data.name}님의 점수 ${data.score}점 → 학점 ${data.grade}`;
+      } else {
+        // 422: Pydantic 규칙에 맞지 않음 → detail[0] 에 어느 칸(loc)이 왜(msg) 틀렸는지 들어 있어요
+        const err = data.detail[0];
+        box.className = "error";
+        box.textContent = `오류 ${res.status} — ${err.loc.at(-1)} 칸: ${err.msg}`;
+      }
+    };
+  </script>
+</body>
+</html>

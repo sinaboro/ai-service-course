@@ -10,7 +10,7 @@
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
-| [FastAPI 모델 서빙](fastapi/README.md) | 8 | 웹 첫걸음(0장)부터 학습한 모델을 웹 API로 서비스하기까지. 통합 교안 PDF 한 권 제공. API 기초, Pydantic 검사, CRUD, 의존성·lifespan, 이미지 업로드·전처리, 모델 서빙(/predict), pytest 테스트와 Docker 배포까지. |
+| [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → AI 맛보기 → 미니 프로젝트. 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
 
 ## 📥 교안 한 번에 받기
 
@@ -21,7 +21,7 @@
 ```mermaid
 flowchart LR
   P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> A["AI 딥러닝 1 ~ 7장<br/>Keras · OpenCV · YOLO"]
-  H["HTML · CSS<br/>10장"] --> F["FastAPI<br/>7장"]
+  H["HTML · CSS<br/>10장"] --> F["FastAPI<br/>초급 8장"]
   A --> X["AI 8장<br/>YOLO 서빙 · 팀 프로젝트"]
   F --> X
   D -.-> F
@@ -108,18 +108,20 @@ flowchart LR
 | 09 | [종합 프로젝트 — AI 탐지 서비스 페이지 만들기](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
 | 10 | [HTML · CSS 페이지를 FastAPI 서버와 연결하기](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/) | [📘](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/10_FastAPI%EC%97%B0%EA%B2%B0_%EA%B5%90%EC%95%88.docx) |
 
-### FastAPI 모델 서빙
+### FastAPI 웹 서비스 (초급 과정)
 
 | 장 | 주제 | 교안 |
 |:---:|---|---|
-| 00 | [웹과 API 첫걸음](fastapi/00_%EC%9B%B9%EA%B3%BC_API_%EC%B2%AB%EA%B1%B8%EC%9D%8C/) | [📕 통합 교안](fastapi/FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
-| 01 | [FastAPI 시작하기](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](fastapi/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_FastAPI_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
-| 02 | [Pydantic 으로 요청과 응답 다루기](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/) | [📘](fastapi/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5/02_Pydantic_%EC%9A%94%EC%B2%AD%EA%B3%BC_%EC%9D%91%EB%8B%B5_%EA%B5%90%EC%95%88.docx) |
-| 03 | [CRUD API 만들기](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/) | [📘](fastapi/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/03_CRUD_API_%EB%A7%8C%EB%93%A4%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
-| 04 | [의존성 · 비동기 · 수명주기 · 미들웨어](fastapi/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0/) | [📘](fastapi/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0/04_%EC%9D%98%EC%A1%B4%EC%84%B1_%EB%B9%84%EB%8F%99%EA%B8%B0_%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
-| 05 | [파일 업로드와 이미지 처리](fastapi/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80/) | [📘](fastapi/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80/05_%ED%8C%8C%EC%9D%BC%EC%97%85%EB%A1%9C%EB%93%9C%EC%99%80_%EC%9D%B4%EB%AF%B8%EC%A7%80_%EA%B5%90%EC%95%88.docx) |
-| 06 | [머신러닝 모델 서빙](fastapi/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99/) | [📘](fastapi/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99/06_%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D_%EB%AA%A8%EB%8D%B8_%EC%84%9C%EB%B9%99_%EA%B5%90%EC%95%88.docx) |
-| 07 | [프로젝트 구조 · 테스트 · 배포](fastapi/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC/) | [📘](fastapi/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC/07_%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%99%80_%EB%B0%B0%ED%8F%AC_%EA%B5%90%EC%95%88.docx) |
+| 00 | [웹과 API 첫걸음](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/00_%EC%9B%B9%EA%B3%BC_API_%EC%B2%AB%EA%B1%B8%EC%9D%8C/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 01 | [첫 API 만들기](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/01_%EC%B2%AB_API_%EB%A7%8C%EB%93%A4%EA%B8%B0/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 02 | [데이터 보내기 — POST](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/02_%EB%8D%B0%EC%9D%B4%ED%84%B0_%EB%B3%B4%EB%82%B4%EA%B8%B0/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 03 | [메모장 API — CRUD](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/03_%EB%A9%94%EB%AA%A8%EC%9E%A5_API/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 04 | [웹 페이지와 API](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/04_%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%99%80_API/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 05 | [메모장 웹 앱](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/05_%EB%A9%94%EB%AA%A8%EC%9E%A5_%EC%9B%B9%EC%95%B1/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 06 | [AI 맛보기](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/06_AI_%EB%A7%9B%EB%B3%B4%EA%B8%B0/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 07 | [미니 프로젝트](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/07_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+
+> 원래 1~7장(Pydantic 심화 · 의존성 · 파일 업로드 · 모델 서빙 · pytest · Docker)은 [심화 과정](fastapi/%EC%8B%AC%ED%99%94%EA%B3%BC%EC%A0%95/README.md)에 Word 교안과 함께 있어요.
 
 ## 📘 교안 구성
 

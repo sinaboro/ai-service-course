@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- 나의 미니 프로젝트 화면 (뼈대) — 제목, 입력 칸, 목록을 내 서비스에 맞게 바꾸세요 -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>나의 미니 프로젝트</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; max-width: 520px; margin: 30px auto; padding: 0 16px; }
+    form { display: flex; gap: 8px; }
+    input, select, button { padding: 8px; font-size: 15px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <!-- TODO: 서비스 이름 -->
+  <h1>나의 미니 프로젝트</h1>
+
+  <!-- TODO: main.py 의 ItemIn 과 같은 칸을 만들어요 -->
+  <form id="item-form">
+    <input id="title" placeholder="제목">
+    <select id="score">
+      <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+    </select>
+    <button type="submit">저장</button>
+  </form>
+
+  <ul id="list"></ul>
+
+  <script>
+    // 목록 그리기 — GET /api/items
+    async function loadItems() {
+      const res = await fetch("/api/items");
+      const items = await res.json();
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+      for (const item of items) {
+        const li = document.createElement("li");
+        li.textContent = `${item.title} — 별점 ${item.score}`;   // TODO: 보여 줄 모양 바꾸기
+        list.appendChild(li);
+      }
+    }
+
+    // 저장 — POST /api/items
+    document.getElementById("item-form").onsubmit = async (event) => {
+      event.preventDefault();
+      await fetch("/api/items", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: document.getElementById("title").value,           // TODO: 칸 이름 맞추기
+          score: Number(document.getElementById("score").value),
+        }),
+      });
+      document.getElementById("title").value = "";
+      loadItems();
+    };
+
+    loadItems();
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- 방명록 화면: 이름과 남길 말을 쓰면 POST /api/posts, 목록은 GET /api/posts (5장 메모장과 같은 방법) -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: 휴대폰에서도 글자가 작지 않게 화면 폭에 맞추기 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>우리 반 방명록</title>
+  <style>
+    body { font-family: "Malgun Gothic", sans-serif; max-width: 520px; margin: 30px auto; padding: 0 16px; background: #f3f6fb; }
+    h1 { text-align: center; }
+    form { background: white; padding: 14px; border-radius: 10px; display: grid; gap: 8px; }
+    input, textarea { padding: 8px; font-size: 15px; font-family: inherit; }
+    button { padding: 8px; font-size: 15px; background: #2e75b6; color: white; border: none; border-radius: 6px; }
+    .post { background: white; padding: 12px 14px; border-radius: 10px; margin-top: 10px; }
+    .post b { color: #1f4e79; }
+    .post small { color: #888; margin-left: 6px; }
+    .post p { margin: 6px 0 0; white-space: pre-line; }
+    .post .del { float: right; background: none; color: #bbb; padding: 0; font-size: 13px; }
+    #msg { color: #c00000; min-height: 18px; margin: 0; }
+  </style>
+</head>
+<body>
+  <h1>우리 반 방명록</h1>
+
+  <form id="post-form">
+    <input id="name" placeholder="이름 (10자까지)">
+    <textarea id="message" rows="3" placeholder="남길 말 (100자까지)"></textarea>
+    <button type="submit">남기기</button>
+    <p id="msg"></p>
+  </form>
+
+  <div id="posts"></div>
+
+  <script>
+    // 글 목록 그리기 — GET /api/posts
+    async function loadPosts() {
+      const res = await fetch("/api/posts");
+      const posts = await res.json();
+      const box = document.getElementById("posts");
+      box.innerHTML = "";
+      for (const p of posts) {
+        const div = document.createElement("div");
+        div.className = "post";
+        div.innerHTML = `<button class="del">삭제</button><b></b><small></small><p></p>`;
+        div.querySelector("b").textContent = p.name;          // textContent: 글자를 그대로 넣기 (안전)
+        div.querySelector("small").textContent = p.time;
+        div.querySelector("p").textContent = p.message;
+        div.querySelector(".del").onclick = () => deletePost(p.id);
+        box.appendChild(div);
+      }
+    }
+
+    // 글 남기기 — POST /api/posts
+    document.getElementById("post-form").onsubmit = async (event) => {
+      event.preventDefault();
+      const res = await fetch("/api/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("name").value,
+          message: document.getElementById("message").value,
+        }),
+      });
+      if (res.ok) {
+        document.getElementById("message").value = "";
+        document.getElementById("msg").textContent = "";
+        loadPosts();
+      } else {
+        document.getElementById("msg").textContent = "이름(1~10자)과 남길 말(1~100자)을 확인해 주세요";
+      }
+    };
+
+    // 글 지우기 — DELETE /api/posts/번호
+    async function deletePost(id) {
+      if (!confirm("이 글을 지울까요?")) return;
+      await fetch("/api/posts/" + id, { method: "DELETE" });
+      loadPosts();
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>
