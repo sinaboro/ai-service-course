@@ -7,7 +7,7 @@
 
 | 과정 | 대상 | 내용 | 교안 |
 |---|---|---|---|
-| [**초급 과정**](%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/README.md) (수업용) | 웹을 처음 배우는 학생 | 0~7장: 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → AI 맛보기 → 미니 프로젝트 | 📕 [FastAPI_초급교안.pdf](FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) (79쪽) |
+| [**초급 과정**](%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/README.md) (수업용) | 웹을 처음 배우는 학생 | 0~7장: 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → AI 맛보기 → 미니 프로젝트 | 📕 [FastAPI_초급교안.pdf](FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) (81쪽) |
 | [**심화 과정**](%EC%8B%AC%ED%99%94%EA%B3%BC%EC%A0%95/README.md) (스스로 학습) | 초급 과정을 마친 학생 | 원래 1~7장: Pydantic 심화, 의존성·비동기·lifespan, 파일 업로드, 머신러닝 모델 서빙, pytest·Docker | 장별 Word 교안 |
 
 ```bash
