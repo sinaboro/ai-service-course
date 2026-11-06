@@ -8,9 +8,9 @@
 pip install fastapi uvicorn python-multipart pillow numpy httpx2 pytest
 ```
 
-> 📕 **통합 교안 (PDF 한 권)** : [FastAPI_통합교안.pdf](FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) — 0~7장 + 부록, 126쪽
-> 웹을 처음 배우는 학생을 위해 **0장(웹과 API 첫걸음)**, `/docs` 화면 그림, 3장 **웹 페이지에서 API 쓰기**, 각 절의 **[필수] / [심화]** 표시, 용어 사전 · 오류 해결 모음을 더했어요.
-> 처음 배울 때는 0~3장 전체와 4~7장의 [필수] 절만 따라가고, [심화] 절은 2회차에 공부하세요.
+> 📕 **통합 교안 (PDF 한 권)** : [FastAPI_통합교안.pdf](FastAPI_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) — 0~7장 + 부록, 141쪽
+> 웹을 처음 배우는 학생을 위해 **0장(웹과 API 첫걸음)**, `/docs` 화면 그림, 3장 **웹 페이지에서 API 쓰기**, 각 절의 **[기본] / [더 알아보기]** 표시, 6장 **간단한 예측 API + 예측 화면**, 용어 사전 · 오류 해결 모음 · 스스로 더 공부하기(부록 D)를 더했어요.
+> 수업은 **초급 + 중급 맛보기**까지: 0~6장의 [기본] 절만으로 끝나요. [더 알아보기] 절과 7장은 기본 과정을 마친 뒤 스스로 공부하세요.
 
 ## 📚 목차
 
@@ -86,9 +86,9 @@ pip install fastapi uvicorn python-multipart pillow numpy httpx2 pytest
 - `APIRouter`로 API를 여러 파일로 나눌 수 있어요.
 - `tags`, `summary`, `prefix`로 `/docs` 문서를 정리할 수 있어요.
 
-- (새로 추가) 만든 API 를 **웹 페이지(HTML + fetch)** 에서 버튼으로 써 볼 수 있어요.
+- (새로 추가) 만든 API 를 **웹 페이지**에서 쓸 수 있어요 — 4단계: HTML 돌려주기 → 버튼과 `fetch`(동기·비동기 체험) → 입력 칸으로 POST → 할 일 앱.
 
-예제: `ex01_todo_crud.py`, `ex01_todo_crud_client.py`, `routers/items.py`, `routers/models.py`, `ex02_main.py`, `ex02_main_client.py`, `ex03_todo_web.py`, `todo_page.html`, `ex03_todo_web_client.py`
+예제: `ex01_todo_crud.py`, `ex01_todo_crud_client.py`, `routers/items.py`, `routers/models.py`, `ex02_main.py`, `ex02_main_client.py`, `ex03_step1_html.py`, `step1_page.html`, `ex03_step2_fetch.py`, `step2_page.html`, `ex03_step3_post.py`, `step3_page.html`, `ex03_steps_client.py`, `ex03_todo_web.py`, `todo_page.html`, `ex03_todo_web_client.py`
 
 ### 04. 의존성 · 비동기 · 수명주기 · 미들웨어
 
@@ -128,7 +128,9 @@ pip install fastapi uvicorn python-multipart pillow numpy httpx2 pytest
 - 모델이 없을 때 503을 돌려주는 등 실패 상황을 처리할 수 있어요.
 - 이미지 분류 API를 만들고, PyTorch/Keras 모델로 바꿔 끼우는 방법을 알아요.
 
-예제: `ex00_train_model.py`, `model_core.py`, `ex01_serving_app.py`, `ex01_serving_client.py`, `ex02_missing_model_client.py`, `ex03_image_app.py`, `ex03_image_client.py`
+- (새로 추가) 30줄 남짓의 **가장 간단한 예측 API** 와 **예측 웹 페이지**를 만들 수 있어요 — 기본 과정의 마지막 목표.
+
+예제: `ex00_train_model.py`, `model_core.py`, `ex01_predict_simple.py`, `predict_page.html`, `ex01_predict_simple_client.py`, `ex01_serving_app.py`, `ex01_serving_client.py`, `ex02_missing_model_client.py`, `ex03_image_app.py`, `ex03_image_client.py`
 
 ### 07. 프로젝트 구조 · 테스트 · 배포
 

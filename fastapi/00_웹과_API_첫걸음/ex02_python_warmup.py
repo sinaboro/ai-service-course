@@ -27,30 +27,18 @@ def search(keyword: str | None = None) -> str:
 print("3)", search(), "/", search("마우스"))
 
 # ── 4) 데코레이터 @: 함수 위에 붙이는 "등록 스티커" ──
-# FastAPI 의 @app.get("/주소") 는 "이 주소로 요청이 오면 아래 함수를 실행해 줘" 라고 등록하는 스티커예요.
-# 아래는 그 원리를 아주 작게 흉내 낸 것이에요. (내부 동작은 몰라도 사용하는 데 문제없어요)
-ROUTES = {}                                    # 주소 → 함수 를 적어 두는 장부
-
-
-def route(path):                               # route("/hello") 가 스티커를 만들어 줘요
-    def sticker(func):
-        ROUTES[path] = func                    # 장부에 등록
-        return func
-    return sticker
-
-
-@route("/hello")                               # ← FastAPI 의 @app.get("/hello") 와 같은 모양
+# FastAPI 에서는 이렇게 써요:
+#     @app.get("/hello")
+#     def hello():
+#         return {"message": "안녕하세요"}
+# 뜻: "주소 /hello 로 요청이 오면 아래 hello 함수를 실행해 줘" 라고 서버의 장부에 등록하기.
+# 그 장부를 딕셔너리로 직접 만들면 아래와 같아요. @ 한 줄이 ROUTES[...] = 함수 를 대신 써 주는 거예요.
 def hello():
     return {"message": "안녕하세요"}
 
 
-@route("/health")
-def health():
-    return {"status": "ok"}
-
-
-print("4) 등록된 주소:", list(ROUTES))
-print("   '/hello' 로 요청이 왔다고 치면 →", ROUTES["/hello"]())
+ROUTES = {"/hello": hello}                     # 주소 → 함수 장부 (@app.get 이 대신 해 주는 일)
+print("4) '/hello' 로 요청이 왔다고 치면 →", ROUTES["/hello"]())   # 장부에서 함수를 찾아 실행
 
 # ── 5) import: 다른 파일(모듈)의 것을 가져와 쓰기 ──
 # from fastapi import FastAPI  ← "fastapi 라는 설치된 묶음에서 FastAPI 를 가져와요"
