@@ -4,7 +4,7 @@
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
-| [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. |
+| [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. 📕 [통합 교안 PDF](python/Python_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
 | [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
