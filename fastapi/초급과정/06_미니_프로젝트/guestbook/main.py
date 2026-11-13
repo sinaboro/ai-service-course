@@ -1,7 +1,7 @@
-# 7장 미니 프로젝트 예시: 방명록 — 서버를 껐다 켜도 글이 남아 있어요 (posts.json 파일에 저장)
+# 6장 미니 프로젝트 예시: 방명록 — 서버를 껐다 켜도 글이 남아 있어요 (posts.json 파일에 저장)
 # 실행: 이 폴더(guestbook)에서  uvicorn main:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000
-# 친구 폰에서 접속: uvicorn main:app --host 0.0.0.0  → 친구 폰 브라우저에 http://내컴퓨터IP:8000 (교안 7장 3절)
+# 친구 폰에서 접속: uvicorn main:app --host 0.0.0.0  → 친구 폰 브라우저에 http://내컴퓨터IP:8000 (교안 6장 3절)
 import json
 from datetime import datetime
 from pathlib import Path

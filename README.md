@@ -10,7 +10,7 @@
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
-| [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → AI 맛보기 → 미니 프로젝트. 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
+| [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → 미니 프로젝트 (12시간). 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
 
 ## 📥 교안 한 번에 받기
 
@@ -118,8 +118,7 @@ flowchart LR
 | 03 | [메모장 API — CRUD](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/03_%EB%A9%94%EB%AA%A8%EC%9E%A5_API/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
 | 04 | [웹 페이지와 API](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/04_%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%99%80_API/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
 | 05 | [메모장 웹 앱](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/05_%EB%A9%94%EB%AA%A8%EC%9E%A5_%EC%9B%B9%EC%95%B1/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
-| 06 | [AI 맛보기](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/06_AI_%EB%A7%9B%EB%B3%B4%EA%B8%B0/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
-| 07 | [미니 프로젝트](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/07_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
+| 06 | [미니 프로젝트](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/06_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
 
 > 원래 1~7장(Pydantic 심화 · 의존성 · 파일 업로드 · 모델 서빙 · pytest · Docker)은 [심화 과정](fastapi/%EC%8B%AC%ED%99%94%EA%B3%BC%EC%A0%95/README.md)에 Word 교안과 함께 있어요.
 

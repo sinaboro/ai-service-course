@@ -12,7 +12,7 @@ class MemoIn(BaseModel):
     text: str = Field(min_length=1, max_length=100)
 
 
-# 메모를 저장할 곳: 번호 → 메모 글자 (서버를 끄면 사라져요. 7장에서 파일에 저장해 봐요)
+# 메모를 저장할 곳: 번호 → 메모 글자 (서버를 끄면 사라져요. 6장 미니 프로젝트에서 파일에 저장해 봐요)
 memos = {}
 next_id = 1                                   # 다음에 만들 메모 번호
 

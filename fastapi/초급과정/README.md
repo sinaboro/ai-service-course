@@ -14,6 +14,18 @@ pip install fastapi uvicorn
 python 00_웹과_API_첫걸음/check_setup.py
 ```
 
+## 수업 시간표 (12시간)
+
+| 장 | 내용 | 시간 |
+|:---:|---|:---:|
+| 00 | 웹과 API 첫걸음 — 요청과 응답, 환경 준비, 첫 서버 | 1.5시간 |
+| 01 | 첫 API 만들기 — 주소, 경로·쿼리, `/docs` | 1.5시간 |
+| 02 | 데이터 보내기 — POST, 값 검사 | 1.5시간 |
+| 03 | 메모장 API — 만들기·읽기·고치기·지우기, 404 | 1.5시간 |
+| 04 | 웹 페이지와 API — HTML, fetch, 화면에서 POST | 2시간 |
+| 05 | 메모장 웹 앱 — 서버와 화면 합치기 | 1.5시간 |
+| 06 | 미니 프로젝트 — 방명록 따라 하기, 내 서비스 만들기, 친구 폰 접속, 발표 | 2.5시간 |
+
 ## 장별 예제
 
 | 장 | 폴더 | 서버로 실행 (그 폴더에서) | 확인 |
@@ -24,8 +36,7 @@ python 00_웹과_API_첫걸음/check_setup.py
 | 03 | [03_메모장_API](03_%EB%A9%94%EB%AA%A8%EC%9E%A5_API/) | `uvicorn ex01_memo:app --reload` | `/docs` |
 | 04 | [04_웹페이지와_API](04_%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%EC%99%80_API/) | `uvicorn ex01_html:app --reload` → ex02_fetch → ex03_post | 브라우저 `/` |
 | 05 | [05_메모장_웹앱](05_%EB%A9%94%EB%AA%A8%EC%9E%A5_%EC%9B%B9%EC%95%B1/) | `uvicorn memo_app:app --reload` | 브라우저 `/` |
-| 06 | [06_AI_맛보기](06_AI_%EB%A7%9B%EB%B3%B4%EA%B8%B0/) | `python ex01_try_model.py` → `uvicorn ex02_predict_app:app --reload` | 브라우저 `/` |
-| 07 | [07_미니_프로젝트](07_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | `cd guestbook` → `uvicorn main:app --reload` | 브라우저 `/`, 친구 폰 |
+| 06 | [06_미니_프로젝트](06_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | `cd guestbook` → `uvicorn main:app --reload` | 브라우저 `/`, 친구 폰 |
 
 - 연습문제 정답은 각 장의 `연습문제_정답` 폴더에 있어요.
 - 서버는 반드시 **그 예제가 있는 폴더에서** 켜요. 다른 폴더에서 켜면 `Could not import module` 오류가 나요.
