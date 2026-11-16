@@ -10,7 +10,7 @@ IMG.mkdir(exist_ok=True)
 
 import numpy as np
 
-# 대시보드에 쓸 데이터 4가지: 일별 매출, 메뉴별 판매량, 주문 시각 800건
+# 대시보드에 쓸 데이터 3가지: 30일 동안의 일별 매출, 메뉴별 판매량, 주문 시각 800건
 rng = np.random.default_rng(seed=2026)
 days = np.arange(1, 31)
 sales = (200 + days * 3 + rng.normal(0, 25, 30)).round()

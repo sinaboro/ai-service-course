@@ -17,7 +17,7 @@ tips = pd.read_csv(HERE / "data" / "tips.csv")   # 식당 팁 데이터 (244건)
 tips["tip_rate"] = tips["tip"] / tips["total_bill"] * 100
 
 fig, ax = plt.subplots(figsize=(9, 5))
-# 한 점에 정보 4가지: 위치(금액, 팁 비율), 색(시간), 크기(인원), 모양(흡연)
+# 한 점에 정보 5가지: x 위치(금액), y 위치(팁 비율), 색(시간), 크기(인원), 모양(흡연)
 sns.scatterplot(data=tips, x="total_bill", y="tip_rate", hue="time", size="size",
                 style="smoker", sizes=(20, 200), alpha=0.7, ax=ax)
 ax.set_title("계산 금액과 팁 비율 (색=시간, 크기=인원, 모양=흡연)")
