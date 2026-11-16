@@ -5,8 +5,8 @@
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
 | [Python 기초](python/README.md) | 11 | 프로그래밍을 처음 배우는 사람을 위한 파이썬 기초. 출력과 변수부터 함수, 클래스, 파일·모듈, 클래스 타입 체크까지. 📕 [통합 교안 PDF](python/Python_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
-| [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. |
-| [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. |
+| [NumPy 기초](numpy/README.md) | 6 | 숫자 데이터를 빠르게 계산하는 배열 라이브러리. 배열 만들기부터 인덱싱, 브로드캐스팅, 통계, 난수까지. 📕 [통합 교안 PDF](numpy/NumPy_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
+| [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. 📕 [통합 교안 PDF](pandas/pandas_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
