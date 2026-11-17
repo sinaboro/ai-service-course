@@ -1,6 +1,6 @@
 # 🤖 AI 서비스 개발 입문 — Python 부터 YOLO 객체 탐지 웹 서비스까지
 
-파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → JavaScript → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
+파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → JavaScript → FastAPI 모델 서빙 → DB(PostgreSQL) 입문까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
@@ -12,6 +12,7 @@
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. 📕 [통합 교안 PDF](html_css/HTML_CSS_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [JavaScript (기초 → FastAPI 비동기 통신)](javascript/README.md) | 10 | 웹 페이지를 움직이는 언어. 변수 · 조건 · 반복 · 함수 · 객체와 JSON, DOM 으로 화면 바꾸기, 이벤트, `async / await` · `fetch` 로 FastAPI 와 통신(GET · POST · PATCH · DELETE), 서버에 저장되는 할 일 앱까지. 모든 예제 실제 브라우저 실행 결과 포함. 📕 [통합 교안 PDF](javascript/JavaScript_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → 미니 프로젝트 (12시간). 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
+| [DB 입문 (PostgreSQL) ↗](https://github.com/sinaboro/postgresql-tutorial/tree/main/beginner) | 9 | **별도 저장소** [sinaboro/postgresql-tutorial](https://github.com/sinaboro/postgresql-tutorial) 의 입문 과정(12시간). 데이터베이스 개념, Docker 로 PostgreSQL 실행, DBeaver 와 첫 SQL, CRUD(INSERT · SELECT · UPDATE · DELETE), 외래 키와 JOIN, 마지막에 **FastAPI + PostgreSQL CRUD 게시판**. FastAPI 다음에 들으면 "서버를 꺼도 데이터가 남는" 서비스를 만들 수 있어요. 📕 [입문 교안 PDF](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/docs/PostgreSQL_%EC%9E%85%EB%AC%B8%EA%B5%90%EC%95%88.pdf) |
 
 ## 📥 교안 한 번에 받기
 
@@ -22,9 +23,10 @@
 ```mermaid
 flowchart LR
   P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> A["AI 딥러닝 1 ~ 7장<br/>Keras · OpenCV · YOLO"]
-  H["HTML · CSS<br/>10장"] --> J["JavaScript<br/>10장"] --> F["FastAPI<br/>초급 8장"]
+  H["HTML · CSS<br/>10장"] --> J["JavaScript<br/>10장"] --> F["FastAPI<br/>초급 8장"] --> B["DB 입문 (PostgreSQL)<br/>9장 · 별도 저장소"]
   A --> X["AI 8장<br/>YOLO 서빙 · 팀 프로젝트"]
   F --> X
+  B -.-> X
   D -.-> F
 ```
 
@@ -137,6 +139,22 @@ flowchart LR
 | 06 | [미니 프로젝트](fastapi/%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/06_%EB%AF%B8%EB%8B%88_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📕](fastapi/FastAPI_%EC%B4%88%EA%B8%89%EA%B5%90%EC%95%88.pdf) |
 
 > 원래 1~7장(Pydantic 심화 · 의존성 · 파일 업로드 · 모델 서빙 · pytest · Docker)은 [심화 과정](fastapi/%EC%8B%AC%ED%99%94%EA%B3%BC%EC%A0%95/README.md)에 Word 교안과 함께 있어요.
+
+### DB 입문 (PostgreSQL) — 별도 저장소
+
+> 내용은 [sinaboro/postgresql-tutorial](https://github.com/sinaboro/postgresql-tutorial) 저장소의 [beginner 폴더](https://github.com/sinaboro/postgresql-tutorial/tree/main/beginner)에 있어요. 실습 환경: Docker Desktop(PostgreSQL 18) + DBeaver Community. 더 깊이 배우려면 같은 저장소의 본 과정(20장)으로 이어 가세요.
+
+| 장 | 주제 | 예제 |
+|:---:|---|---|
+| 01 | 데이터베이스란 무엇인가 — 테이블, 행·열, 키, SQL, CRUD |  |
+| 02 | Docker 처음 써 보기 — 이미지 · 컨테이너 · 볼륨 · docker compose |  |
+| 03 | DBeaver 연결과 첫 SQL | [03_first_sql.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/03_first_sql.sql) |
+| 04 | 테이블 만들기 — 자료형과 제약 조건 | [04_create_table.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/04_create_table.sql) |
+| 05 | Create — INSERT | [05_insert.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/05_insert.sql) |
+| 06 | Read — SELECT · WHERE · ORDER BY · LIMIT · 집계 | [06_select.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/06_select.sql) |
+| 07 | Update / Delete — 트랜잭션 맛보기 | [07_update_delete.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/07_update_delete.sql) |
+| 08 | 테이블 관계 — 외래 키와 JOIN | [08_relation.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/08_relation.sql) |
+| 09 | 미니 프로젝트 — FastAPI + PostgreSQL CRUD 게시판 | [09_board.sql](https://github.com/sinaboro/postgresql-tutorial/blob/main/beginner/sql/09_board.sql) · [board/](https://github.com/sinaboro/postgresql-tutorial/tree/main/beginner/board) |
 
 ## 📘 교안 구성
 
