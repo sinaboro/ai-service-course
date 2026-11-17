@@ -9,7 +9,7 @@
 | [pandas 기초](pandas/README.md) | 8 | 표(행과 열) 데이터를 분석하는 라이브러리. Series, DataFrame부터 필터, 그룹 집계, 합치기, 외부 CSV 파일(한글 엑셀·여러 파일·큰 파일·URL) 처리까지. 📕 [통합 교안 PDF](pandas/pandas_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. 📕 [통합 교안 PDF](visualization/%EC%8B%9C%EA%B0%81%ED%99%94_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
-| [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. |
+| [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. 📕 [통합 교안 PDF](html_css/HTML_CSS_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → 미니 프로젝트 (12시간). 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
 
 ## 📥 교안 한 번에 받기
