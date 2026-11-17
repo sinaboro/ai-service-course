@@ -1,0 +1,23 @@
+/* 10장 할 일 앱 디자인 (HTML · CSS 과정의 박스 모델 · flex) */
+* { box-sizing: border-box; }
+:root { --main: #2e75b6; --dark: #1f4e79; --line: #e3e7ec; }
+body { margin: 0; font-family: "Malgun Gothic", sans-serif; color: #222; background: #f5f7fa; }
+.site-header { background: var(--dark); color: #fff; padding: 20px 24px; }
+.site-header h1 { margin: 0; font-size: 1.6rem; }
+.site-header p { margin: 4px 0 0; opacity: 0.85; }
+main { max-width: 640px; margin: 24px auto; padding: 0 16px; }
+section { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin-bottom: 16px; }
+h2 { font-size: 1.1rem; margin: 0 0 12px; color: var(--dark); }
+#todo-form { display: flex; gap: 8px; }
+#todo-input { flex: 1; padding: 8px 10px; border: 1px solid #bbb; border-radius: 6px; font: inherit; }
+button { padding: 8px 14px; border: 1px solid var(--main); background: var(--main); color: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
+button.delete { background: #fff; color: #c00000; border-color: #e0a0a0; padding: 4px 10px; }
+.todo-list { list-style: none; margin: 0; padding: 0; }
+.todo-list li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.todo-list li span { flex: 1; }
+.todo-list li.done span { text-decoration: line-through; color: #999; }
+.summary { color: #555; margin: 12px 0 0; }
+#status { min-height: 1.4em; margin: 0 0 8px; }
+#status.error { color: #c00000; }
+#status.ok { color: #2e7d32; }
+.site-footer { text-align: center; color: #777; font-size: 0.9rem; padding: 16px; }

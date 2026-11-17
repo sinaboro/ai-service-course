@@ -1,6 +1,6 @@
 # 🤖 AI 서비스 개발 입문 — Python 부터 YOLO 객체 탐지 웹 서비스까지
 
-파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
+파이썬 → 넘파이 → 판다스 → 시각화 → AI 딥러닝(Keras · OpenCV · YOLO) → HTML/CSS → JavaScript → FastAPI 모델 서빙까지 — **완전 초보자**를 위한 장별 예제와 Word 교안입니다.
 
 | 과정 | 장 수 | 내용 |
 |---|:---:|---|
@@ -10,6 +10,7 @@
 | [데이터 시각화 (matplotlib · seaborn)](visualization/README.md) | 6 | 데이터를 그래프로. matplotlib 기초와 꾸미기, pandas 연동, seaborn 통계 그래프, 탐색적 데이터 분석(EDA) 보고서까지. 모든 교안에 실행 결과 그래프 이미지 포함. 📕 [통합 교안 PDF](visualization/%EC%8B%9C%EA%B0%81%ED%99%94_%EA%B8%B0%EC%B4%88_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [AI 딥러닝 (Keras · OpenCV · YOLO)](ai_deep_learning/README.md) | 8 | AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-learn), Keras 딥러닝 · CNN · 전이 학습, OpenCV 영상 처리, 객체 탐지 개념(IoU · NMS · mAP), 윈도우 labelImg 레이블링과 YOLO 데이터셋, YOLO 학습 · 추론, FastAPI + HTML/CSS 서빙과 팀 프로젝트 가이드까지. |
 | [HTML · CSS (시맨틱 화면 구도)](html_css/README.md) | 10 | AI 서비스 화면을 직접 만들기. HTML 기초 · 폼, ⭐ 시맨틱 태그로 화면 구도 잡기(4개 장: 이해 · 기본 패턴 · 실전 페이지 5종 · Grid areas), CSS 박스 모델 · Flexbox · Grid, 종합 프로젝트 페이지, FastAPI 서버와 연결까지. 모든 예제 W3C 검사 통과, 브라우저 렌더링 화면 포함. 📕 [통합 교안 PDF](html_css/HTML_CSS_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
+| [JavaScript (기초 → FastAPI 비동기 통신)](javascript/README.md) | 10 | 웹 페이지를 움직이는 언어. 변수 · 조건 · 반복 · 함수 · 객체와 JSON, DOM 으로 화면 바꾸기, 이벤트, `async / await` · `fetch` 로 FastAPI 와 통신(GET · POST · PATCH · DELETE), 서버에 저장되는 할 일 앱까지. 모든 예제 실제 브라우저 실행 결과 포함. 📕 [통합 교안 PDF](javascript/JavaScript_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf) |
 | [FastAPI 웹 서비스](fastapi/README.md) | 8 | **초급 과정**(수업용): 웹 첫걸음 → 첫 API → POST → 메모장 API → 웹 페이지와 API → 메모장 웹 앱 → 미니 프로젝트 (12시간). 초급 교안 PDF 한 권. 원래 1~7장(모델 서빙 · pytest · Docker)은 **심화 과정**으로 스스로 학습. |
 
 ## 📥 교안 한 번에 받기
@@ -21,13 +22,13 @@
 ```mermaid
 flowchart LR
   P["Python 기초<br/>11장"] --> N["NumPy<br/>6장"] --> D["pandas<br/>8장"] --> V["시각화<br/>6장"] --> A["AI 딥러닝 1 ~ 7장<br/>Keras · OpenCV · YOLO"]
-  H["HTML · CSS<br/>10장"] --> F["FastAPI<br/>초급 8장"]
+  H["HTML · CSS<br/>10장"] --> J["JavaScript<br/>10장"] --> F["FastAPI<br/>초급 8장"]
   A --> X["AI 8장<br/>YOLO 서빙 · 팀 프로젝트"]
   F --> X
   D -.-> F
 ```
 
-> AI 과정(1 ~ 7장)과 웹 과정(HTML · CSS → FastAPI)은 나란히 공부할 수 있어요. 두 길은 **AI 8장**에서 만나요: 7장에서 학습한 YOLO 모델을 HTML/CSS 10장의 웹 화면 · FastAPI 서버에 연결해 팀 프로젝트(예: 부유물 탐지, 주제는 팀이 선택)를 완성해요. 레이블링은 윈도우용 **labelImg** 로 해요(AI 6장).
+> AI 과정(1 ~ 7장)과 웹 과정(HTML · CSS → JavaScript → FastAPI)은 나란히 공부할 수 있어요. 두 길은 **AI 8장**에서 만나요: 7장에서 학습한 YOLO 모델을 HTML/CSS 10장의 웹 화면 · FastAPI 서버에 연결해 팀 프로젝트(예: 부유물 탐지, 주제는 팀이 선택)를 완성해요. 레이블링은 윈도우용 **labelImg** 로 해요(AI 6장).
 
 ### Python 기초
 
@@ -107,6 +108,21 @@ flowchart LR
 | 08 | [CSS Grid — 시맨틱 태그로 화면 구도 완성하기](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/) | [📘](html_css/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/08_Grid_%EC%8B%9C%EB%A7%A8%ED%8B%B1%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83_%EA%B5%90%EC%95%88.docx) |
 | 09 | [종합 프로젝트 — AI 탐지 서비스 페이지 만들기](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/) | [📘](html_css/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/09_%EC%A2%85%ED%95%A9%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
 | 10 | [HTML · CSS 페이지를 FastAPI 서버와 연결하기](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/) | [📘](html_css/10_FastAPI%EC%97%B0%EA%B2%B0/10_FastAPI%EC%97%B0%EA%B2%B0_%EA%B5%90%EC%95%88.docx) |
+
+### JavaScript
+
+| 장 | 주제 | 교안 |
+|:---:|---|---|
+| 01 | [JavaScript 시작하기](javascript/01_JS_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/) | [📘](javascript/01_JS_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/01_JS_%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 02 | [비교와 조건문](javascript/02_%EC%A1%B0%EA%B1%B4%EB%AC%B8/) | [📘](javascript/02_%EC%A1%B0%EA%B1%B4%EB%AC%B8/02_%EC%A1%B0%EA%B1%B4%EB%AC%B8_%EA%B5%90%EC%95%88.docx) |
+| 03 | [배열과 반복문](javascript/03_%EB%B0%98%EB%B3%B5%EB%AC%B8%EA%B3%BC_%EB%B0%B0%EC%97%B4/) | [📘](javascript/03_%EB%B0%98%EB%B3%B5%EB%AC%B8%EA%B3%BC_%EB%B0%B0%EC%97%B4/03_%EB%B0%98%EB%B3%B5%EB%AC%B8%EA%B3%BC_%EB%B0%B0%EC%97%B4_%EA%B5%90%EC%95%88.docx) |
+| 04 | [함수](javascript/04_%ED%95%A8%EC%88%98/) | [📘](javascript/04_%ED%95%A8%EC%88%98/04_%ED%95%A8%EC%88%98_%EA%B5%90%EC%95%88.docx) |
+| 05 | [객체와 JSON](javascript/05_%EA%B0%9D%EC%B2%B4%EC%99%80_JSON/) | [📘](javascript/05_%EA%B0%9D%EC%B2%B4%EC%99%80_JSON/05_%EA%B0%9D%EC%B2%B4%EC%99%80_JSON_%EA%B5%90%EC%95%88.docx) |
+| 06 | [DOM — JavaScript 로 화면 바꾸기](javascript/06_DOM_%EB%8B%A4%EB%A3%A8%EA%B8%B0/) | [📘](javascript/06_DOM_%EB%8B%A4%EB%A3%A8%EA%B8%B0/06_DOM_%EB%8B%A4%EB%A3%A8%EA%B8%B0_%EA%B5%90%EC%95%88.docx) |
+| 07 | [이벤트 — 사용자 행동에 반응하기](javascript/07_%EC%9D%B4%EB%B2%A4%ED%8A%B8/) | [📘](javascript/07_%EC%9D%B4%EB%B2%A4%ED%8A%B8/07_%EC%9D%B4%EB%B2%A4%ED%8A%B8_%EA%B5%90%EC%95%88.docx) |
+| 08 | [비동기와 fetch](javascript/08_%EB%B9%84%EB%8F%99%EA%B8%B0%EC%99%80_fetch/) | [📘](javascript/08_%EB%B9%84%EB%8F%99%EA%B8%B0%EC%99%80_fetch/08_%EB%B9%84%EB%8F%99%EA%B8%B0%EC%99%80_fetch_%EA%B5%90%EC%95%88.docx) |
+| 09 | [FastAPI 서버와 통신하기](javascript/09_FastAPI%EC%99%80_%ED%86%B5%EC%8B%A0/) | [📘](javascript/09_FastAPI%EC%99%80_%ED%86%B5%EC%8B%A0/09_FastAPI%EC%99%80_%ED%86%B5%EC%8B%A0_%EA%B5%90%EC%95%88.docx) |
+| 10 | [미니 프로젝트 — 할 일 앱](javascript/10_%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%ED%95%A0%EC%9D%BC%EC%95%B1/) | [📘](javascript/10_%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%ED%95%A0%EC%9D%BC%EC%95%B1/10_%EB%AF%B8%EB%8B%88%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8_%ED%95%A0%EC%9D%BC%EC%95%B1_%EA%B5%90%EC%95%88.docx) |
 
 ### FastAPI 웹 서비스 (초급 과정)
 

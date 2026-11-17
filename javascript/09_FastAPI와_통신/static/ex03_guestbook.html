@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>방명록</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="ex03_guestbook.js" defer></script>
+</head>
+<body>
+  <h1>방명록</h1>
+  <form id="msg-form" class="row">
+    <input name="name" id="name" placeholder="이름 (10자 이내)" aria-label="이름" size="12">
+    <input name="text" id="text" placeholder="남길 말 (100자 이내)" aria-label="남길 말">
+    <button type="submit">등록</button>
+  </form>
+  <p id="status" aria-live="polite"></p>
+  <ul id="list" class="list"></ul>
+</body>
+</html>

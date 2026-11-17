@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>할 일 앱</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- defer: HTML 을 다 읽은 뒤에 app.js 실행 -->
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>✔ 할 일 앱</h1>
+    <p>JavaScript + FastAPI 미니 프로젝트</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="add-title">
+      <h2 id="add-title">할 일 추가</h2>
+      <form id="todo-form">
+        <input id="todo-input" placeholder="할 일을 입력하세요 (50자 이내)" aria-label="할 일" maxlength="50">
+        <button type="submit">추가</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="list-title">
+      <h2 id="list-title">할 일 목록</h2>
+      <!-- aria-live: 문구가 바뀌면 화면 낭독기가 읽어 줘요 -->
+      <p id="status" aria-live="polite"></p>
+      <ul id="todo-list" class="todo-list"></ul>
+      <p id="summary" class="summary"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>서버: FastAPI (app.py) · 화면: HTML · CSS · JavaScript</p>
+  </footer>
+</body>
+</html>
