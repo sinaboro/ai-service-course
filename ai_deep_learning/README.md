@@ -4,7 +4,7 @@ AI 개념부터 객체 탐지 프로젝트까지. 머신러닝 기초(scikit-lea
 
 > 🧭 [저장소 처음으로](../README.md)
 
-> 📕 **[통합 교안 PDF (자기주도 학습용, 191쪽)](AI_%EB%94%A5%EB%9F%AC%EB%8B%9D_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf)** — 1 ~ 8장 + 학습 안내(공부 순서 · 진도표) + 부록(쉬운 용어 사전 · 막힐 때 점검표). 수식은 쉬운 말과 예로 풀어 썼어요.
+> 📕 **[통합 교안 PDF (자기주도 학습용, 195쪽)](AI_%EB%94%A5%EB%9F%AC%EB%8B%9D_%ED%86%B5%ED%95%A9%EA%B5%90%EC%95%88.pdf)** — 1 ~ 8장 + 학습 안내(공부 순서 · 진도표) + 부록(쉬운 용어 사전 · 막힐 때 점검표). 수식은 쉬운 말과 예로 풀어 썼어요.
 
 ```bash
 pip install scikit-learn tensorflow opencv-python ultralytics
