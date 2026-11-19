@@ -1,5 +1,7 @@
-from pathlib import Path
-from fastapi.testclient import TestClient
+# ex03_image_client.py : ex03_image_app 에 색깔 사진을 올려 분류 결과 보기
+# 실행: python ex03_image_client.py (서버를 켜지 않아도 돼요)
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 from ex03_image_app import app
 
 # 샘플 이미지가 있는 폴더

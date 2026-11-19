@@ -23,7 +23,7 @@ form.addEventListener("submit", async (event) => {
 
   // ③ 응답 확인: 201 이면 성공, 422 면 규칙(글자 수)을 어긴 것
   const data = await response.json();
-  result.textContent = JSON.stringify(data, null, 2);
+  result.textContent = JSON.stringify(data, null, 2);  // null, 2 : 두 칸 들여쓰기로 보기 좋게
   if (response.ok) {
     status.textContent = `${data.id}번 글로 등록했어요 (상태 코드 ${response.status})`;
     status.className = "ok";

@@ -1,4 +1,5 @@
-import numpy as np
+# ex02_conv_pool_numbers.py : 합성곱과 풀링을 작은 숫자 표로 직접 계산해 보기 (넘파이만 사용)
+import numpy as np                                  # 넘파이 (관례적으로 np 라는 별명)
 
 img = np.array([                                    # 5 × 6 이미지: 가운데 세로 막대
     [0, 0, 9, 9, 0, 0],

@@ -1,5 +1,6 @@
-from pathlib import Path
-import pandas as pd
+# ex02_encoding.py : 한글이 깨질 때: 엑셀에서 저장한 cp949 파일을 encoding 으로 읽기
+from pathlib import Path                                  # 파일 · 폴더 경로를 다루는 도구
+import pandas as pd                                       # 판다스 (관례적으로 pd 라는 별명)
 
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더

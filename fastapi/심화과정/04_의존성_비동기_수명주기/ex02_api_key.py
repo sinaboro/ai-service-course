@@ -1,8 +1,8 @@
-from typing import Annotated
+from typing import Annotated                            # 타입 힌트에 Depends 같은 정보를 덧붙이는 도구
 # Header(): 요청 헤더에서 값 읽기 (이름 x_api_key → 헤더 X-API-Key)
 from fastapi import Depends, FastAPI, Header, HTTPException
 
-app = FastAPI()
+app = FastAPI()                                         # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 API_KEYS = {"team-a-123": "팀A", "team-b-456": "팀B"}     # 실제로는 환경 변수·DB 에 보관
 
 

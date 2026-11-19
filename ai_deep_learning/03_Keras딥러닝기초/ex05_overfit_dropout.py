@@ -1,15 +1,16 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex05_overfit_dropout.py : 과대적합 줄이기: 드롭아웃 · 조기 종료(EarlyStopping) 비교
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import keras
+import keras                                      # 딥러닝 도구 Keras
 
 keras.utils.set_random_seed(0)
 (x_train, y_train), _ = keras.datasets.mnist.load_data()
@@ -40,6 +41,7 @@ better = build(dropout=True).fit(x_small, y_small, epochs=40, batch_size=64, val
 
 # 두 모델 비교: 검증 손실이 가장 낮았던 에폭과 마지막 에폭의 값
 for name, h in [("기본", plain.history), ("드롭아웃 + 조기 종료", better.history)]:
+    # 검증 손실이 가장 작았던 에폭 번호(0부터) 찾기: 0, 1, 2 … 중에서 h["val_loss"][i] 가 가장 작은 i
     best = min(range(len(h["val_loss"])), key=lambda i: h["val_loss"][i])
     print(f"{name:12s} 에폭 {len(h['loss']):2d}번 | 마지막 학습 정확도 {h['accuracy'][-1]:.3f} "
           f"| 가장 낮은 검증 손실 {h['val_loss'][best]:.3f} (에폭 {best + 1}) | 마지막 검증 손실 {h['val_loss'][-1]:.3f}")

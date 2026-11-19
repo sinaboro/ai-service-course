@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 
 # 난수 생성기 (seed 고정 → 실행할 때마다 같은 결과)
 rng = np.random.default_rng(seed=7)

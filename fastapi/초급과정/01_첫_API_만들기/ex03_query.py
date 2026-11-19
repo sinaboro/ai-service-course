@@ -3,7 +3,7 @@
 # 확인: /add?a=3&b=5 , /greet?name=철수 , /greet?name=Tom&lang=en , /greet , /add?a=3 를 열어 보세요
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI()  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 # 주소에 {} 가 없는 매개변수는 쿼리로 받아요:  /add?a=3&b=5

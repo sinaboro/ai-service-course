@@ -61,7 +61,7 @@ function render(todos) {
     li.append(check, title, del);
     list.append(li);
   }
-  const left = todos.filter((t) => !t.done).length;
+  const left = todos.filter((t) => !t.done).length;  // 안 끝난 할 일 개수
   summary.textContent = `남은 할 일 ${left}개 / 전체 ${todos.length}개`;
 }
 
@@ -92,7 +92,7 @@ async function toggleTodo(id, done) {
   try {
     await request(`${API}/${id}`, jsonOptions("PATCH", { done: done }));
     await loadTodos();
-    showStatus(done ? "완료로 표시했어요" : "완료를 취소했어요", "ok");
+    showStatus(done ? "완료로 표시했어요" : "완료를 취소했어요", "ok");  // 조건 ? 참일 때 : 거짓일 때
   } catch (error) {
     showStatus(`바꾸지 못했어요: ${error.message}`, "error");
   }

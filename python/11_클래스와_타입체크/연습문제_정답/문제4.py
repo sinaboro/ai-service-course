@@ -8,6 +8,7 @@ class Score:
     points: list[int]
 
     def __post_init__(self):
+        # all(...): 점수 하나하나(p)가 "int 이고, bool 이 아니고, 0~100" 인지 모두 확인 → 하나라도 아니면 False
         ok = isinstance(self.points, list) and all(
             isinstance(p, int) and not isinstance(p, bool) and 0 <= p <= 100 for p in self.points
         )

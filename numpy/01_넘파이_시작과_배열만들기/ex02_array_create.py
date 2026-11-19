@@ -1,4 +1,5 @@
-import numpy as np
+# ex02_array_create.py : 여러 가지 방법으로 배열 만들기: array · arange · zeros · ones · full · linspace · eye
+import numpy as np             # 넘파이 (관례적으로 np 라는 별명)
 
 a = np.array([1, 2, 3, 4])              # 리스트 → 1차원 배열
 b = np.array([[1, 2, 3], [4, 5, 6]])    # 리스트의 리스트 → 2차원 배열

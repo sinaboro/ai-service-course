@@ -1,5 +1,6 @@
-from pathlib import Path
-import pandas as pd
+# ex03_read_options.py : 모양이 다른 CSV 읽기: 탭 구분 · # 설명 줄 · 합계 줄 · 콤마 숫자
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
+import pandas as pd       # 판다스 (관례적으로 pd 라는 별명)
 
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더

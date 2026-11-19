@@ -1,4 +1,5 @@
-import numpy as np
+# ex03_ufunc.py : 유니버설 함수: np.sqrt · np.round · np.floor 등을 배열 전체에 한 번에
+import numpy as np                 # 넘파이 (관례적으로 np 라는 별명)
 
 a = np.array([1, 4, 9, 16])
 print(np.sqrt(a))                  # 제곱근

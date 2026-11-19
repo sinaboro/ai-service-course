@@ -1,18 +1,19 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex07_video.py : 동영상을 한 장면씩 읽어 처리하고 다시 저장하기 (웹캠도 같은 방법)
+import platform                                     # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                            # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                     # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False          # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                            # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import os
+import os                                           # 환경 변수 · 경로 같은 운영체제 기능
 
-import cv2
-import numpy as np
+import cv2                                          # OpenCV: 영상 처리 도구
+import numpy as np                                  # 넘파이 (관례적으로 np 라는 별명)
 
 os.chdir(Path(__file__).parent)       # ⭐ 이 파일이 있는 폴더로 이동 → 아래는 영어 상대 경로만 사용
 
@@ -56,6 +57,6 @@ print("처리한 장면:", n, "| 저장: videos/float_boxed.mp4")
 
 # 고른 장면 3개를 나란히 저장
 fig, axes = plt.subplots(1, 3, figsize=(11, 3))
-for ax, (title, im) in zip(axes, picks):
+for ax, (title, im) in zip(axes, picks):            # zip: 칸과 (제목, 장면)을 하나씩 짝지어 꺼내기
     ax.imshow(cv2.cvtColor(im, cv2.COLOR_BGR2RGB)); ax.set_title(title); ax.axis("off")
 fig.savefig(IMG / "ex07_video.png", dpi=100, bbox_inches="tight")

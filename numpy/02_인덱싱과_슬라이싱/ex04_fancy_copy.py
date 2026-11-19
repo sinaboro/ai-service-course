@@ -1,4 +1,5 @@
-import numpy as np
+# ex04_fancy_copy.py : 팬시 인덱싱(번호 리스트로 꺼내기)과 뷰 · copy() 의 차이
+import numpy as np             # 넘파이 (관례적으로 np 라는 별명)
 
 a = np.array([10, 20, 30, 40, 50])
 print(a[[0, 2, 4]])            # 팬시 인덱싱: 여러 위치를 리스트로

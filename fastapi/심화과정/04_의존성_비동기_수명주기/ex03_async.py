@@ -1,9 +1,9 @@
 # time.sleep: 기다리는 동안 그 일꾼(스레드)이 멈춰요 / asyncio.sleep: 기다리는 동안 다른 요청을 처리할 수 있어요
 import asyncio
-import time
+import time                           # 시간 재기 · 잠깐 기다리기
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI()                       # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 @app.get("/sync")

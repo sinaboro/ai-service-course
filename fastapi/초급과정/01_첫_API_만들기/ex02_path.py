@@ -3,7 +3,7 @@
 # 확인: /menu/1 , /menu/3 , /menu/9 , /square/7 , /menu/abc 를 열어 보세요
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI()  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 # 식당 메뉴판: 번호 → 메뉴 이름
 MENU = {1: "김치찌개", 2: "된장찌개", 3: "비빔밥"}

@@ -2,16 +2,16 @@
 # 준비: 이 폴더에서 먼저  python ex00_train_model.py  (model/pass_model.npz 가 없을 때만)
 # 실행: 이 폴더에서  uvicorn ex01_predict_simple:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000 (예측 화면) 또는 http://127.0.0.1:8000/docs
-from pathlib import Path
+from pathlib import Path                                    # 파일 · 폴더 경로를 다루는 도구
 
-import numpy as np
+import numpy as np                                          # 넘파이 (관례적으로 np 라는 별명)
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from model_core import PassModel             # 2·3절에서 만든 모델 클래스
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                                # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 # ① 서버가 켜질 때(이 파일을 불러올 때) 모델을 딱 한 번 불러 둬요 — 요청마다 불러오면 느려요
 model = PassModel.load(HERE / "model" / "pass_model.npz")
@@ -31,6 +31,7 @@ class Student(BaseModel):
 def predict(student: Student):
     x = np.array([[student.study_h, student.sleep_h, student.phone_h]])   # 학습 때와 같은 순서
     p = float(model.predict_proba(x)[0])                                  # 0 ~ 1 사이 합격 확률
+    # 0.5 이상이면 합격
     return {"pass_probability": round(p, 3), "label": "합격" if p >= 0.5 else "불합격"}
 
 

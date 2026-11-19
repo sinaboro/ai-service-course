@@ -1,8 +1,10 @@
-import os
-from contextlib import asynccontextmanager
-from typing import Annotated
+# ex01_serving_app.py : 모델 서빙 앱: 서버가 켜질 때 모델을 불러오고 /predict 로 합격 확률 예측
+# 먼저 python ex00_train_model.py 로 모델을 만든 뒤, 이 폴더에서 uvicorn ex01_serving_app:app --reload
+import os                                        # 환경 변수 · 경로 같은 운영체제 기능
+from contextlib import asynccontextmanager       # lifespan(켜질 때 · 꺼질 때 할 일)을 만드는 도구
+from typing import Annotated                     # 타입 힌트에 Depends 같은 정보를 덧붙이는 도구
 
-import numpy as np
+import numpy as np                               # 넘파이 (관례적으로 np 라는 별명)
 from fastapi import Depends, FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
 
@@ -47,7 +49,7 @@ async def lifespan(app: FastAPI):
         app.state.model_error = f"{type(e).__name__}: {e}"
     # 예측 횟수 세기용 변수
     app.state.n_predictions = 0
-    yield
+    yield                                        # yield 위 = 켜질 때, 아래 = 꺼질 때
     app.state.model = None
 
 
@@ -83,6 +85,7 @@ def health(request: Request):
 
 @app.get("/model/info", tags=["status"])
 def model_info(model: Model, request: Request):
+    # 모델 설명서 내용 + 예측 횟수
     return {**model.card, "predictions_served": request.app.state.n_predictions}
 
 
@@ -99,4 +102,5 @@ def predict(student: StudentFeatures, model: Model, request: Request):
 def predict_batch(req: BatchRequest, model: Model, request: Request):
     probs = model.predict_proba(to_array(req.students))       # 한 번에 계산 (빠름)
     request.app.state.n_predictions += len(probs)
+    # 확률마다 Prediction 하나씩
     return BatchResponse(count=len(probs), predictions=[make_prediction(p, model.version) for p in probs])

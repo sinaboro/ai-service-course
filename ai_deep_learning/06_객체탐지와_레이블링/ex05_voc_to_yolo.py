@@ -1,8 +1,8 @@
 # labelImg 의 기본 저장 형식(Pascal VOC, .xml)을 YOLO 형식(.txt)으로 바꾸기
 import xml.etree.ElementTree as ET
-from pathlib import Path
+from pathlib import Path                                 # 파일 · 폴더 경로를 다루는 도구
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                             # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 CLASSES = ["bottle", "can", "bag"]
 
 # labelImg 가 PascalVOC 모드에서 저장하는 xml 과 같은 모양 (일부만)
@@ -29,6 +29,7 @@ def voc_to_yolo(xml_path):
     for obj in root.iter("object"):
         c = CLASSES.index(obj.find("name").text)         # 이름 → 번호
         b = obj.find("bndbox")
+        # xml 의 xmin · ymin · xmax · ymax 칸을 차례로 찾아 숫자(float)로 바꿔 네 변수에 나눠 담기
         x1, y1, x2, y2 = (float(b.find(k).text) for k in ("xmin", "ymin", "xmax", "ymax"))
         lines.append(f"{c} {(x1 + x2) / 2 / W:.6f} {(y1 + y2) / 2 / H:.6f} {(x2 - x1) / W:.6f} {(y2 - y1) / H:.6f}")
     return lines

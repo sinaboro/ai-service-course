@@ -1,7 +1,7 @@
 # 모델 학습 → model/ 폴더에 저장 (06장 ex00 과 같은 방법)
-import json
-from pathlib import Path
-import numpy as np
+import json  # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 
 OUT = Path(__file__).parent / "model"
 OUT.mkdir(exist_ok=True)
@@ -31,4 +31,5 @@ acc = float(((1 / (1 + np.exp(-(Z[te] @ w + b))) >= 0.5) == y[te]).mean())
 np.savez(OUT / "pass_model.npz", w=w, b=b, mean=mean, std=std)
 (OUT / "model_card.json").write_text(json.dumps(
     {"name": "pass-predictor", "version": "1.0.0", "test_accuracy": round(acc, 4)}, indent=2), encoding="utf-8")
+# OUT 폴더 안 파일 이름들을 정렬해서 함께 출력
 print(f"학습 완료: 정확도 {acc:.1%} → {sorted(p.name for p in OUT.iterdir())}")

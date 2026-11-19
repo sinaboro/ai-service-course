@@ -1,4 +1,5 @@
-import numpy as np
+# ex04_matrix.py : 원소별 곱(*)과 행렬 곱(@)의 차이, 1차원끼리 @ 는 내적(곱해서 모두 더하기)
+import numpy as np                 # 넘파이 (관례적으로 np 라는 별명)
 
 A = np.array([[1, 2],
               [3, 4]])

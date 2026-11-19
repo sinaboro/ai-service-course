@@ -1,6 +1,6 @@
 # 모듈 가져다 쓰기
 import math
-import random
+import random                       # 무작위(난수) 값 만들기
 from datetime import date
 import mytools                      # 같은 폴더의 mytools.py
 

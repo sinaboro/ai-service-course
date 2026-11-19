@@ -1,5 +1,7 @@
+# test_api.py : pytest 자동 테스트: API 가 기대대로 응답하는지 확인
+# 실행: serving_project 폴더에서 pytest -v (또는 07 폴더의 ex01_run_tests.py)
 import pytest
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient       # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from app.main import create_app
 
@@ -8,10 +10,10 @@ GOOD = {"study_h": 5, "sleep_h": 6.5, "phone_h": 1}
 BAD = {"study_h": 0.5, "sleep_h": 8.5, "phone_h": 6}
 
 
-@pytest.fixture
+@pytest.fixture                                 # 테스트에 넘겨줄 준비물(client)을 만드는 함수
 def client():                                   # 테스트마다 새 앱 + lifespan 실행
     with TestClient(create_app()) as c:
-        yield c
+        yield c                                 # 테스트에 client 를 빌려주고, 끝나면 정리
 
 
 # 테스트 함수 이름은 test_ 로 시작 / assert 뒤의 조건이 거짓이면 테스트 실패
@@ -32,10 +34,11 @@ def test_predict_bad_student(client):
     assert client.post("/predict", json=BAD).json()["label"] == "불합격"
 
 
+# parametrize: 아래 테스트를 (필드, 잘못된 값) 세 쌍으로 3번 반복 실행해요
 @pytest.mark.parametrize("field, value", [("study_h", -1), ("sleep_h", 30), ("phone_h", "많이")],
                          ids=["negative", "too_big", "not_number"])
 def test_invalid_input_returns_422(client, field, value):     # 같은 테스트를 값 3개로
-    res = client.post("/predict", json={**GOOD, field: value})
+    res = client.post("/predict", json={**GOOD, field: value})  # GOOD 을 복사하고 field 만 잘못된 값으로
     assert res.status_code == 422
 
 

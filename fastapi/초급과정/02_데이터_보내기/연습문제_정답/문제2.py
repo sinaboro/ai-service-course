@@ -5,7 +5,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                                    # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 class Item(BaseModel):

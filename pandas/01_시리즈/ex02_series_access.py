@@ -1,4 +1,5 @@
-import pandas as pd
+# ex02_series_access.py : Series 에서 값 꺼내기: 라벨 s["kim"] · 위치 s.iloc[0] · 여러 개 · 슬라이싱
+import pandas as pd              # 판다스 (관례적으로 pd 라는 별명)
 
 score = pd.Series([90, 75, 88, 62], index=["kim", "lee", "park", "choi"])
 

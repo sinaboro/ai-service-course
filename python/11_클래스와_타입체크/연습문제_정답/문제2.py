@@ -15,6 +15,6 @@ class Rectangle:
 
 for args in [(3, 4), ("3", 4), (3, -1)]:
     try:
-        print("넓이:", Rectangle(*args).area())
+        print("넓이:", Rectangle(*args).area())  # *args: 튜플 (3, 4) 를 풀어서 인자 두 개로
     except (TypeError, ValueError) as e:
         print(f"{type(e).__name__}: {e}")

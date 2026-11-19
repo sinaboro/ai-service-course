@@ -45,7 +45,7 @@
       const box = document.getElementById("result");
       if (res.ok) {
         const percent = (data.pass_probability * 100).toFixed(1);   // 0.932 → "93.2"
-        box.className = data.label === "합격" ? "pass" : "fail";
+        box.className = data.label === "합격" ? "pass" : "fail";  // 합격이면 초록, 아니면 빨강 상자
         box.textContent = `합격 확률 ${percent}% → ${data.label}`;
       } else {
         box.className = "fail";                                    // 422: 범위를 벗어난 값

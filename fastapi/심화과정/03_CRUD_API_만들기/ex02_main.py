@@ -1,3 +1,5 @@
+# ex02_main.py : 메인 앱: routers 폴더의 라우터 두 개를 모아 하나의 앱으로
+# 실행: 이 폴더(03_CRUD_API_만들기)에서 uvicorn ex02_main:app --reload
 from fastapi import FastAPI
 from routers import items, models          # routers 폴더의 두 파일
 

@@ -1,8 +1,8 @@
-from typing import Annotated
+from typing import Annotated                     # 타입 힌트에 Depends 같은 정보를 덧붙이는 도구
 # Depends: "이 함수를 먼저 실행해서 그 결과를 넣어 줘" 라는 표시 / Query: 쿼리 값의 범위 정하기
 from fastapi import Depends, FastAPI, Query
 
-app = FastAPI()
+app = FastAPI()                                  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 # skip: 건너뛸 개수(0 이상), limit: 가져올 개수(1 ~ 50)
@@ -26,4 +26,4 @@ def numbers(page: Page):                          # FastAPI 가 pagination() 을
 @app.get("/squares")
 def squares(page: Page):                          # 같은 의존성 재사용
     s, l = page["skip"], page["limit"]
-    return {"page": page, "data": [n * n for n in NUMBERS[s: s + l]]}
+    return {"page": page, "data": [n * n for n in NUMBERS[s: s + l]]}  # 이 페이지의 숫자들만 잘라 제곱

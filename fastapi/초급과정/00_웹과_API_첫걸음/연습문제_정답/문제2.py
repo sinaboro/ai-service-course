@@ -3,7 +3,7 @@
 # 실행: 정답 폴더에서  uvicorn 문제2:app --reload  →  브라우저에서 http://127.0.0.1:8000/about
 from fastapi import FastAPI
 
-app = FastAPI()
+app = FastAPI()  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 @app.get("/about")

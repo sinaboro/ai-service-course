@@ -1,5 +1,6 @@
-import pandas as pd
-import numpy as np
+# ex04_missing.py : 결측치(빈 값 NaN) 처리: isna · dropna · fillna
+import pandas as pd               # 판다스 (관례적으로 pd 라는 별명)
+import numpy as np                # 넘파이 (관례적으로 np 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi"],

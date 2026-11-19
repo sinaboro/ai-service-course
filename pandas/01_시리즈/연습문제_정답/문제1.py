@@ -1,6 +1,6 @@
 # 문제 1. 요일별 걸음 수 {"월": 8000, "화": 12000, "수": 6500, "목": 10000, "금": 9000}로 Series를 만들고, 평균과 가장 많이 걸은 요일을 출력하세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 steps = pd.Series({"월": 8000, "화": 12000, "수": 6500, "목": 10000, "금": 9000})
 print("평균:", steps.mean())
 print("최다:", steps.idxmax())

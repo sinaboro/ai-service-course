@@ -1,14 +1,14 @@
 # 4장 3단계: 입력 칸에 적은 값을 POST 로 보내고, 결과·오류를 화면에 보여 주기 (서버로 실행)
 # 실행: 이 폴더에서  uvicorn ex03_post:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000 → 이름과 점수를 넣고 [학점 계산] (점수 150 도 넣어 보세요)
-from pathlib import Path
+from pathlib import Path                              # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-app = FastAPI()
-HERE = Path(__file__).parent
+app = FastAPI()                                       # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
+HERE = Path(__file__).parent                          # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 
 # 2장에서 배운 Pydantic 모델: 화면에서 보낸 JSON 의 모양과 규칙

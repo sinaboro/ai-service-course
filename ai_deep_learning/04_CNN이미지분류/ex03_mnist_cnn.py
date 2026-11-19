@@ -1,19 +1,21 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex03_mnist_cnn.py : Keras CNN 으로 MNIST 분류 — Dense 신경망보다 정확도가 오르는지 확인
+import platform                                         # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                                # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                         # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False              # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                                # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import keras
+import keras                                            # 딥러닝 도구 Keras
 
 keras.utils.set_random_seed(42)
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
 x_train = x_train[..., None].astype("float32") / 255.0     # (60000, 28, 28, 1) — 채널 1개 추가
+# [..., None]: 맨 끝에 채널 차원 1 추가 (28,28)→(28,28,1)
 x_test = x_test[..., None].astype("float32") / 255.0
 print("입력 모양:", x_train.shape)
 

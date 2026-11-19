@@ -1,4 +1,5 @@
-import numpy as np
+# ex04_dtype.py : 자료형(dtype): 배열은 한 가지 자료형만, astype() 으로 바꾸기
+import numpy as np                          # 넘파이 (관례적으로 np 라는 별명)
 
 a = np.array([1, 2, 3])
 b = np.array([1.5, 2.0, 3.7])

@@ -2,7 +2,7 @@ from fastapi import FastAPI
 # BaseModel 을 물려받으면 "이런 모양의 JSON 을 받겠다"고 정할 수 있어요
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI()                    # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 class Student(BaseModel):          # 요청 데이터의 "모양" 정의 (dataclass 와 비슷)

@@ -1,6 +1,7 @@
-from pathlib import Path
+# ex01_pretrained.py : 사전 학습된 YOLO11n 으로 예제 사진의 물체 탐지해 보기
+from pathlib import Path                         # 파일 · 폴더 경로를 다루는 도구
 
-from ultralytics import YOLO
+from ultralytics import YOLO                     # YOLO 모델을 불러오는 클래스
 from ultralytics.utils import ASSETS
 
 from cvutil import imwrite

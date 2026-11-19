@@ -31,7 +31,7 @@ def draw(img: Image.Image, boxes: list[dict]) -> Image.Image:
     font = ImageFont.load_default(size=16)    # 글자 크기 16
     # 상자 하나씩 그리기: 테두리 → 그 위에 "이름 신뢰도" 글자
     for b in boxes:
-        color = COLORS.get(b["class"], (0, 0, 0))
+        color = COLORS.get(b["class"], (0, 0, 0))  # 클래스별 색, 없으면 검정
         d.rectangle(b["box"], outline=color, width=3)
         d.text((b["box"][0], b["box"][1] - 20), f'{b["class"]} {b["conf"]:.2f}', fill=color, font=font)
     return out

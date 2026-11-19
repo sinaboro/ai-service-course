@@ -1,11 +1,12 @@
-from pathlib import Path
-import pandas as pd
+# ex06_multi_files.py : 폴더 안의 여러 CSV(월별 매출)를 한 번에 읽어 하나로 합치기
+from pathlib import Path                                  # 파일 · 폴더 경로를 다루는 도구
+import pandas as pd                                       # 판다스 (관례적으로 pd 라는 별명)
 
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더
 
 files = sorted((DATA / "monthly").glob("sales_*.csv"))   # 패턴에 맞는 파일 모두
-print([f.name for f in files])
+print([f.name for f in files])                            # 찾은 파일들의 이름만
 
 # 파일마다 읽어서 목록(frames)에 모으기 (parse_dates: date 열을 날짜로)
 frames = []

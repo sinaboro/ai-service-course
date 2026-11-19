@@ -1,15 +1,15 @@
 # 4장 2단계: 버튼을 누르면 자바스크립트가 API 를 부르기 + 동기/비동기 체험 (서버로 실행)
 # 실행: 이 폴더에서  uvicorn ex02_fetch:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000 → 버튼들을 눌러 보세요
-import time
+import time                                    # 시간 재기 · 잠깐 기다리기
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path                       # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 
-app = FastAPI()
-HERE = Path(__file__).parent
+app = FastAPI()                                # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
+HERE = Path(__file__).parent                   # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 
 # 바로 대답하는 API: 지금 시각

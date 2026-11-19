@@ -4,12 +4,12 @@
 #   http://127.0.0.1:8000/api/hello   → JSON (데이터)
 #   http://127.0.0.1:8000/inline      → 코드 안에 쓴 HTML (화면)
 #   http://127.0.0.1:8000             → HTML 파일 page1.html (화면)
-from pathlib import Path
+from pathlib import Path                       # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, HTMLResponse
 
-app = FastAPI()
+app = FastAPI()                                # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 HERE = Path(__file__).parent                   # 이 파일이 있는 폴더 (HTML 파일을 찾을 때 기준)
 
 

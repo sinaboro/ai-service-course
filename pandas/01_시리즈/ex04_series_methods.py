@@ -1,4 +1,5 @@
-import pandas as pd
+# ex04_series_methods.py : Series 의 자주 쓰는 메서드: describe · sort_values · value_counts · idxmax
+import pandas as pd                   # 판다스 (관례적으로 pd 라는 별명)
 
 score = pd.Series([88, 92, 75, 92, 60, 75, 75],
                   index=["a", "b", "c", "d", "e", "f", "g"])

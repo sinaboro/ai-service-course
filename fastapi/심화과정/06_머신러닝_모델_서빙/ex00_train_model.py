@@ -1,11 +1,11 @@
 # 1) 데이터 만들기 → 2) 학습 → 3) 평가 → 4) 저장
-import json
-from pathlib import Path
-import numpy as np
+import json                                         # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from pathlib import Path                            # 파일 · 폴더 경로를 다루는 도구
+import numpy as np                                  # 넘파이 (관례적으로 np 라는 별명)
 from PIL import Image, ImageDraw
 
 # 모델 · 샘플 이미지를 저장할 폴더 만들기
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                        # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 (HERE / "model").mkdir(exist_ok=True)
 (HERE / "samples").mkdir(exist_ok=True)
 
@@ -47,7 +47,7 @@ np.savez(HERE / "model" / "pass_model.npz", w=w, b=b, mean=mean, std=std, featur
 card = {"name": "pass-predictor", "version": "1.0.0", "features": FEATURES,
         "algorithm": "logistic regression (numpy)", "test_accuracy": round(acc, 4), "trained_on": 320}
 (HERE / "model" / "model_card.json").write_text(json.dumps(card, ensure_ascii=False, indent=2), encoding="utf-8")
-print("저장:", sorted(p.name for p in (HERE / "model").iterdir()))
+print("저장:", sorted(p.name for p in (HERE / "model").iterdir()))  # model 폴더 안 파일 이름들
 
 # ── (이미지 분류용) 색 분류 모델과 샘플 이미지 ──
 # 클래스별 대표 색(0 ~ 1 의 RGB)
@@ -59,4 +59,4 @@ for name, color in [("red", (220, 40, 40)), ("green", (40, 180, 70)), ("blue", (
     img = Image.new("RGB", (160, 120), color)
     ImageDraw.Draw(img).rectangle((0, 0, 159, 20), fill="white")    # 위쪽에 흰 띠
     img.save(HERE / "samples" / f"{name}.png")
-print("샘플 이미지:", sorted(p.name for p in (HERE / "samples").iterdir()))
+print("샘플 이미지:", sorted(p.name for p in (HERE / "samples").iterdir()))  # samples 폴더 안 파일 이름들

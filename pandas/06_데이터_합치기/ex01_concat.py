@@ -1,4 +1,5 @@
-import pandas as pd
+# ex01_concat.py : concat: 칸이 같은 표를 위아래로 · 좌우로 이어 붙이기
+import pandas as pd                                  # 판다스 (관례적으로 pd 라는 별명)
 
 jan = pd.DataFrame({"name": ["Kim", "Lee"], "sales": [100, 200]})
 feb = pd.DataFrame({"name": ["Park", "Kim"], "sales": [150, 120]})

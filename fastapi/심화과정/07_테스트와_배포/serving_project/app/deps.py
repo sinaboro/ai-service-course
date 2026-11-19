@@ -1,4 +1,5 @@
-from typing import Annotated
+# deps.py : 의존성: 요청마다 app.state 에서 모델을 꺼내 주고, 없으면 503 — 직접 실행하는 파일이 아니에요
+from typing import Annotated  # 타입 힌트에 Depends 같은 정보를 덧붙이는 도구
 from fastapi import Depends, HTTPException, Request
 from app.model import PassModel
 

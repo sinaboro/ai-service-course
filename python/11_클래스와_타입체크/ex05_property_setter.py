@@ -9,7 +9,7 @@ class Product:
     def price(self) -> int:         # 읽을 때: p.price
         return self._price
 
-    @price.setter
+    @price.setter                   # p.price = 값 을 할 때 실행될 메서드
     def price(self, value: int) -> None:   # 쓸 때: p.price = 값
         if not isinstance(value, int):
             raise TypeError("가격은 정수(int)여야 해요.")

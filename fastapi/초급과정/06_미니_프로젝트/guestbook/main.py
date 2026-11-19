@@ -2,16 +2,16 @@
 # 실행: 이 폴더(guestbook)에서  uvicorn main:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000
 # 친구 폰에서 접속: uvicorn main:app --host 0.0.0.0  → 친구 폰 브라우저에 http://내컴퓨터IP:8000 (교안 6장 3절)
-import json
+import json                                   # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path                      # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="방명록")
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 DATA_FILE = HERE / "posts.json"               # 글을 저장할 파일
 
 

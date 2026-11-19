@@ -1,16 +1,17 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex05_predict_draw.py : 예측 결과(상자 · 클래스 · 신뢰도)를 직접 꺼내서 원하는 모양으로 그리기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import cv2
-from ultralytics import YOLO
+import cv2                                        # OpenCV: 영상 처리 도구
+from ultralytics import YOLO                      # YOLO 모델을 불러오는 클래스
 
 from cvutil import imread
 
@@ -25,17 +26,18 @@ def draw_box(img, x1, y1, x2, y2, label, color):
     cv2.rectangle(img, (x1, max(0, y1 - th - base - 4)), (x1 + tw + 4, y1), color, -1)
     cv2.putText(img, label, (x1 + 2, max(th, y1 - base - 2)), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1, cv2.LINE_AA)
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                      # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 # 학습한 모델 불러오기 + 검증 사진 앞의 6장
 model = YOLO(HERE / "models" / "best.pt")
 paths = sorted((HERE / "datasets" / "floats" / "images" / "val").glob("*.jpg"))[:6]
 
 fig, axes = plt.subplots(1, 6, figsize=(16, 3.2))
-for ax, p in zip(axes, paths):
+for ax, p in zip(axes, paths):                    # zip: 칸과 사진 경로를 하나씩 짝지어 꺼내기
     img = imread(p)                                       # numpy 배열(BGR)을 그대로 넣어도 돼요
     r = model.predict(img, conf=0.25, verbose=False)[0]
     # 정답 레이블 줄 수 = 정답 물체 수 (마지막 빈 줄 하나를 빼요)
     n_truth = len((HERE / "datasets" / "floats" / "labels" / "val" / (p.stem + ".txt")).read_text().split("\n")) - 1
+    # zip 으로 상자 좌표 · 신뢰도 · 클래스 번호를 같은 순서끼리 하나씩 짝지어 꺼내요
     for xyxy, conf, cls in zip(r.boxes.xyxy.tolist(), r.boxes.conf.tolist(), r.boxes.cls.tolist()):
         x1, y1, x2, y2 = map(int, xyxy)
         draw_box(img, x1, y1, x2, y2, f"{model.names[int(cls)]} {conf:.2f}", COLORS[int(cls)])
@@ -46,5 +48,6 @@ fig.savefig(IMG / "ex05_predictions.png", dpi=100, bbox_inches="tight")
 
 # 결과를 표(JSON 처럼)로 바꾸기 — 8장 서버가 돌려줄 모양
 r = model.predict(imread(paths[0]), conf=0.25, verbose=False)[0]
+# 탐지한 상자(b)마다 {클래스 이름, 신뢰도, 좌표} 딕셔너리 하나 → 그 딕셔너리들의 리스트
 rows = [{"class": model.names[int(b.cls)], "conf": round(float(b.conf), 2), "box": [round(v) for v in b.xyxy[0].tolist()]} for b in r.boxes]
 print("JSON 모양:", rows)

@@ -1,4 +1,5 @@
-import numpy as np
+# ex03_boolean.py : 불리언 인덱싱: 조건에 맞는 값만 골라내기 · 바꾸기 · np.where
+import numpy as np                # 넘파이 (관례적으로 np 라는 별명)
 
 scores = np.array([85, 42, 77, 93, 58, 61])
 

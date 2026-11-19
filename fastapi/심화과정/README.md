@@ -4,7 +4,7 @@
 
 > 🧭 [FastAPI 처음으로](../README.md) · 처음 배우는 학생은 [초급 과정](../%EC%B4%88%EA%B8%89%EA%B3%BC%EC%A0%95/README.md)부터 하세요.
 >
-> 이 폴더는 초급 과정을 마친 뒤 **스스로 더 공부하는** 자료예요. 장마다 Word 교안(`*_교안.docx`)과 예제가 있어요. (Word 교안 안의 `fastapi/0X_...` 경로는 지금의 `fastapi/심화과정/0X_...` 를 뜻해요.)
+> 이 폴더는 초급 과정을 마친 뒤 **스스로 더 공부하는** 자료예요. 장마다 Word 교안(`*_교안.docx`)과 예제가 있어요.
 
 ```bash
 pip install fastapi uvicorn python-multipart pillow numpy httpx2 pytest

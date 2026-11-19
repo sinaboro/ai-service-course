@@ -1,6 +1,6 @@
 # 클라이언트 예제: 앱(ex01_todo_crud.py)에 실제로 요청을 보내고 응답을 출력해요 (python 으로 실행)
 import json                           # 응답(JSON)을 보기 좋게 출력할 때 사용
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 from ex01_todo_crud import app            # 같은 폴더의 앱 파일에서 app 가져오기
 
 client = TestClient(app)              # 서버를 띄우지 않고 요청을 보내 볼 수 있는 도구

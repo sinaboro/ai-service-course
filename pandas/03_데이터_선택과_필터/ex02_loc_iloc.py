@@ -1,4 +1,5 @@
-import pandas as pd
+# ex02_loc_iloc.py : loc(라벨 이름으로) 와 iloc(위치 번호로) 로 행과 열 고르기
+import pandas as pd                # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

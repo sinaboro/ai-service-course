@@ -1,5 +1,7 @@
-import time
-from contextlib import asynccontextmanager
+# ex04_lifespan.py : lifespan: 서버가 켜질 때 모델을 한 번만 불러오고, 꺼질 때 정리하기
+# 실행: 이 폴더에서 uvicorn ex04_lifespan:app --reload (요청 예시는 ex04_lifespan_client.py)
+import time                                            # 시간 재기 · 잠깐 기다리기
+from contextlib import asynccontextmanager             # lifespan(켜질 때 · 꺼질 때 할 일)을 만드는 도구
 from fastapi import FastAPI, Request
 
 # 서버가 켜지고 꺼질 때 일어난 일을 기록할 목록

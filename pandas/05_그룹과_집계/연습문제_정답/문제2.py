@@ -1,6 +1,6 @@
 # 문제 2. 날짜별 매출 합계와 주문 건수를 agg로 구하세요. 열 이름은 total, orders로 하세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # 날짜 · 매장 · 메뉴별 판매 기록 7건 (이 장의 예제가 함께 써요)
 df = pd.DataFrame({

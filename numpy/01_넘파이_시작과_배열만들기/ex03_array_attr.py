@@ -1,4 +1,5 @@
-import numpy as np
+# ex03_array_attr.py : 배열의 정보 확인하기: shape(모양) · ndim(차원) · size(개수) · dtype(자료형)
+import numpy as np           # 넘파이 (관례적으로 np 라는 별명)
 
 m = np.array([[10, 20, 30],
               [40, 50, 60]])

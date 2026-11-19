@@ -1,13 +1,13 @@
 # 서버를 켜지 않고 API 점검하기 (TestClient)
-from pathlib import Path
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from app import app
 
 # TestClient: 서버를 켜지 않고도 브라우저처럼 요청을 보내 볼 수 있어요
-client = TestClient(app)
-HERE = Path(__file__).parent
+client = TestClient(app)  # app 에 요청을 보내는 "코드 속 브라우저"
+HERE = Path(__file__).parent  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 # ① 첫 화면(HTML)이 오는지
 r = client.get("/")

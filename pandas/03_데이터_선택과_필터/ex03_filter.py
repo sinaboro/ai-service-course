@@ -1,4 +1,5 @@
-import pandas as pd
+# ex03_filter.py : 조건으로 행 걸러내기: df[조건], 여러 조건은 & | 와 괄호
+import pandas as pd                       # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

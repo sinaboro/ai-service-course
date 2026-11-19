@@ -1,4 +1,5 @@
-import pandas as pd
+# ex02_df_explore.py : DataFrame 훑어보기: head · tail · shape · info · describe · dtypes
+import pandas as pd        # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

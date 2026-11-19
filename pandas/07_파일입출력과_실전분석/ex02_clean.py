@@ -1,4 +1,5 @@
-import pandas as pd
+# ex02_clean.py : 읽은 데이터 점검하고 정리하기: 빈 값 · 중복 · 자료형 · 새 열
+import pandas as pd                       # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.read_csv("cafe_sales.csv")
 df.info()

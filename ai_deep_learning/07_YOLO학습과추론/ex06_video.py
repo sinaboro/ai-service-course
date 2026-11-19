@@ -1,20 +1,21 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex06_video.py : 동영상의 장면마다 YOLO 탐지하고 결과 동영상으로 저장
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import os
-import random
+import os                                         # 환경 변수 · 경로 같은 운영체제 기능
+import random                                     # 무작위(난수) 값 만들기
 
-import cv2
-import numpy as np
-from ultralytics import YOLO
+import cv2                                        # OpenCV: 영상 처리 도구
+import numpy as np                                # 넘파이 (관례적으로 np 라는 별명)
+from ultralytics import YOLO                      # YOLO 모델을 불러오는 클래스
 
 from scene import make_scene
 
@@ -29,7 +30,7 @@ def draw_box(img, x1, y1, x2, y2, label, color):
     cv2.rectangle(img, (x1, max(0, y1 - th - base - 4)), (x1 + tw + 4, y1), color, -1)
     cv2.putText(img, label, (x1 + 2, max(th, y1 - base - 2)), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1, cv2.LINE_AA)
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                      # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 os.chdir(HERE)                                         # 동영상 파일은 영어 상대 경로로 (5장)
 os.makedirs("videos", exist_ok=True)
 # 7장에서 학습한 모델
@@ -65,6 +66,6 @@ print("평균 물체 수:", round(sum(counts) / len(counts), 2), "| 저장: vide
 
 # 고른 장면 3개 저장
 fig, axes = plt.subplots(1, 3, figsize=(11, 3.8))
-for ax, (i, f) in zip(axes, picks):
+for ax, (i, f) in zip(axes, picks):               # zip: 칸과 (번호, 장면)을 짝지어 꺼내기
     ax.imshow(cv2.cvtColor(f, cv2.COLOR_BGR2RGB)); ax.set_title(f"장면 {i}"); ax.axis("off")
 fig.savefig(IMG / "ex06_video.png", dpi=100, bbox_inches="tight")

@@ -1,7 +1,7 @@
 # 웹 페이지에서 할 일 API 쓰기 — ex01_todo_crud 의 API 에 화면(HTML)을 붙여요 (서버로 실행)
 # 실행: 이 폴더에서  uvicorn ex03_todo_web:app --reload
 # 확인: 브라우저에서  http://127.0.0.1:8000  → 할 일을 추가·완료·삭제해 보세요
-from pathlib import Path
+from pathlib import Path                       # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi.responses import FileResponse
 

@@ -1,3 +1,4 @@
+# ex01_series_create.py : Series 만들기: 리스트 · 딕셔너리로, index(라벨) 붙이기
 import pandas as pd                 # 관례적으로 pd 라는 별명
 
 s1 = pd.Series([90, 75, 88])        # 리스트로 → 인덱스는 0, 1, 2 자동

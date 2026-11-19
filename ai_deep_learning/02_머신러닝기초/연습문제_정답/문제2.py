@@ -1,6 +1,6 @@
 # 문제 2. load_digits 데이터를 KNeighborsClassifier로 학습하고, 혼동 행렬에서 가장 많이 헷갈린 숫자 쌍을 찾아 출력하세요.
 
-import numpy as np
+import numpy as np                            # 넘파이 (관례적으로 np 라는 별명)
 from sklearn.datasets import load_digits
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split

@@ -6,15 +6,15 @@
 #   2) 아래 TODO ① ~ ④ 를 설계표대로 바꿔요
 #   3) /docs 에서 API 를 하나씩 시험해요
 #   4) index.html 화면을 꾸며요
-import json
-from pathlib import Path
+import json                           # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from pathlib import Path              # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="나의 미니 프로젝트")     # TODO ①: 서비스 이름으로 바꾸기
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent          # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 DATA_FILE = HERE / "data.json"
 
 

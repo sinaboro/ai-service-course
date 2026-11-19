@@ -1,5 +1,5 @@
-import pandas as pd
-import numpy as np
+import pandas as pd                                       # 판다스 (관례적으로 pd 라는 별명)
+import numpy as np                                        # 넘파이 (관례적으로 np 라는 별명)
 
 # 이름 · 점수 · 성별 3명짜리 표
 df = pd.DataFrame({

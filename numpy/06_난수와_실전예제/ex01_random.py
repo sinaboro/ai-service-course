@@ -1,4 +1,5 @@
-import numpy as np
+# ex01_random.py : 난수 만들기: default_rng(seed) 로 매번 같은 난수 · integers · normal · choice · shuffle
+import numpy as np                       # 넘파이 (관례적으로 np 라는 별명)
 
 rng = np.random.default_rng(seed=42)    # 난수 생성기 (seed 가 같으면 결과도 같음)
 

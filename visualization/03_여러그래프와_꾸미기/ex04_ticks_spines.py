@@ -1,12 +1,13 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex04_ticks_spines.py : 눈금 형식(천 단위 콤마 · %)과 테두리(spines) 다듬기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 한글 폰트 (Windows: 맑은 고딕, macOS: 애플고딕, 그 외: 나눔고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호 깨짐 방지
 IMG = Path(__file__).parent / "images"            # 그래프를 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
 from matplotlib.ticker import FuncFormatter, PercentFormatter
 
@@ -21,7 +22,7 @@ ax1.yaxis.set_major_formatter(FuncFormatter(lambda v, pos: f"{v / 10000:,.0f}만
 ax1.set_title("월 매출")
 ax1.spines[["top", "right"]].set_visible(False)            # 위·오른쪽 테두리 없애기
 
-colors = ["tomato" if g < 0 else "seagreen" for g in growth]
+colors = ["tomato" if g < 0 else "seagreen" for g in growth]  # 줄었으면 빨강, 늘었으면 초록
 ax2.bar(months, growth, color=colors)
 ax2.yaxis.set_major_formatter(PercentFormatter(1.0))         # 0.1 → 10%
 ax2.axhline(0, color="black", linewidth=0.8)

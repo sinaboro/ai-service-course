@@ -1,9 +1,9 @@
 # 클라이언트 예제: 간단한 예측 API 에 요청을 보내 봐요 (python 으로 실행)
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from ex01_predict_simple import app
 
-client = TestClient(app)
+client = TestClient(app)  # app 에 요청을 보내는 "코드 속 브라우저"
 
 # 공부 시간만 바꿔 가며 세 학생을 예측해 보기 (수면 7시간, 휴대폰 2시간은 같게)
 for study in [1, 3, 5]:

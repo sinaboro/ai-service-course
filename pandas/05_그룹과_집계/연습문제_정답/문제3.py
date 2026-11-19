@@ -1,6 +1,6 @@
 # 문제 3. 행은 date, 열은 menu, 값은 qty 합계인 피벗 테이블을 만드세요. 빈 칸은 0으로 채우세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # 날짜 · 매장 · 메뉴별 판매 기록 7건 (이 장의 예제가 함께 써요)
 df = pd.DataFrame({

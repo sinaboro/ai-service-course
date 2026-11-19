@@ -1,14 +1,15 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex03_hist.py : 히스토그램: 값을 구간(bin)으로 나눠 분포 보기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 한글 폰트 (Windows: 맑은 고딕, macOS: 애플고딕, 그 외: 나눔고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호 깨짐 방지
 IMG = Path(__file__).parent / "images"            # 그래프를 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import numpy as np
+import numpy as np                                # 넘파이 (관례적으로 np 라는 별명)
 
 # 평균 72, 표준편차 12 인 정규분포 점수 300개 (clip: 0 ~ 100 밖은 잘라 내기)
 rng = np.random.default_rng(seed=0)

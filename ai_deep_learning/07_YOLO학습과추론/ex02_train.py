@@ -1,9 +1,10 @@
-import shutil
-from pathlib import Path
+# ex02_train.py : 우리 데이터(data.yaml)로 YOLO 학습하기 — 결과는 runs/ 폴더에 저장
+import shutil             # 파일 · 폴더 복사 · 삭제 도구
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
-from ultralytics import YOLO
+from ultralytics import YOLO  # YOLO 모델을 불러오는 클래스
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 # 학습할 데이터셋의 설정 파일 (images · labels · 클래스 이름이 적혀 있어요)
 DATA = HERE / "datasets" / "floats" / "data.yaml"      # 6장에서 만든 것과 같은 구조
 (HERE / "models").mkdir(exist_ok=True)                 # 모델 저장 폴더 만들기

@@ -7,12 +7,20 @@
 
 ## 준비
 
+VS Code 에서 터미널(메뉴 보기 > 터미널)을 열고, `cd` 로 **이 폴더(fastapi/초급과정)** 에 들어간 뒤 아래 명령을 한 줄씩 입력해요.
+
 ```bash
 python -m venv .venv
 .venv\Scripts\activate             # Windows (macOS · Linux: source .venv/bin/activate)
 pip install fastapi uvicorn
 python 00_웹과_API_첫걸음/check_setup.py
 ```
+
+> ⚠️ Windows PowerShell 에서 `activate` 할 때 "이 시스템에서 스크립트를 실행할 수 없으므로…" 오류가 나면, 아래 명령을 **한 번만** 입력한 뒤 다시 activate 하세요. (내 계정에서만 스크립트 실행을 허용하는 설정이에요)
+>
+> ```powershell
+> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+> ```
 
 ## 수업 시간표 (12시간)
 

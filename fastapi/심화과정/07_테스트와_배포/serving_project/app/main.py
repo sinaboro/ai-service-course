@@ -1,4 +1,6 @@
-from contextlib import asynccontextmanager
+# main.py : 메인 앱: create_app() 으로 앱을 만들고 라우터를 연결
+# 실행: serving_project 폴더에서 uvicorn app.main:app --reload
+from contextlib import asynccontextmanager         # lifespan(켜질 때 · 꺼질 때 할 일)을 만드는 도구
 from fastapi import FastAPI
 
 from app.config import get_settings
@@ -11,8 +13,9 @@ from app.routers import health, predict
 async def lifespan(app: FastAPI):
     settings = get_settings()
     app.state.settings = settings
+    # 모델 파일이 있으면 불러오고, 없으면 None
     app.state.model = PassModel(settings.model_path) if settings.model_path.exists() else None
-    yield
+    yield                                          # yield 위 = 켜질 때, 아래 = 꺼질 때
     app.state.model = None
 
 

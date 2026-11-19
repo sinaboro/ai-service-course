@@ -1,7 +1,9 @@
+# ex03_nested_response.py : 모델 안의 모델(중첩) · 리스트, response_model 로 응답 모양 정하기
+# 실행: 이 폴더에서 uvicorn ex03_nested_response:app --reload (요청 예시는 ex03_nested_response_client.py)
 from fastapi import FastAPI, status
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                    # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 # 상품 하나의 모양

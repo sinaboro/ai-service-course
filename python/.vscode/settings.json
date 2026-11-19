@@ -1,0 +1,5 @@
+{
+    // ▶ 버튼(Run Python File)으로 실행할 때, 그 .py 파일이 있는 폴더에서 실행해요.
+    // 그래서 pd.read_csv("cafe_sales.csv") 처럼 같은 폴더의 파일을 읽는 예제가 FileNotFoundError 없이 동작해요.
+    "python.terminal.executeInFileDir": true
+}

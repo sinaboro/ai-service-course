@@ -4,7 +4,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                                # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 PRICE = {"아메리카노": 3000, "라떼": 3500, "녹차": 3200}      # 메뉴별 가격 (M 사이즈)
 

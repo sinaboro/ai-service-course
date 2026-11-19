@@ -3,5 +3,5 @@
 word = "banana"
 count = {}
 for ch in word:
-    count[ch] = count.get(ch, 0) + 1
+    count[ch] = count.get(ch, 0) + 1  # 없으면 0 으로 보고 1 더하기
 print(count)

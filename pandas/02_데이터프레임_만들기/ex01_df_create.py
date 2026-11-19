@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # 방법 1: 딕셔너리 (키 = 열 이름, 값 = 그 열의 데이터 리스트)
 df = pd.DataFrame({

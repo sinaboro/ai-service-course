@@ -1,7 +1,7 @@
 # 실습용 학생 생활 데이터 만들기 (data/students_life.csv)
-from pathlib import Path
-import numpy as np
-import pandas as pd
+from pathlib import Path                                    # 파일 · 폴더 경로를 다루는 도구
+import numpy as np                                          # 넘파이 (관례적으로 np 라는 별명)
+import pandas as pd                                         # 판다스 (관례적으로 pd 라는 별명)
 
 # 학생 200명의 학년 · 동아리를 무작위로 (p: 동아리별 뽑힐 확률)
 rng = np.random.default_rng(seed=2026)

@@ -1,6 +1,6 @@
 # 문제 1. 직원 데이터에서 Sales 부서 직원의 이름과 연봉만 출력하세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np                                # 넘파이 (관례적으로 np 라는 별명)
 
 rng = np.random.default_rng(seed=2026)
 # 학생 이름 10개: 학생1 ~ 학생10

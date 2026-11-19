@@ -35,7 +35,7 @@ function render() {
     li.append(check, span, del);
     list.append(li);
   }
-  const count = todos.filter((t) => !t.done).length;
+  const count = todos.filter((t) => !t.done).length;  // 아직 안 끝난(!t.done) 것만 세기
   left.textContent = `남은 할 일: ${count}개`;
 }
 
@@ -47,7 +47,7 @@ function add(title) {
 }
 
 function toggle(id) {
-  const todo = todos.find((t) => t.id === id);
+  const todo = todos.find((t) => t.id === id);  // id 가 같은 할 일 하나 찾기
   todo.done = !todo.done;                    // 참 ↔ 거짓 뒤집기
   render();
 }

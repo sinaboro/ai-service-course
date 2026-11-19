@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np                            # 넘파이 (관례적으로 np 라는 별명)
 
 # 투표 결과: 후보 번호 8표
 votes = np.array([3, 1, 2, 3, 3, 1, 2, 3])
@@ -14,4 +14,4 @@ print("전날 대비:", np.diff(sales))
 
 # any: 하나라도 참이면 True / all: 모두 참이어야 True
 print("100 이상인 날이 있나?", np.any(sales >= 100))
-print("모두 50 이상인가?", np.all(sales >= 50))
+print("모두 50 이상인가?", np.all(sales >= 50))     # 모든 값이 조건을 만족해야 True

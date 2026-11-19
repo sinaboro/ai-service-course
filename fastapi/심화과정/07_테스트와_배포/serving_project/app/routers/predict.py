@@ -1,4 +1,5 @@
-import numpy as np
+# predict.py : /predict · /health 주소를 모은 라우터 — 직접 실행하지 않고 app/main.py 가 불러 써요
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 from fastapi import APIRouter, HTTPException, Request
 
 from app.deps import ModelDep
@@ -31,4 +32,5 @@ def predict_batch(req: BatchRequest, model: ModelDep, request: Request):
     if len(req.students) > limit:
         raise HTTPException(413, f"한 번에 최대 {limit}명까지 예측할 수 있어요")
     probs = model.predict_proba(_to_array(req.students))
+    # 확률마다 Prediction 하나씩
     return BatchResponse(count=len(probs), predictions=[_pred(p, model.version) for p in probs])

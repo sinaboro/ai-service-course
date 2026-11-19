@@ -1,14 +1,14 @@
 # 5장 예제: 메모장 웹 앱 — 3장의 메모장 API + 4장의 웹 페이지 = 완성된 웹 서비스
 # 실행: 이 폴더에서  uvicorn memo_app:app --reload
 # 확인: 브라우저에서 http://127.0.0.1:8000 → 메모를 쓰고, 고치고, 지워 보세요
-from pathlib import Path
+from pathlib import Path                      # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="메모장 웹 앱")
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 
 # 화면: 주소 "/" 로 들어오면 memo_page.html 을 돌려줘요 (4장 1단계)

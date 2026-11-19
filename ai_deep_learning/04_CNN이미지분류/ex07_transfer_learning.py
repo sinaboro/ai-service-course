@@ -1,4 +1,5 @@
-import keras
+# ex07_transfer_learning.py : 전이 학습: 이미 학습된 모델(MobileNetV2)에 내 분류 층만 붙여 학습 (ex05 를 먼저 실행)
+import keras                               # 딥러닝 도구 Keras
 
 keras.utils.set_random_seed(2)
 ROOT = __import__("pathlib").Path(__file__).parent / "data" / "shapes"

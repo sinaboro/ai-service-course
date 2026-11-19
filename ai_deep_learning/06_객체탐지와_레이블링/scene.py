@@ -1,8 +1,8 @@
 # 해변 장면 + 부유물 만들기 (5 · 7 · 8장과 같은 코드)
-import random
+import random                                        # 무작위(난수) 값 만들기
 
-import cv2
-import numpy as np
+import cv2                                           # OpenCV: 영상 처리 도구
+import numpy as np                                   # 넘파이 (관례적으로 np 라는 별명)
 
 # 클래스 이름 (번호 0, 1, 2 순서) — data.yaml · classes.txt 와 같은 순서여야 해요
 CLASSES = ["bottle", "can", "bag"]
@@ -35,6 +35,8 @@ def make_scene(rng: random.Random, size: int = 320):
         x1 = rng.randint(2, size - w - 2)
         y1 = rng.randint(2, size - h - 2)
         x2, y2 = x1 + w, y1 + h
+        # 이미 놓인 상자들 중 하나라도 새 상자와 겹치면(any) 다시 뽑기
+        # 두 상자가 "안 겹치는" 조건: 한쪽이 다른 쪽보다 완전히 왼쪽 · 오른쪽 · 위 · 아래 → 그것의 반대(not)가 겹침
         if any(not (x2 < a or x1 > c2 or y2 < b or y1 > d) for _, a, b, c2, d in boxes):
             continue                                 # 다른 물체와 겹치면 건너뛰기
         # 실제로 그리기: 병 = 초록 몸통 + 뚜껑, 캔 = 회색 사각형, 비닐봉지 = 흰 타원
@@ -48,6 +50,7 @@ def make_scene(rng: random.Random, size: int = 320):
             cv2.ellipse(img, ((x1 + x2) // 2, (y1 + y2) // 2), (w // 2, h // 2), 0, 0, 360, (245, 245, 245), -1)
         # 정답 상자(클래스, 꼭짓점 좌표) 기록 → 레이블 파일이 돼요
         boxes.append((c, x1, y1, x2, y2))
+    # 10**6 = 1000000
     noise = np.random.default_rng(rng.randint(0, 10**6)).normal(0, 6, img.shape)
     img = np.clip(img + noise, 0, 255).astype(np.uint8)            # 약간의 잡음 (실제 사진처럼)
     return img, boxes

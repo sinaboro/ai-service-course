@@ -4,5 +4,5 @@ const prices = [3000, 6000, 5500, 12000];
 const sale = prices.map((p) => Math.round(p * 0.9));   // Math.round: 반올림
 console.log(sale);                          // [2700, 5400, 4950, 10800]
 
-const under5000 = sale.filter((p) => p <= 5000);
+const under5000 = sale.filter((p) => p <= 5000);  // 5000 이하인 값만 새 배열로
 console.log(under5000);                     // [2700, 4950]

@@ -1,18 +1,19 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex04_read_yolo_label.py : YOLO 레이블(.txt) 한 줄 읽기 → 픽셀 좌표 상자로 바꿔 사진에 그리기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
 # labelImg 가 YOLO 형식으로 저장하는 것과 같은 파일을 만들고, 다시 읽어서 그려 보기
-import random
+import random                                     # 무작위(난수) 값 만들기
 
-import cv2
+import cv2                                        # OpenCV: 영상 처리 도구
 
 from cvutil import imread, imwrite
 from scene import CLASSES, make_scene, to_yolo_line

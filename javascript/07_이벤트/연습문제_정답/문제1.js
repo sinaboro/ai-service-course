@@ -5,5 +5,5 @@ const answer = document.querySelector("#answer");
 btn.addEventListener("click", () => {
   answer.classList.toggle("hidden");                 // 있으면 떼고 없으면 붙이기
   const hidden = answer.classList.contains("hidden");
-  btn.textContent = hidden ? "답 보기" : "답 숨기기";
+  btn.textContent = hidden ? "답 보기" : "답 숨기기";       // 숨김 상태면 "답 보기"
 });

@@ -1,4 +1,5 @@
-import pandas as pd
+# ex01_add_drop.py : 열 추가(계산해서) · 칸 수정(loc) · 행 · 열 삭제(drop)
+import pandas as pd                             # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park"],

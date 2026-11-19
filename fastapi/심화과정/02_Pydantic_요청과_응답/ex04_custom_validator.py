@@ -1,7 +1,9 @@
+# ex04_custom_validator.py : 나만의 검사 규칙: field_validator(값 하나) · model_validator(여러 값 함께)
+# 실행: 이 폴더에서 uvicorn ex04_custom_validator:app --reload (요청 예시는 ex04_custom_validator_client.py)
 from fastapi import FastAPI
 from pydantic import BaseModel, Field, field_validator, model_validator
 
-app = FastAPI()
+app = FastAPI()                    # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 class Features(BaseModel):         # 모델 입력: 숫자 4개 (예: 꽃잎·꽃받침 길이)
@@ -9,9 +11,9 @@ class Features(BaseModel):         # 모델 입력: 숫자 4개 (예: 꽃잎·�
 
     # field_validator: 필드 하나를 직접 검사하는 함수 (ValueError 를 내면 422 오류)
     @field_validator("values")
-    @classmethod
+    @classmethod                   # field_validator 아래에는 꼭 @classmethod
     def no_negative(cls, v: list[float]) -> list[float]:
-        if any(x < 0 for x in v):
+        if any(x < 0 for x in v):  # 값 중 하나라도 음수면
             raise ValueError("음수 값은 넣을 수 없어요")
         return [round(x, 2) for x in v]           # 검사 + 정리(반올림)까지
 

@@ -1,5 +1,5 @@
 # 실습용 이미지 만들기 (samples 폴더)
-from pathlib import Path
+from pathlib import Path                               # 파일 · 폴더 경로를 다루는 도구
 from PIL import Image, ImageDraw
 
 # 이미지를 저장할 samples 폴더

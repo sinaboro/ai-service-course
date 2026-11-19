@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 
 # 행: 학생 3명, 열: 국어 영어 수학
 scores = np.array([[80, 90, 70],

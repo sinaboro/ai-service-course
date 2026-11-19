@@ -1,13 +1,14 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex06_report.py : 종합: 지점별 매출 한 장 보고서(여러 칸 + 꾸미기) 만들기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 한글 폰트 (Windows: 맑은 고딕, macOS: 애플고딕, 그 외: 나눔고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호 깨짐 방지
 IMG = Path(__file__).parent / "images"            # 그래프를 저장할 폴더
-IMG.mkdir(exist_ok=True)
-import pandas as pd
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
+import pandas as pd                               # 판다스 (관례적으로 pd 라는 별명)
 
 DATA = Path(__file__).parent / "data"
 df = pd.read_csv(DATA / "store_sales.csv", parse_dates=["date"])
@@ -26,8 +27,10 @@ share.plot.pie(ax=axes[0, 1], autopct="%.1f%%", title="지점 매출 비중", yl
 
 # ③ 전월 대비 성장률: pct_change() × 100. 줄면 빨강, 늘면 초록
 growth = df.groupby("date")["sales"].sum().pct_change().mul(100)
+# 막대 색: 줄었으면(음수) 빨강, 늘었으면 초록 (첫 달은 비교할 달이 없어 NaN → 0 으로 보고 초록)
 growth.plot.bar(ax=axes[1, 0], color=["tomato" if g < 0 else "seagreen" for g in growth.fillna(0)],
                 title="전월 대비 성장률 (%)")
+# 날짜 → "01월" 모양 글자
 axes[1, 0].set_xticklabels([d.strftime("%m월") for d in growth.index], rotation=0)
 
 # ④ 지점-카테고리 조합 중 매출 상위 5개 (nlargest)

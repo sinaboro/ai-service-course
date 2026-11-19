@@ -1,4 +1,5 @@
-import numpy as np
+# ex03_concat_stack.py : 배열 합치기: concatenate · vstack(위아래) · hstack(좌우)
+import numpy as np                      # 넘파이 (관례적으로 np 라는 별명)
 
 a = np.array([[1, 2],
               [3, 4]])

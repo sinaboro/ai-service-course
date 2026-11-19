@@ -1,12 +1,13 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex06_two_styles.py : 같은 그래프를 plt 방식과 fig, ax 방식으로 각각 그려 비교하기
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 한글 폰트 (Windows: 맑은 고딕, macOS: 애플고딕, 그 외: 나눔고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호 깨짐 방지
 IMG = Path(__file__).parent / "images"            # 그래프를 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
 # 같은 데이터로 두 방식 비교
 x = [1, 2, 3, 4, 5]

@@ -64,8 +64,8 @@ function render(todos) {
   }
   // ⭐ 문제1: 전체 · 남은 · 완료 개수와 진행률(%) 보여 주기
   const total = todos.length;
-  const done = todos.filter((t) => t.done).length;
-  const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+  const done = todos.filter((t) => t.done).length;  // 끝난 할 일 개수
+  const percent = total === 0 ? 0 : Math.round((done / total) * 100);  // 0개면 0%, 아니면 반올림한 %
   summary.textContent = `전체 ${total}개 · 남은 ${total - done}개 · 완료 ${done}개 (${percent}%)`;
 }
 
@@ -96,7 +96,7 @@ async function toggleTodo(id, done) {
   try {
     await request(`${API}/${id}`, jsonOptions("PATCH", { done: done }));
     await loadTodos();
-    showStatus(done ? "완료로 표시했어요" : "완료를 취소했어요", "ok");
+    showStatus(done ? "완료로 표시했어요" : "완료를 취소했어요", "ok");  // 조건 ? 참일 때 : 거짓일 때
   } catch (error) {
     showStatus(`바꾸지 못했어요: ${error.message}`, "error");
   }

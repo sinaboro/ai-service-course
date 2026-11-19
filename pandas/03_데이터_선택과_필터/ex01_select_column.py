@@ -1,4 +1,5 @@
-import pandas as pd
+# ex01_select_column.py : 열 선택: 열 하나는 df["열"](Series), 여러 열은 df[["열1", "열2"]](DataFrame)
+import pandas as pd               # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

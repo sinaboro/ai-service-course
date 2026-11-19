@@ -1,6 +1,6 @@
 # 문제 1. 카페 데이터에서 메뉴별 총 판매 수량(qty) 을 많은 순으로 출력하세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # 날짜 · 매장 · 메뉴별 판매 기록 7건 (이 장의 예제가 함께 써요)
 df = pd.DataFrame({

@@ -1,5 +1,5 @@
 # 샘플 사진 만들기: 바다 + 모래사장 + 병 · 캔 · 비닐봉지
-from pathlib import Path
+from pathlib import Path                                              # 파일 · 폴더 경로를 다루는 도구
 from PIL import Image, ImageDraw
 
 # 640 × 400 크기, 바다색으로 칠한 빈 그림 만들기 (색은 빨강, 초록, 파랑 순서)

@@ -1,7 +1,7 @@
 # 시맨틱 구조 보기: python outline.py 파일.html
-import sys
+import sys  # 파이썬 실행 환경 (import 경로 sys.path 등)
 from html.parser import HTMLParser
-from pathlib import Path
+from pathlib import Path                                                  # 파일 · 폴더 경로를 다루는 도구
 
 # 구조 트리에 보여 줄 태그: 시맨틱 영역 태그들
 LANDMARKS = {"header", "nav", "main", "section", "article", "aside", "footer", "figure", "form", "address", "search"}
@@ -24,6 +24,7 @@ class Outline(HTMLParser):
         self.stack.append(tag)
         a = dict(attrs)
         if tag in LANDMARKS or tag == "div":
+            # 태그 이름에, class · aria-label 속성이 있으면 그것도 덧붙여 "<section class=...>" 같은 글자를 만들어요
             label = f"<{tag}>" + (f' class="{a["class"]}"' if "class" in a else "") + (f' aria-label="{a["aria-label"]}"' if "aria-label" in a else "")
             # div 는 · , 시맨틱 태그는 ▣ 로 표시해서 구분
             self.lines.append("  " * self.depth + ("· " if tag == "div" else "▣ ") + label)
@@ -49,10 +50,11 @@ class Outline(HTMLParser):
 
 
 # 파일 이름을 주면 그 파일만, 안 주면 이 폴더의 ex*.html 전부
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 names = sys.argv[1:] or [p.name for p in sorted(HERE.glob("ex*.html"))]   # 인자가 없으면 이 폴더의 예제 전부
 # 파일을 읽어 파서에 넣고, 만들어진 트리를 출력
 for name in names:
+    # 그 이름의 파일이 지금 폴더에 없으면 이 파일 옆에서 찾기
     path = Path(name) if Path(name).exists() else HERE / name
     p = Outline()
     p.feed(path.read_text(encoding="utf-8"))

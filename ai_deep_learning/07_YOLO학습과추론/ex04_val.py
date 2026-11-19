@@ -1,8 +1,9 @@
-from pathlib import Path
+# ex04_val.py : 검증(val): 학습한 모델의 정밀도 · 재현율 · mAP 를 다시 계산
+from pathlib import Path                              # 파일 · 폴더 경로를 다루는 도구
 
-from ultralytics import YOLO
+from ultralytics import YOLO                          # YOLO 모델을 불러오는 클래스
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                          # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 model = YOLO(HERE / "models" / "best.pt")             # 학습한 모델 불러오기
 # 검증 데이터로 성적 다시 매기기 (plots=False: 그림은 만들지 않기)
 m = model.val(data=str(HERE / "datasets" / "floats" / "data.yaml"), imgsz=320, batch=16, workers=0, device="cpu", plots=False, verbose=False)
@@ -13,4 +14,4 @@ print(f"mAP50 {m.box.map50:.3f} | mAP50-95 {m.box.map:.3f} | 정밀도 {m.box.mp
 for i, name in model.names.items():
     p, r, ap50, ap = m.box.class_result(i)
     print(f"  {name:7s} P {p:.3f}  R {r:.3f}  AP50 {ap50:.3f}")
-print("사진 한 장 처리(ms):", {k: round(v, 1) for k, v in m.speed.items()})
+print("사진 한 장 처리(ms):", {k: round(v, 1) for k, v in m.speed.items()})  # 단계별 시간을 소수 1자리로

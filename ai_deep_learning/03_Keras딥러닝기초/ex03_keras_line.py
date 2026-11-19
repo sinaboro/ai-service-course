@@ -1,16 +1,17 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex03_keras_line.py : 첫 Keras 모델: 점들을 보고 직선(y = 2x + 1)을 스스로 배우기
+import platform                          # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                 # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt          # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False  # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                 # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import keras
-import numpy as np
+import keras                             # 딥러닝 도구 Keras
+import numpy as np                       # 넘파이 (관례적으로 np 라는 별명)
 
 keras.utils.set_random_seed(42)          # 실행할 때마다 같은 결과가 나오게
 

@@ -1,5 +1,5 @@
-import json
-from fastapi.testclient import TestClient
+import json                                    # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from fastapi.testclient import TestClient      # 서버를 켜지 않고 코드로 요청을 보내는 도구
 # 이 장의 앱과 LOG 목록을 함께 불러오기
 import ex04_lifespan
 from ex04_lifespan import app

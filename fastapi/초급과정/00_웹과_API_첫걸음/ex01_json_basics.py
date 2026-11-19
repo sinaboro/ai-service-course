@@ -1,6 +1,6 @@
 # JSON 과 파이썬 딕셔너리 — 웹에서 데이터를 주고받는 글자 형식 익히기 (python 으로 실행)
 # 서버는 파이썬 딕셔너리를 JSON 글자로 바꿔 보내고, 받는 쪽은 그 글자를 다시 딕셔너리로 바꿔요.
-import json
+import json                                  # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
 
 # 1) 파이썬 딕셔너리 (내 프로그램 안에서 쓰는 값)
 student = {"name": "홍길동", "age": 20, "scores": [90, 85], "is_member": True, "memo": None}

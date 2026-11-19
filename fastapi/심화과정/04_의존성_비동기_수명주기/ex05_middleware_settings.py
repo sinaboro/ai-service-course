@@ -1,5 +1,7 @@
-import os
-import time
+# ex05_middleware_settings.py : 미들웨어(모든 요청의 처리 시간 기록) · CORS · 환경 변수로 설정 바꾸기
+# 실행: 이 폴더에서 uvicorn ex05_middleware_settings:app --reload
+import os                                                      # 환경 변수 · 경로 같은 운영체제 기능
+import time                                                    # 시간 재기 · 잠깐 기다리기
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 

@@ -1,7 +1,7 @@
 # 연습용 YOLO 데이터셋 만들기: labelImg 로 레이블링한 결과와 똑같은 구조
-import random
-import shutil
-from pathlib import Path
+import random                                    # 무작위(난수) 값 만들기
+import shutil                                    # 파일 · 폴더 복사 · 삭제 도구
+from pathlib import Path                         # 파일 · 폴더 경로를 다루는 도구
 
 from cvutil import imwrite
 from scene import CLASSES, make_scene, to_yolo_line
@@ -12,7 +12,7 @@ SIZE = 320
 shutil.rmtree(ROOT, ignore_errors=True)          # 다시 실행해도 깨끗하게
 # 무작위 씨앗 고정 + 클래스별 물체 수를 셀 사전
 rng = random.Random(2026)
-counts = {c: 0 for c in CLASSES}
+counts = {c: 0 for c in CLASSES}                 # 클래스마다 개수 0 으로 시작 {"bottle": 0, ...}
 for split, n in [("train", 240), ("val", 60)]:
     # images/train, labels/train 처럼 짝이 되는 폴더 만들기
     (ROOT / "images" / split).mkdir(parents=True)

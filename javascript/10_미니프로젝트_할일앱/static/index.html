@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+<!-- index.html : 할 일 앱 (동작 코드는 짝 파일 js/app.js)
+     서버로 열어요: 10_미니프로젝트_할일앱 폴더에서 uvicorn app:app --reload → http://127.0.0.1:8000/ -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>할 일 앱</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">  <!-- 화면 꾸미기(CSS) 파일 연결 -->
   <!-- defer: HTML 을 다 읽은 뒤에 app.js 실행 -->
-  <script src="js/app.js" defer></script>
+  <script src="js/app.js" defer></script>  <!-- defer: HTML 을 다 읽은 뒤에 JS 실행 -->
 </head>
 <body>
   <header class="site-header">

@@ -1,16 +1,17 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex03_color.py : 색 공간: BGR · RGB · 흑백 · HSV 바꾸기
+import platform                                             # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                                    # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                             # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False                  # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                                    # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import cv2
-import numpy as np
+import cv2                                                  # OpenCV: 영상 처리 도구
+import numpy as np                                          # 넘파이 (관례적으로 np 라는 별명)
 
 from cvutil import imread
 
@@ -23,7 +24,7 @@ def show(items, name, cols=None):
     # 먼저 모든 칸의 눈금을 끄고, 그림이 있는 칸만 채우기
     for ax in axes.flat:
         ax.axis("off")
-    for ax, (title, im) in zip(axes.flat, items):
+    for ax, (title, im) in zip(axes.flat, items):           # zip: 칸과 (제목, 그림)을 하나씩 짝지어 꺼내기
         # 흑백(2차원)은 그대로, 컬러(BGR)는 RGB 로 바꿔서 보여 주기
         ax.imshow(im if im.ndim == 2 else cv2.cvtColor(im, cv2.COLOR_BGR2RGB), cmap="gray")
         ax.set_title(title)
@@ -41,4 +42,5 @@ dark = cv2.convertScaleAbs(img, alpha=0.6, beta=0)          # 어둡게 (×0.6)
 print("HSV 범위: H 0 ~", hsv[..., 0].max(), "(OpenCV 는 0 ~ 179) / S, V 0 ~ 255")
 print("바다 픽셀 BGR", img[5, 5], "→ HSV", hsv[5, 5])
 print("평균 밝기: 원본", round(gray.mean(), 1), "/ 밝게", round(cv2.cvtColor(bright, cv2.COLOR_BGR2GRAY).mean(), 1), "/ 어둡게", round(cv2.cvtColor(dark, cv2.COLOR_BGR2GRAY).mean(), 1))
+# hsv[..., 0]: 모든 칸의 0번 채널(H, 색상)만 꺼내기
 show([("원본", img), ("흑백", gray), ("H (색상) 채널", hsv[..., 0]), ("밝게 +60", bright), ("어둡게 ×0.6", dark), ("빨강(R) 채널", r)], "ex03_color.png", cols=3)

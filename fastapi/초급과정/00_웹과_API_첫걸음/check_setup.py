@@ -3,7 +3,7 @@
 import importlib
 import importlib.util
 import socket
-import sys
+import sys  # 파이썬 실행 환경 (import 경로 sys.path 등)
 
 ok = True
 

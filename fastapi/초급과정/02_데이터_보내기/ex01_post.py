@@ -4,7 +4,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI()  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 # 받을 데이터의 "모양" 정하기 — 이름은 글자, 나이는 정수

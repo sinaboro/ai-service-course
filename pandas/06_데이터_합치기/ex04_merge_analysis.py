@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # 주문 기록: 어떤 상품(product_id)을 몇 개(qty) 샀는지
 orders = pd.DataFrame({

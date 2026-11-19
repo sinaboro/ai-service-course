@@ -1,5 +1,6 @@
-from pathlib import Path
-import pandas as pd
+# ex10_project_report.py : 종합 실습: 엑셀 매출 CSV → 정리 → 지점별 · 상품별 보고서 → 엑셀용 CSV 저장
+from pathlib import Path                                  # 파일 · 폴더 경로를 다루는 도구
+import pandas as pd                                       # 판다스 (관례적으로 pd 라는 별명)
 
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더
@@ -38,7 +39,7 @@ print(by_item)
 # 4) 저장 (엑셀에서 한글이 깨지지 않게 utf-8-sig)
 by_store.to_csv(OUT / "report_by_store.csv", index=False, encoding="utf-8-sig")
 by_item.to_csv(OUT / "report_by_item.csv", encoding="utf-8-sig")
-print("[4] 저장:", sorted(p.name for p in OUT.glob("report_*.csv")))
+print("[4] 저장:", sorted(p.name for p in OUT.glob("report_*.csv")))  # 저장한 보고서 파일 이름들
 
 # 저장한 파일을 다시 읽어 확인
 print(pd.read_csv(OUT / "report_by_store.csv", encoding="utf-8-sig"))

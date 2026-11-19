@@ -51,7 +51,7 @@ async function addMessage(name, text) {
     const response = await fetch(`${API}/api/messages`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: name, text: text }),
+      body: JSON.stringify({ name: name, text: text }),  // 객체 → JSON 글자로 바꿔 보내기
     });
     if (response.status === 422) {
       showStatus("이름은 1 ~ 10자, 남길 말은 1 ~ 100자로 써 주세요", "error");

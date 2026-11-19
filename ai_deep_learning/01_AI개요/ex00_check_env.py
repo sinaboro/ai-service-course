@@ -1,10 +1,10 @@
 # 설치된 라이브러리 버전 확인
-import sys
+import sys  # 파이썬 실행 환경 (import 경로 sys.path 등)
 
 # 이 과정에서 쓰는 라이브러리를 모두 불러와 봐요. 오류가 나면 그 라이브러리 설치가 안 된 것
-import cv2
-import keras
-import numpy as np
+import cv2  # OpenCV: 영상 처리 도구
+import keras  # 딥러닝 도구 Keras
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 import sklearn
 import tensorflow as tf
 import torch

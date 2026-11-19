@@ -1,18 +1,18 @@
 # FloatWatch 서버: 웹 페이지(HTML/CSS/JS) + 탐지 API
 import base64
-import io
-import time
-from pathlib import Path
+import io  # 메모리를 파일처럼 쓰는 도구 (BytesIO)
+import time                                                                   # 시간 재기 · 잠깐 기다리기
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from PIL import Image
+from PIL import Image  # Pillow: 이미지 열기 · 크기 바꾸기
 
 from detector import detect, draw
 
 # 서버 파일이 있는 폴더 (static 폴더를 찾을 때 기준)
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 MAX_BYTES = 5 * 1024 * 1024
 # FastAPI 앱 만들기 (uvicorn app:app 의 뒤쪽 app 이 이 변수)
 app = FastAPI(title="FloatWatch")

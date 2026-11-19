@@ -1,7 +1,7 @@
 # 모델 불러오기·예측을 담당하는 클래스 (서빙 앱은 이 클래스만 알면 됨)
-import json
-from pathlib import Path
-import numpy as np
+import json                                                     # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from pathlib import Path                                        # 파일 · 폴더 경로를 다루는 도구
+import numpy as np                                              # 넘파이 (관례적으로 np 라는 별명)
 
 
 # 학습한 값(가중치 · 절편 · 평균 · 표준편차)과 설명서(card)를 들고 있는 모델 클래스
@@ -18,13 +18,14 @@ class PassModel:
         data = np.load(path)                                    # FileNotFoundError 가능
         # 같은 폴더의 model_card.json 이 있으면 읽고, 없으면 빈 사전
         card_path = path.with_name("model_card.json")
+        # 설명서 파일이 있으면 읽고, 없으면 빈 딕셔너리
         card = json.loads(card_path.read_text(encoding="utf-8")) if card_path.exists() else {}
         return cls(data["w"], float(data["b"]), data["mean"], data["std"], data["features"], card)
 
     # property: 함수지만 model.version 처럼 괄호 없이 읽어요
     @property
     def version(self) -> str:
-        return self.card.get("version", "unknown")
+        return self.card.get("version", "unknown")              # 설명서에 version 이 없으면 "unknown"
 
     # 표준화 → 가중합 → 시그모이드 = 합격 확률
     def predict_proba(self, X: np.ndarray) -> np.ndarray:

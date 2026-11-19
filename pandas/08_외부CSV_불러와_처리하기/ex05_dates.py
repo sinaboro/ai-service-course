@@ -1,5 +1,6 @@
-from pathlib import Path
-import pandas as pd
+# ex05_dates.py : 모양이 제각각인 날짜(2026.09.01 등)를 format 으로 알려 주고 날짜로 바꾸기
+from pathlib import Path                                   # 파일 · 폴더 경로를 다루는 도구
+import pandas as pd                                        # 판다스 (관례적으로 pd 라는 별명)
 
 pd.set_option("display.unicode.east_asian_width", True)   # 한글 열 줄맞춤
 DATA = Path(__file__).parent / "data"                      # 이 파일 옆의 data 폴더

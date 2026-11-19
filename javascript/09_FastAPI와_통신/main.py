@@ -2,14 +2,14 @@
 # 실행: 이 폴더에서  uvicorn main:app --reload   → 브라우저에서 http://127.0.0.1:8000
 # 필요한 것: pip install fastapi uvicorn
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path             # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                      # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 # CORS: 다른 주소(Live Server 의 5500 포트)에서 연 페이지가 이 서버(8000 포트)에 요청해도 허락해요
 # 서버가 직접 보내 준 페이지(http://127.0.0.1:8000)로 열면 이 설정이 없어도 돼요
@@ -44,7 +44,7 @@ def list_messages():
 
 @app.post("/api/messages", status_code=201)
 def add_message(data: MessageIn):
-    global next_id
+    global next_id                   # 함수 밖 변수 next_id 를 바꾸겠다는 선언
     item = {"id": next_id, "name": data.name, "text": data.text}
     messages.append(item)
     next_id += 1

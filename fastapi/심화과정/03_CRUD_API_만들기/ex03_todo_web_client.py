@@ -1,10 +1,10 @@
 # 클라이언트 예제: 웹 페이지가 하는 요청을 코드로 똑같이 보내 봐요 (python 으로 실행)
 # 브라우저의 fetch(...) 한 줄 = TestClient 의 client.get/post/patch/delete 한 줄
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from ex03_todo_web import app
 
-client = TestClient(app)
+client = TestClient(app)  # app 에 요청을 보내는 "코드 속 브라우저"
 
 # 1) 페이지 열기: "/" 는 JSON 이 아니라 HTML 을 돌려줘요
 res = client.get("/")

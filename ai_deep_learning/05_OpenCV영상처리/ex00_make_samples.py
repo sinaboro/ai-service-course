@@ -1,6 +1,6 @@
 # 실습용 해변 사진 3장 만들기 (실제 프로젝트에서는 직접 찍은 사진을 써요)
-import random
-from pathlib import Path
+import random  # 무작위(난수) 값 만들기
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
 from cvutil import imwrite
 from scene import CLASSES, make_scene

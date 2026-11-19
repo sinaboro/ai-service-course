@@ -1,5 +1,5 @@
 # 10장 API 점검 (TestClient): python check_api.py
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from app import app
 

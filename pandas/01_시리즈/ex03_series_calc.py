@@ -1,4 +1,5 @@
-import pandas as pd
+# ex03_series_calc.py : Series 계산과 조건 필터: 라벨끼리 맞춰 계산, 짝이 없으면 NaN
+import pandas as pd              # 판다스 (관례적으로 pd 라는 별명)
 
 price = pd.Series({"apple": 1000, "banana": 2500, "grape": 4000})
 qty = pd.Series({"apple": 3, "banana": 2, "grape": 1})

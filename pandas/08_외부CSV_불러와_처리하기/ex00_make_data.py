@@ -1,8 +1,8 @@
 # 실습용 데이터 만들기: 한글 엑셀 CSV(cp949) 와 큰 로그 파일
 # (이미 data 폴더에 있다면 다시 실행할 필요 없어요)
 import csv
-import random
-from pathlib import Path
+import random  # 무작위(난수) 값 만들기
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
 # 데이터를 저장할 data 폴더 (없으면 만들기)
 DATA = Path(__file__).parent / "data"

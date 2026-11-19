@@ -1,4 +1,5 @@
-import pandas as pd
+# ex04_query_isin.py : 편리한 필터 도구: isin · between · str.contains · ~(반대) · query
+import pandas as pd                                # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

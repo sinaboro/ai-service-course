@@ -1,7 +1,7 @@
 # UploadFile: 업로드된 파일 (이름 · 종류 · 내용)
 from fastapi import FastAPI, File, UploadFile
 
-app = FastAPI()
+app = FastAPI()                                      # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 @app.post("/upload")
@@ -16,6 +16,7 @@ async def count_lines(file: UploadFile):
     text = (await file.read()).decode("utf-8")        # bytes → 문자열
     # 줄 단위로 나누기
     lines = text.splitlines()
+    # lines[0] if lines else None: 줄이 하나라도 있으면 첫 줄, 빈 파일이면 None
     return {"filename": file.filename, "lines": len(lines), "first_line": lines[0] if lines else None}
 
 

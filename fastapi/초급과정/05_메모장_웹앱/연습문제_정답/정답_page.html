@@ -40,7 +40,7 @@
         li.innerHTML = `<span></span><button>고치기</button><button>지우기</button>`;
         // 문제 1: 메모 뒤에 글자 수 붙이기 — memo.text.length 는 글자 수
         li.querySelector("span").textContent = `${memo.text} (${memo.text.length}자)`;
-        const [editBtn, deleteBtn] = li.querySelectorAll("button");
+        const [editBtn, deleteBtn] = li.querySelectorAll("button");  // 버튼 두 개를 차례로 두 변수에 나눠 담기
         editBtn.onclick = () => editMemo(memo);
         deleteBtn.onclick = () => deleteMemo(memo.id);
         list.appendChild(li);

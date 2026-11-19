@@ -28,7 +28,7 @@ for t in [Duck(), Robot(), Stone()]:
 def total_length(items):
     # len() 이 안 되는 값(123)이 섞이면 TypeError → 안내 문구로
     try:
-        return sum(len(x) for x in items)
+        return sum(len(x) for x in items)  # 각 값의 길이를 모두 더하기
     except TypeError:
         return "길이를 잴 수 없는 값이 섞여 있어요"
 

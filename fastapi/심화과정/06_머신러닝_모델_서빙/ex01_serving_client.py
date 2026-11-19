@@ -1,5 +1,7 @@
-import json
-from fastapi.testclient import TestClient
+# ex01_serving_client.py : ex01_serving_app 에 예측 요청 보내기 (/health · /predict · /predict/batch)
+# 실행: python ex01_serving_client.py (서버를 켜지 않아도 돼요)
+import json                                             # JSON 글자 ↔ 파이썬 딕셔너리 바꾸기
+from fastapi.testclient import TestClient               # 서버를 켜지 않고 코드로 요청을 보내는 도구
 from ex01_serving_app import app
 
 

@@ -1,12 +1,12 @@
 # 10장 미니 프로젝트 서버: 할 일(todo) API + 화면 파일 제공
 # 실행: 이 폴더에서  uvicorn app:app --reload   → 브라우저에서 http://127.0.0.1:8000
-from pathlib import Path
+from pathlib import Path              # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                       # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 # 데이터베이스 대신 리스트 (서버를 다시 켜면 이 두 개로 돌아가요)
 todos = [
@@ -39,7 +39,7 @@ def list_todos():
 
 @app.post("/api/todos", status_code=201)   # 추가
 def add_todo(data: TodoIn):
-    global next_id
+    global next_id                    # 함수 밖 변수 next_id 를 바꾸겠다는 선언
     todo = {"id": next_id, "title": data.title, "done": False}
     todos.append(todo)
     next_id += 1

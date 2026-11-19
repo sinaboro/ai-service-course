@@ -2,14 +2,14 @@
 # 문제 1. 메모 옆에 글자 수를 "(12자)" 처럼 표시하세요.            → 화면(정답_page.html)만 고치면 돼요
 # 문제 2. [모두 지우기] 버튼을 만들고, 누르면 메모가 전부 지워지게 하세요. → API 에 DELETE /memos 추가 + 버튼
 # 실행: 정답 폴더에서  uvicorn 정답_app:app --reload  →  http://127.0.0.1:8000
-from pathlib import Path
+from pathlib import Path                      # 파일 · 폴더 경로를 다루는 도구
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 app = FastAPI(title="메모장 웹 앱")
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 
 
 # 화면: 주소 "/" 로 들어오면 memo_page.html 을 돌려줘요 (4장 1단계)

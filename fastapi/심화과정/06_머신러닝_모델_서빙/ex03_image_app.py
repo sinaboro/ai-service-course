@@ -1,8 +1,10 @@
-import io
-import os
-from contextlib import asynccontextmanager
+# ex03_image_app.py : 이미지 분류 API: 업로드한 사진의 색을 보고 red · green · blue 확률 돌려주기
+# 먼저 python ex00_train_model.py 로 모델을 만든 뒤, 이 폴더에서 uvicorn ex03_image_app:app --reload
+import io                                                        # 메모리를 파일처럼 쓰는 도구 (BytesIO)
+import os                                                        # 환경 변수 · 경로 같은 운영체제 기능
+from contextlib import asynccontextmanager  # lifespan(켜질 때 · 꺼질 때 할 일)을 만드는 도구
 
-import numpy as np
+import numpy as np                                               # 넘파이 (관례적으로 np 라는 별명)
 from fastapi import FastAPI, HTTPException, Request, UploadFile
 from PIL import Image, UnidentifiedImageError
 from pydantic import BaseModel
@@ -35,7 +37,7 @@ class ImagePrediction(BaseModel):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.model = ColorModel(os.path.join(HERE, "model", "color_model.npz"))
-    yield
+    yield                                                        # yield 위 = 켜질 때, 아래 = 꺼질 때
 
 
 app = FastAPI(title="이미지 색 분류 API", lifespan=lifespan)
@@ -51,5 +53,5 @@ async def predict_image(file: UploadFile, request: Request):
     probs = model.predict_proba(preprocess(img))[0]
     # 확률이 높은 순서로 정렬해서 1등(top)과 전체 점수를 돌려주기
     scores = sorted([ClassScore(label=c, probability=round(float(p), 4)) for c, p in zip(model.classes, probs)],
-                    key=lambda s: s.probability, reverse=True)
+                    key=lambda s: s.probability, reverse=True)   # 확률이 큰 순서로
     return ImagePrediction(filename=file.filename, top=scores[0], scores=scores, model_version=model.version)

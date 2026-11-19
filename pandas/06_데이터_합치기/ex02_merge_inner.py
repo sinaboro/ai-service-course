@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd                             # 판다스 (관례적으로 pd 라는 별명)
 
 # 학생 표: id 1 ~ 4
 students = pd.DataFrame({

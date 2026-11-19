@@ -1,6 +1,6 @@
 # 문제 1. 상품(product), 가격(price), 재고(stock) 열을 가진 DataFrame을 만드세요. 데이터: (Pen, 1500, 30), (Note, 3000, 12), (Bag, 25000, 5)
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 df = pd.DataFrame({
     "product": ["Pen", "Note", "Bag"],
     "price": [1500, 3000, 25000],

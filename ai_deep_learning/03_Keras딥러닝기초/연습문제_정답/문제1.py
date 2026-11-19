@@ -1,6 +1,6 @@
 # 문제 1. ex04_mnist_dense.py의 숨은층을 Dense(256, relu) 와 Dense(128, relu) 두 개로 바꾸고, 3 에폭 학습 후 테스트 정확도와 전체 가중치 수(model.count_params())를 출력하세요.
 
-import keras
+import keras  # 딥러닝 도구 Keras
 keras.utils.set_random_seed(42)
 (x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
 x_train, x_test = x_train / 255.0, x_test / 255.0

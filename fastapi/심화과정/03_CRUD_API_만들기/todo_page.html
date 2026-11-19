@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- todo_page.html : 할 일 목록 화면 — fetch 로 할 일 API(ex01_todo_crud)를 불러요
+     ex03_todo_web.py 가 이 파일을 돌려줘요: 이 폴더에서 uvicorn ex03_todo_web:app --reload → http://127.0.0.1:8000 -->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -48,6 +50,7 @@
       for (const t of todos) {
         const li = document.createElement("li");
         if (t.done) li.className = "done";
+        // ${t.done ? "checked" : ""} : 완료한 할 일이면 checked 를 넣어 체크된 상자로, 아니면 빈 글자
         li.innerHTML = `
           <input type="checkbox" ${t.done ? "checked" : ""}>
           <span></span>

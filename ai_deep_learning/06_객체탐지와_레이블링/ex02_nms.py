@@ -1,13 +1,14 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex02_nms.py : NMS: 같은 물체에 겹쳐 나온 상자들 중 가장 좋은 하나만 남기기
+import platform                                          # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                                 # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                          # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False               # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                                 # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
 import matplotlib.patches as patches
 
@@ -43,6 +44,7 @@ for conf, box in kept:
 
 # 왼쪽 = 원래 상자 전부, 오른쪽 = NMS 후 남은 상자 (진할수록 신뢰도가 높아요)
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+# zip: 칸과 (제목, 상자 목록)을 짝지어 꺼내기
 for ax, (title, dets) in zip(axes, [("NMS 전", raw), ("NMS 후", kept)]):
     for conf, b in dets:
         ax.add_patch(patches.Rectangle(b[:2], b[2] - b[0], b[3] - b[1], fill=False, edgecolor="red", alpha=0.3 + 0.7 * conf, linewidth=2))

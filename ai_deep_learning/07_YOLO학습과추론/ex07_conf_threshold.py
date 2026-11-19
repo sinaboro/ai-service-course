@@ -1,19 +1,20 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex07_conf_threshold.py : 신뢰도 기준(conf)을 바꾸면 탐지 개수 · 정밀도 · 재현율이 어떻게 바뀌는지 비교
+import platform                                   # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                          # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                   # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False        # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                          # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-from ultralytics import YOLO
+from ultralytics import YOLO                      # YOLO 모델을 불러오는 클래스
 
 from cvutil import imread
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent                      # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 VAL = HERE / "datasets" / "floats"
 model = YOLO(HERE / "models" / "best.pt")
 
@@ -37,6 +38,7 @@ for p in sorted((VAL / "images" / "val").glob("*.jpg")):
         gt.append((int(c), ((xc - w / 2) * W, (yc - h / 2) * H, (xc + w / 2) * W, (yc + h / 2) * H)))
     r = model.predict(img, conf=0.01, verbose=False)[0]
     truth[p.name] = gt
+    # 사진마다 (신뢰도, 클래스 번호, 상자) 튜플의 리스트로 저장 — zip 으로 세 목록을 같은 순서끼리 묶어요
     preds[p.name] = [(float(s), int(c), b) for s, c, b in zip(r.boxes.conf.tolist(), r.boxes.cls.tolist(), r.boxes.xyxy.tolist())]
 
 # 실제 물체 총 개수 (재현율의 분모)

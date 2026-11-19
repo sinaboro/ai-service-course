@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 # ex02 와 같은 두 표 (id 4 는 왼쪽에만, id 5 는 오른쪽에만)
 students = pd.DataFrame({"id": [1, 2, 3, 4], "name": ["Kim", "Lee", "Park", "Choi"]})

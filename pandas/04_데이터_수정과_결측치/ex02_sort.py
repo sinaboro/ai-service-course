@@ -1,4 +1,5 @@
-import pandas as pd
+# ex02_sort.py : 정렬: sort_values(한 열 · 여러 열) · nlargest · rank
+import pandas as pd                                     # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung"],

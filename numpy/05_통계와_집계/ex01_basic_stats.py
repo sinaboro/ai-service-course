@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np  # 넘파이 (관례적으로 np 라는 별명)
 
 # 학생 6명의 점수 배열
 scores = np.array([85, 92, 78, 64, 95, 70])

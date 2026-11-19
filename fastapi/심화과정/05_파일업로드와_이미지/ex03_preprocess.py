@@ -1,9 +1,11 @@
-import io
-import numpy as np
+# ex03_preprocess.py : 업로드한 이미지를 딥러닝 입력 배열 (1, 28, 28, 1) 로 전처리하기
+# 실행: 이 폴더에서 uvicorn ex03_preprocess:app --reload (요청 예시는 ex03_preprocess_client.py)
+import io                                         # 메모리를 파일처럼 쓰는 도구 (BytesIO)
+import numpy as np                                # 넘파이 (관례적으로 np 라는 별명)
 from fastapi import FastAPI, HTTPException, UploadFile
-from PIL import Image
+from PIL import Image                             # Pillow: 이미지 열기 · 크기 바꾸기
 
-app = FastAPI()
+app = FastAPI()                                   # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 def to_model_input(img: Image.Image, size=(28, 28), gray=True) -> np.ndarray:
@@ -32,5 +34,6 @@ async def preprocess(file: UploadFile, size: int = 28, gray: bool = True):
         "dtype": str(x.dtype),
         "min": round(float(x.min()), 3), "max": round(float(x.max()), 3),
         "mean": round(float(x.mean()), 4),
+        # 흑백일 때만: 가운데 줄(size // 2)에서 4칸마다(::4) 값을 뽑아 소수 2자리로 (전처리 결과 확인용)
         "center_row": [round(float(v), 2) for v in x[0, size // 2, ::4, 0]] if gray else None,
     }

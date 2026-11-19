@@ -9,5 +9,5 @@ console.log(colors.slice(1, 3));        // 1번부터 3번 앞까지 잘라 새 
 
 // 숫자 배열 정렬: (a, b) => a - b 를 넣으면 작은 수부터 (4장에서 자세히)
 const nums = [30, 5, 100, 12];
-nums.sort((a, b) => a - b);
+nums.sort((a, b) => a - b);           // (a, b) => a - b : 숫자 작은 순 정렬 규칙
 console.log(nums);

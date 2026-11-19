@@ -1,9 +1,11 @@
-import io
+# ex02_image.py : 업로드한 이미지 검사(종류 · 크기 · 진짜 이미지인지) → 썸네일로 바꿔 돌려주기
+# 실행: 이 폴더에서 uvicorn ex02_image:app --reload (요청 예시는 ex02_image_client.py)
+import io                                                # 메모리를 파일처럼 쓰는 도구 (BytesIO)
 from fastapi import FastAPI, HTTPException, UploadFile
 from fastapi.responses import Response
 from PIL import Image, UnidentifiedImageError
 
-app = FastAPI()
+app = FastAPI()                                          # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 # 허용하는 이미지 종류와 최대 크기
 ALLOWED = {"image/png", "image/jpeg"}
 MAX_BYTES = 2 * 1024 * 1024                              # 2MB

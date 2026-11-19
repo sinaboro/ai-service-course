@@ -5,7 +5,7 @@ const books = [
   { title: "파이썬 입문", price: 22000 },
 ];
 
-const expensive = books.filter((b) => b.price >= 20000);
+const expensive = books.filter((b) => b.price >= 20000);  // 가격 20000 이상인 책만 새 배열로
 for (const b of expensive) {
   console.log(b.title);
 }

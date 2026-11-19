@@ -1,4 +1,5 @@
-import numpy as np
+# ex03_arg_sort.py : argmax · argmin(위치 찾기)과 sort · argsort(정렬)로 1등 · 등수 구하기
+import numpy as np                     # 넘파이 (관례적으로 np 라는 별명)
 
 names = np.array(["홍길동", "이순신", "유관순", "강감찬"])
 scores = np.array([78, 92, 85, 64])

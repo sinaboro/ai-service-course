@@ -1,16 +1,17 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex04_ai_tasks.py : 컴퓨터 비전의 세 가지 문제(분류 · 객체 탐지 · 분할)를 그림으로 비교
+import platform                      # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path             # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt      # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False  # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)             # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
 import matplotlib.patches as patches
-import numpy as np
+import numpy as np                   # 넘파이 (관례적으로 np 라는 별명)
 
 # 같은 장면으로 세 가지 문제 비교: 분류 · 객체 탐지 · 분할
 # 실습용 장면 만들기: 0 ~ 1 사이 실수로 색을 칠한 (100, 160, 3) 배열

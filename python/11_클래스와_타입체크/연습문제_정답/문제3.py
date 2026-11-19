@@ -4,11 +4,11 @@ class Person:
     def __init__(self, age):
         self.age = age
 
-    @property
+    @property  # 괄호 없이 p.age 로 읽기
     def age(self):
         return self._age
 
-    @age.setter
+    @age.setter  # p.age = 값 을 할 때 실행
     def age(self, value):
         if not isinstance(value, int) or isinstance(value, bool):
             raise TypeError("나이는 int 여야 해요")

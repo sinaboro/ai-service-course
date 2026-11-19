@@ -1,4 +1,5 @@
-import numpy as np
+# ex02_index_2d.py : 2차원 배열에서 m[행, 열] 로 값 · 행 · 열 · 부분 표 꺼내기
+import numpy as np    # 넘파이 (관례적으로 np 라는 별명)
 
 m = np.array([[1, 2, 3, 4],
               [5, 6, 7, 8],

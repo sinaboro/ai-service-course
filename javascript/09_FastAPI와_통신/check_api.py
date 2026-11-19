@@ -1,10 +1,10 @@
 # 9장 API 점검: 서버를 켜지 않고도 TestClient 로 API 를 차례로 불러 봐요
 # 실행: 이 폴더에서  python check_api.py   (pip install httpx 필요)
-from fastapi.testclient import TestClient
+from fastapi.testclient import TestClient  # 서버를 켜지 않고 코드로 요청을 보내는 도구
 
 from main import app
 
-client = TestClient(app)
+client = TestClient(app)  # app 에 요청을 보내는 "코드 속 브라우저"
 
 r = client.get("/api/hello")
 print("GET    /api/hello       ", r.status_code, r.json()["message"])

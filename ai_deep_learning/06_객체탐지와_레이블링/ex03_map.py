@@ -1,15 +1,16 @@
-import platform
-from pathlib import Path
-import matplotlib.pyplot as plt
+# ex03_map.py : 탐지 성적표: 정밀도 · 재현율 곡선과 AP · mAP 계산
+import platform                                 # 운영체제 이름 알아내기 (한글 글꼴 고를 때 사용)
+from pathlib import Path                        # 파일 · 폴더 경로를 다루는 도구
+import matplotlib.pyplot as plt                 # 그래프 도구 (관례적으로 plt 라는 별명)
 
 # 그래프 한글 글꼴: 운영체제에 따라 알맞은 글꼴 고르기 (Windows = 맑은 고딕)
 plt.rcParams["font.family"] = {"Windows": "Malgun Gothic", "Darwin": "AppleGothic"}.get(platform.system(), "NanumGothic")
 # 마이너스(-) 기호가 네모로 깨지지 않게
-plt.rcParams["axes.unicode_minus"] = False
+plt.rcParams["axes.unicode_minus"] = False      # 마이너스(-) 기호가 네모로 깨지지 않게
 IMG = Path(__file__).parent / "images"            # 그림을 저장할 폴더
-IMG.mkdir(exist_ok=True)
+IMG.mkdir(exist_ok=True)                        # images 폴더 만들기 (이미 있으면 그냥 넘어가요)
 
-import numpy as np
+import numpy as np                              # 넘파이 (관례적으로 np 라는 별명)
 
 # 검증 사진 전체에서 "bottle" 탐지 결과를 모은 것: (신뢰도, 정답과 IoU ≥ 0.5 인가?)
 dets = [(0.95, True), (0.91, True), (0.88, False), (0.84, True), (0.80, True), (0.71, False),
@@ -19,6 +20,7 @@ n_truth = 7                                     # 검증 사진 속 실제 병 �
 dets.sort(reverse=True)                         # 신뢰도 높은 순서
 # TP 누적 합 · FP 누적 합: 기준을 한 단계씩 낮출 때마다 맞은 수 · 틀린 수가 쌓여요
 tp = np.cumsum([1 if ok else 0 for _, ok in dets])
+# 틀린 예측(ok 가 False)이면 1, 맞으면 0 → cumsum 으로 "지금까지 틀린 개수"를 차례로 누적
 fp = np.cumsum([0 if ok else 1 for _, ok in dets])
 precision = tp / (tp + fp)
 recall = tp / n_truth

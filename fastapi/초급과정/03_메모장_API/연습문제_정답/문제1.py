@@ -4,7 +4,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()  # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 class MemoIn(BaseModel):
@@ -17,7 +17,7 @@ next_id = 1
 
 @app.post("/memos", status_code=201)
 def create_memo(memo: MemoIn):
-    global next_id
+    global next_id  # 함수 밖 변수 next_id 를 바꾸겠다는 선언
     memos[next_id] = memo.text
     result = {"id": next_id, "text": memo.text}
     next_id += 1

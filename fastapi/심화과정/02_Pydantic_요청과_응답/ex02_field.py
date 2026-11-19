@@ -1,8 +1,10 @@
+# ex02_field.py : Field 로 값의 범위 · 글자 수를 정하고, 어기면 422 오류
+# 실행: 이 폴더에서 uvicorn ex02_field:app --reload (요청 예시는 ex02_field_client.py)
 from typing import Literal
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-app = FastAPI()
+app = FastAPI()                    # 앱(서버) 만들기 — uvicorn 이 이 app 을 실행해요
 
 
 class HouseInput(BaseModel):       # 집값 예측 모델에 넣을 입력이라고 생각해 봐요

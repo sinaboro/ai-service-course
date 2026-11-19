@@ -1,3 +1,5 @@
+# ex01_todo_crud.py : 할 일(Todo) CRUD API — 만들기 POST · 읽기 GET · 수정 PUT/PATCH · 삭제 DELETE
+# 실행: 이 폴더에서 uvicorn ex01_todo_crud:app --reload → http://127.0.0.1:8000/docs (화면은 ex03_todo_web.py)
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -48,7 +50,7 @@ def list_todos(done: bool | None = None, skip: int = 0, limit: int = 10):   # R:
     items = list(DB.values())
     # done 쿼리가 있으면 완료 여부로 걸러 내기
     if done is not None:
-        items = [t for t in items if t.done == done]
+        items = [t for t in items if t.done == done]  # done 값이 같은 것만 남기기
     return items[skip: skip + limit]
 
 
@@ -61,6 +63,8 @@ def read_todo(todo_id: int):                 # R: 하나
 def replace_todo(todo_id: int, data: TodoCreate):    # U: 전체 바꾸기
     # 기존 done 값은 유지하고 나머지를 새 값으로 통째로 바꾸기
     old = get_or_404(todo_id)
+    # **data.model_dump(): 받은 값(title, priority …)을 딕셔너리로 꺼내 "이름=값" 인자로 풀어 넣어요
+    # → Todo(id=todo_id, done=old.done, title=..., priority=...) 와 같아요
     DB[todo_id] = Todo(id=todo_id, done=old.done, **data.model_dump())
     return DB[todo_id]
 

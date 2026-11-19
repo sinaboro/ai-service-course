@@ -1,6 +1,6 @@
 # 문제 3. IT 부서 직원의 평균 연봉을 구하세요.
 
-import pandas as pd
+import pandas as pd  # 판다스 (관례적으로 pd 라는 별명)
 
 df = pd.DataFrame({
     "name": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang"],

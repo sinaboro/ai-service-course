@@ -1,15 +1,15 @@
 # 7장에서 학습한 모델과 샘플 사진을 이 폴더로 가져오기
-import random
-import shutil
-import sys
-from pathlib import Path
+import random  # 무작위(난수) 값 만들기
+import shutil  # 파일 · 폴더 복사 · 삭제 도구
+import sys  # 파이썬 실행 환경 (import 경로 sys.path 등)
+from pathlib import Path  # 파일 · 폴더 경로를 다루는 도구
 
-import cv2
+import cv2  # OpenCV: 영상 처리 도구
 
 from cvutil import imwrite
 from scene import make_scene
 
-HERE = Path(__file__).parent
+HERE = Path(__file__).parent  # 이 .py 파일이 있는 폴더 (어디서 실행해도 같은 곳)
 # 7장 모델 위치(src)와 이 장으로 복사할 위치(dst)
 src = HERE.parent / "07_YOLO학습과추론" / "models" / "best.pt"
 dst = HERE / "models" / "best.pt"

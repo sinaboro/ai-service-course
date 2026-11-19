@@ -26,7 +26,7 @@ function render() {
     li.append(check, span);
     list.append(li);
   }
-  left.textContent = `남은 할 일: ${todos.filter((t) => !t.done).length}개`;
+  left.textContent = `남은 할 일: ${todos.filter((t) => !t.done).length}개`;  // 안 끝난 것만 세기
 }
 
 document.querySelector("#todo-form").addEventListener("submit", (event) => {
@@ -40,7 +40,7 @@ document.querySelector("#todo-form").addEventListener("submit", (event) => {
 
 // ⭐ 새로 더한 부분: 완료하지 않은 것만 남기기
 document.querySelector("#clear").addEventListener("click", () => {
-  todos = todos.filter((t) => !t.done);
+  todos = todos.filter((t) => !t.done);  // 안 끝난 것만 남기기 = 완료 항목 지우기
   render();
 });
 

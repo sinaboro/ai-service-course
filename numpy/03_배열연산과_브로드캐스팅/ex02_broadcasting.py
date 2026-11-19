@@ -1,4 +1,4 @@
-import numpy as np
+import numpy as np               # 넘파이 (관례적으로 np 라는 별명)
 
 # 배열 + 숫자 하나: 숫자가 모든 칸으로 "퍼져서" 계산
 price = np.array([1000, 2500, 4000])
